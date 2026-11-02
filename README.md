@@ -80,6 +80,9 @@ Block-Child-Theme von Twenty Twenty-Five im dunklen Design der App (Entwurf: Lan
 
 - **Links zur App** stehen in Patterns und Inhalten als `#bm-app` und werden beim Ausliefern durch `BM_APP_URL`
   ersetzt (Standard `https://app.bike-maintainer.de`; in der Entwicklung `http://localhost:8100`).
+- **Favicon und App-Icons** wie in der App (orange mit Motorrad): `assets/images/favicon.svg`, PNG in 32/192/512 px und
+  ein randloses Apple-Touch-Icon (180 px). Sie gelten, solange im Admin kein eigenes Website-Icon gesetzt ist; WordPress
+  gibt sie dann auf Website, Admin und Login-Seite aus, `/favicon.ico` leitet auf das 32-px-Icon um.
 - **Keine externen Requests:** Schriften (Inter, JetBrains Mono) liegen als WOFF2 in `assets/fonts/`, Icons
   (Lucide) als SVG in `assets/icons/`, keine CDNs.
 - **App-Vorschau** (`assets/images/app-preview.webp`) ist ein echter Screenshot der Fahrzeugseite mit Beispieldaten

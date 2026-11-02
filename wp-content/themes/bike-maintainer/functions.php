@@ -49,6 +49,65 @@ add_action(
 	1
 );
 
+/*
+ * Favicon and app icons: the app's logo (orange square with the motorcycle) instead of the WordPress "W". Used while no
+ * site icon is set in the admin; one set there takes precedence. WordPress then prints the icon links on the website,
+ * in the admin and on the login page, and redirects /favicon.ico to the 32 px icon.
+ */
+add_filter(
+	'get_site_icon_url',
+	/**
+	 * Theme icon in the requested size if the site has no icon of its own.
+	 *
+	 * @param string $url  Icon URL, empty without a site icon.
+	 * @param int    $size Requested size in pixels.
+	 * @return string
+	 */
+	static function ( $url, $size ) {
+		if ( '' !== $url ) {
+			return $url;
+		}
+		if ( 180 === (int) $size ) {
+			// iOS rounds the corners itself and fills transparent areas with black, so this one has no rounded corners.
+			return get_theme_file_uri( 'assets/images/apple-touch-icon.png' );
+		}
+		foreach ( array( 32, 192, 512 ) as $available ) {
+			if ( (int) $size <= $available ) {
+				return get_theme_file_uri( "assets/images/favicon-{$available}.png" );
+			}
+		}
+		return get_theme_file_uri( 'assets/images/favicon-512.png' );
+	},
+	10,
+	2
+);
+
+add_action(
+	'do_faviconico',
+	/** /favicon.ico: WordPress passes its own "W" as fallback there, so redirect to the theme icon explicitly. */
+	static function () {
+		if ( get_option( 'site_icon' ) ) {
+			return;
+		}
+		wp_safe_redirect( get_theme_file_uri( 'assets/images/favicon-32.png' ) );
+		exit;
+	}
+);
+
+/** Sharp at any size in browsers that support it; only while the theme icon is used. */
+function bike_maintainer_svg_icon() {
+	if ( get_option( 'site_icon' ) ) {
+		return;
+	}
+	printf(
+		'<link rel="icon" href="%s" type="image/svg+xml">' . "\n",
+		esc_url( get_theme_file_uri( 'assets/images/favicon.svg' ) )
+	);
+}
+add_action( 'wp_head', 'bike_maintainer_svg_icon', 98 );
+add_action( 'admin_head', 'bike_maintainer_svg_icon', 98 );
+add_action( 'login_head', 'bike_maintainer_svg_icon', 98 );
+
 add_action(
 	'init',
 	/** Groups our patterns in the inserter. */
