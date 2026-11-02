@@ -1,0 +1,10 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.9/theme.json",
+	"version": 3,
+	"title": "Icon-Kachel",
+	"slug": "icon-tile",
+	"blockTypes": [ "core/image" ],
+	"styles": {
+		"css": "& img { width: 48px; height: 48px; padding: 11px; box-sizing: border-box; border-radius: 12px; background: rgba(249, 99, 2, .1); border: 1px solid rgba(249, 99, 2, .3); }"
+	}
+}

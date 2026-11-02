@@ -14,7 +14,11 @@ German-only UI for now; text in templates and patterns is German. Code, comments
 ## What lives where
 
 - `wp-content/themes/bike-maintainer/` – block child theme of Twenty Twenty-Five (`theme.json`, templates, parts,
-  patterns). No build toolchain, no Tailwind, no page builder.
+  patterns). No build toolchain, no Tailwind, no page builder. Palette reuses TT5's slugs (`base` = background,
+  `contrast` = text, `accent-1` = orange, `accent-2` = card, `accent-4` = muted text, `accent-6` = border) so inherited
+  templates match. Style variations live in `styles/*.json`. Buttons use dark text on orange (white fails WCAG AA).
+  App links are written `#bm-app` and replaced with `BM_APP_URL` in `functions.php`. Pattern markup must match what
+  the block editor would save, or the editor flags the block as invalid – check new patterns in the editor.
 - `wp-content/mu-plugins/bm-*.php` – our must-use plugins. Only `bm-*.php` files are ours; the entrypoint replaces
   exactly these in the volume.
 - Must-use plugins: `bm-updates.php` (auto-updates; our theme excluded from wordpress.org update checks),

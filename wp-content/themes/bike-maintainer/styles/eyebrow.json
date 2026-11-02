@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.9/theme.json",
+	"version": 3,
+	"title": "Überzeile",
+	"slug": "eyebrow",
+	"blockTypes": [ "core/paragraph", "core/heading" ],
+	"styles": {
+		"color": { "text": "var:preset|color|accent-1" },
+		"typography": {
+			"fontFamily": "var:preset|font-family|jetbrains-mono",
+			"fontSize": "0.75rem",
+			"fontWeight": "700",
+			"letterSpacing": "0.15em",
+			"textTransform": "uppercase"
+		}
+	}
+}

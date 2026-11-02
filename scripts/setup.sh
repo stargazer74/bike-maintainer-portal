@@ -37,6 +37,21 @@ wp theme activate bike-maintainer
 
 # Samples shipped with WordPress that we do not use.
 wp plugin delete hello akismet 2>/dev/null || true
+for slug in hello-world sample-page; do
+    for type in post page; do
+        id="$(wp post list --post_type="$type" --name="$slug" --field=ID)"
+        [ -z "$id" ] || wp post delete "$id" --force
+    done
+done
+
+# Start page built from the landing page pattern of the theme (editable in the block editor afterwards).
+start_id="$(wp post list --post_type=page --name=start --post_status=any --field=ID)"
+if [ -z "$start_id" ]; then
+    start_id="$(wp post create --post_type=page --post_status=publish --post_title='Start' --post_name=start \
+        --post_content='<!-- wp:pattern {"slug":"bike-maintainer/landing"} /-->' --porcelain)"
+fi
+wp option update show_on_front page
+wp option update page_on_front "$start_id"
 
 for plugin in "${PLUGINS[@]}"; do
     if ! wp plugin is-installed "$plugin"; then

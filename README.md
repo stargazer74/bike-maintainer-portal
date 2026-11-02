@@ -66,6 +66,30 @@ Damit WordPress die echte Client-IP sieht, übernimmt Apache (`mod_remoteip`, si
 `X-Forwarded-For` – aber nur von Proxys in privaten Netzen (Docker-Netze). Der nginx-proxy-manager setzt den Header
 von sich aus.
 
+## Theme „bike-maintainer“
+
+Block-Child-Theme von Twenty Twenty-Five im dunklen Design der App (Entwurf: Landing-Page-Showcase vom 30.10.2026).
+
+| Was | Wo |
+|---|---|
+| Farben, Schriften, Abstände, Grundstile | `theme.json` – die Farb-Slugs von Twenty Twenty-Five (`base`, `contrast`, `accent-1` …) sind mit unseren Farben belegt, so passen auch geerbte Vorlagen (Blog, Suche, 404) |
+| Stil-Varianten (im Editor unter „Stile“) | `styles/*.json`: Karte, Raster mit Glow, Badge, Überzeile, Button „Sekundär“, Icon-Kachel, App-Vorschau, Häkchen-Liste |
+| Kopf- und Fußzeile | `parts/` → Patterns `header.php`, `footer.php` |
+| Abschnitte der Startseite | `patterns/`: Hero, Funktionen, „Portal oder selbst betreiben“, FAQ; `landing.php` setzt sie zusammen |
+| Startseite | `templates/front-page.html`; `bm-setup` legt die Seite „Start“ aus dem Pattern an und setzt sie als Startseite |
+
+- **Links zur App** stehen in Patterns und Inhalten als `#bm-app` und werden beim Ausliefern durch `BM_APP_URL`
+  ersetzt (Standard `https://app.bike-maintainer.de`; in der Entwicklung `http://localhost:8100`).
+- **Keine externen Requests:** Schriften (Inter, JetBrains Mono) liegen als WOFF2 in `assets/fonts/`, Icons
+  (Lucide) als SVG in `assets/icons/`, keine CDNs.
+- **App-Vorschau** (`assets/images/app-preview.webp`) ist ein echter Screenshot der Fahrzeugseite mit Beispieldaten
+  (1100 × 870 CSS-Pixel, 1,5-fach). Bei größeren Änderungen an der App neu aufnehmen.
+- **Texte** beschreiben den tatsächlichen Stand der App – keine Preise, keine Funktionen, die es noch nicht gibt.
+- Lizenzen: Inter und JetBrains Mono SIL Open Font License (`assets/fonts/*-LICENSE.txt`), Lucide ISC
+  (`assets/icons/LICENSE.txt`), Logo mit Material Symbol „two_wheeler“ (Apache 2.0).
+
+Geprüft mit Lighthouse (mobil, Dev-Setup): Barrierefreiheit 100, Best Practices 100, Performance 82.
+
 ## Lokale Entwicklung
 
 ```bash
