@@ -42,7 +42,7 @@ Immer aktiv, im Admin nicht abschaltbar (`wp-content/mu-plugins/`):
 | Datei | Wirkung |
 |---|---|
 | `bm-updates.php` | automatische Updates für Kern (auch Major-Versionen), Plugins, Themes und Übersetzungen. Unser Child-Theme ist ausgenommen und wird gar nicht erst an wordpress.org gemeldet – ein gleichnamiges fremdes Theme dort könnte es sonst als „Update“ überschreiben. |
-| `bm-polylang.php` | Polylang setzt kein Sprach-Cookie |
+| `bm-polylang.php` | Polylang setzt kein Sprach-Cookie; Weiterleitung nach Browsersprache ohne Cookie (siehe „Sprachen“) |
 | `bm-hardening.php` | kein XML-RPC (`xmlrpc.php` → 403), keine Anwendungspasswörter, keine Nutzer-Aufzählung für Gäste (`/wp-json/wp/v2/users`, `?author=N`, Nutzer-Sitemap), keine Versionsangabe, kein Datei-Editor im Admin, Login-Sperre pro IP |
 | `bm-smtp.php` | Mailversand über SMTP aus der Umgebung (siehe unten); ohne `BM_SMTP_HOST` werden **keine** Mails versendet und Admins sehen einen Hinweis |
 
@@ -100,8 +100,11 @@ Die Website gibt es auf Deutsch (`/`) und Englisch (`/en/`), mit dem Plugin **Po
 `DE | EN` um; die Startseite gibt es als „Start“ (de) und „Home“ (en), beide aus dem Landing-Page-Pattern und in
 Polylang miteinander verknüpft. `bm-setup` richtet das ein (`scripts/setup-languages.php`).
 
-- **Datenschutz:** kein Sprach-Cookie (`bm-polylang.php`) und keine automatische Weiterleitung nach Browsersprache –
-  die Sprache ergibt sich allein aus der Adresse. Suchmaschinen finden die passende Sprache über `hreflang`.
+- **Browsersprache ohne Cookie:** Wer von außen auf die deutsche Startseite `/` kommt (Adresse getippt, Suchmaschine,
+  fremder Link) und dessen Browser Englisch vor Deutsch bevorzugt, wird nach `/en/` geleitet. Klicks von unseren
+  eigenen Seiten – etwa „DE“ im Umschalter – werden nie umgeleitet; so bleibt eine manuelle Wahl bestehen, ohne dass
+  etwas gespeichert wird (`bm-polylang.php`). Polylangs eigene Erkennung und sein Sprach-Cookie sind abgeschaltet.
+  Suchmaschinen finden die passende Sprache über `hreflang`.
 - **Texte im Theme** sind englische Quelltexte und werden über `wp-content/themes/bike-maintainer/languages/de_DE.po`
   ins Deutsche übersetzt. Nach Textänderungen bei laufendem Dev-Setup:
   ```bash

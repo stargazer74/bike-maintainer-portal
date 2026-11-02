@@ -3,8 +3,8 @@
  * Polylang setup for bm-setup (run with `wp eval-file`): German and English, German without prefix, English under
  * /en/, and the start page in both languages. Idempotent.
  *
- * No browser language detection and no language cookie (bm-polylang.php): the language comes from the URL alone, as
- * the most privacy-friendly option – visitors switch with DE | EN, search engines use hreflang.
+ * Polylang's own browser detection is off because it needs its language cookie; bm-polylang.php detects the browser
+ * language without a cookie instead.
  *
  * Polylang has no WP-CLI commands of its own, so this uses its PHP API.
  *
@@ -55,7 +55,7 @@ foreach (
 		'rewrite'       => true,
 		// The start page of a language is /en/, not /en/home/.
 		'redirect_lang' => true,
-		'browser'       => false,
+		'browser'       => false, // Done without a cookie in bm-polylang.php.
 	) as $bm_key => $bm_value
 ) {
 	$bm_options->set( $bm_key, $bm_value );

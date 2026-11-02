@@ -13,8 +13,10 @@ German and English (Polylang): German at `/`, English at `/en/`, switcher `DE | 
 English source strings (`__()`/`esc_html_e()` with text domain `bike-maintainer`) translated in
 `wp-content/themes/bike-maintainer/languages/de_DE.po`; after changing texts run `scripts/i18n.sh` and fill in the
 empty `msgstr` entries – CI fails on missing German translations. Only `.pot`/`.po` are committed; `.mo`/`.l10n.php` are
-compiled in the image (and by `scripts/i18n.sh` for development). Polylang sets no cookie and does not detect the
-browser language (`bm-polylang.php`, privacy) – the language comes from the URL alone. Code, comments and commit
+compiled in the image (and by `scripts/i18n.sh` for development). Polylang sets no cookie and its own browser
+detection is off (`bm-polylang.php`, privacy); instead `bm-polylang.php` redirects visitors from outside on `/` to `/en/`
+if their Accept-Language prefers English – never when the referrer is our own host, so a manual switch to German
+sticks without a cookie. Code, comments and commit
 messages are English.
 
 ## What lives where
