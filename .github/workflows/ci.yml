@@ -62,7 +62,7 @@ jobs:
             -e MARIADB_PASSWORD=smoke -e MARIADB_RANDOM_ROOT_PASSWORD=1 mariadb:11
           docker run -d --name web --network smoke -p 8080:80 -e WORDPRESS_DB_HOST=db \
             -e WORDPRESS_DB_NAME=wordpress -e WORDPRESS_DB_USER=wordpress -e WORDPRESS_DB_PASSWORD=smoke "$IMAGE"
-          for i in $(seq 1 60); do
+          for _ in $(seq 1 60); do
             status="$(curl -s -o /dev/null -w '%{http_code}' http://localhost:8080/wp-admin/install.php || true)"
             [ "$status" = '200' ] && break
             sleep 2
@@ -124,7 +124,8 @@ jobs:
       # The theme header shows the version in the WordPress admin; give it the release version instead of
       # X.Y.Z-SNAPSHOT.
       - name: Set release version from tag
-        run: sed -i "s/^Version: .*/Version: ${GITHUB_REF_NAME#v}/" wp-content/themes/bike-maintainer/style.css
+        run: |
+          sed -i "s/^Version: .*/Version: ${GITHUB_REF_NAME#v}/" wp-content/themes/bike-maintainer/style.css
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
