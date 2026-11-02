@@ -1,0 +1,29 @@
+version: 2
+updates:
+  # Base images in the Dockerfile (wordpress, wordpress:cli). WordPress itself, plugins and the parent theme update
+  # themselves at runtime; this keeps PHP, Apache and the Debian packages of the image current.
+  - package-ecosystem: docker
+    directory: /
+    schedule:
+      interval: weekly
+    ignore:
+      # The PHP line in the tag (php8.3) is changed deliberately, not by Dependabot.
+      - dependency-name: wordpress
+        update-types: [version-update:semver-major]
+
+  # Development tools only (PHPCS, WordPress Coding Standards).
+  - package-ecosystem: composer
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      dev-tools:
+        update-types: [minor, patch]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      github-actions:
+        patterns: ['*']

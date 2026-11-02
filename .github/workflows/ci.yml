@@ -1,0 +1,159 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    # Release tags (vX.Y.Z) additionally publish the image, see the publish job.
+    tags: ['v*.*.*']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  IMAGE: bike-maintainer-portal:ci
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      # Upload of the Trivy results to the Security tab.
+      security-events: write
+    steps:
+      - name: Check out
+        uses: actions/checkout@v7
+
+      # main carries the upcoming version as X.Y.Z-SNAPSHOT in the theme header; a release tag must match it,
+      # otherwise the build stops before anything is published.
+      - name: Check release tag against theme version
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          THEME_VERSION="$(sed -n 's/^Version: *//p' wp-content/themes/bike-maintainer/style.css)"
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          if [ "$TAG_VERSION" != "${THEME_VERSION%-SNAPSHOT}" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME (version $TAG_VERSION) does not match theme version $THEME_VERSION"
+            exit 1
+          fi
+
+      - name: Check shell scripts
+        run: shellcheck docker-entrypoint-bm.sh scripts/*.sh
+
+      # PHP syntax and WordPress Coding Standards for our own code; the tools come from composer.json (dev only).
+      - name: Lint PHP and check coding standards
+        run: |
+          docker run --rm -u "$(id -u):$(id -g)" -v "$PWD":/app -w /app -e COMPOSER_HOME=/tmp/composer composer:2 \
+            sh -c 'composer install --no-interaction --no-progress && composer lint && vendor/bin/phpcs'
+
+      - name: Build image
+        run: docker build -t "$IMAGE" .
+
+      # Starts the image against a real MariaDB: the entrypoint must copy WordPress, create wp-config.php, sync our
+      # code and serve the installer.
+      - name: Smoke test
+        run: |
+          docker network create smoke
+          docker run -d --name db --network smoke -e MARIADB_DATABASE=wordpress -e MARIADB_USER=wordpress \
+            -e MARIADB_PASSWORD=smoke -e MARIADB_RANDOM_ROOT_PASSWORD=1 mariadb:11
+          docker run -d --name web --network smoke -p 8080:80 -e WORDPRESS_DB_HOST=db \
+            -e WORDPRESS_DB_NAME=wordpress -e WORDPRESS_DB_USER=wordpress -e WORDPRESS_DB_PASSWORD=smoke "$IMAGE"
+          for _ in $(seq 1 60); do
+            status="$(curl -s -o /dev/null -w '%{http_code}' http://localhost:8080/wp-admin/install.php || true)"
+            [ "$status" = '200' ] && break
+            sleep 2
+          done
+          docker logs web
+          [ "$status" = '200' ] || { echo "::error::Installer not reachable (HTTP $status)"; exit 1; }
+          docker exec web test -f /var/www/html/wp-content/themes/bike-maintainer/style.css
+
+      # Trivy: the report step sends all findings from MEDIUM up to Security → Code scanning without failing the build;
+      # the gate step fails it – and thereby a release, since publish needs this job – on CRITICAL/HIGH vulnerabilities
+      # that have a fix. Accepted exceptions go into .trivyignore with a reason. Plugins installed at runtime are not
+      # part of the image; WordPress keeps them up to date itself.
+      - name: Scan image for vulnerabilities (Trivy)
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          scan-type: image
+          image-ref: ${{ env.IMAGE }}
+          scanners: vuln
+          ignore-unfixed: true
+          severity: CRITICAL,HIGH,MEDIUM
+          format: sarif
+          output: trivy-image.sarif
+          exit-code: '0'
+
+      - name: Fail on fixable CRITICAL/HIGH vulnerabilities in the image (Trivy)
+        uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
+        with:
+          scan-type: image
+          image-ref: ${{ env.IMAGE }}
+          scanners: vuln
+          ignore-unfixed: true
+          severity: CRITICAL,HIGH
+          format: table
+          exit-code: '1'
+
+      # Pull requests from forks get no write token; their results are only in the log.
+      - name: Upload Trivy results
+        if: always() && (github.event_name != 'pull_request' || !github.event.pull_request.head.repo.fork)
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: trivy-image.sarif
+          category: trivy-image
+
+  # Builds the image and pushes it to ghcr.io – only for release tags, not for pushes to main or PRs.
+  # Tag vX.Y.Z -> image tags X.Y.Z, X.Y, X and latest. Only linux/amd64: the website runs in the portal only,
+  # never on the Raspberry Pi.
+  publish:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Check out
+        uses: actions/checkout@v7
+
+      # The theme header shows the version in the WordPress admin; give it the release version instead of
+      # X.Y.Z-SNAPSHOT.
+      - name: Set release version from tag
+        run: |
+          sed -i "s/^Version: .*/Version: ${GITHUB_REF_NAME#v}/" wp-content/themes/bike-maintainer/style.css
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Log in to ghcr.io
+        uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Image metadata
+        id: meta
+        uses: docker/metadata-action@v6
+        with:
+          images: ghcr.io/${{ github.repository }}
+          tags: |
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+
+      - name: Build and push image
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          platforms: linux/amd64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

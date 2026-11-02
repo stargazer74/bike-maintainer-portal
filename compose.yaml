@@ -1,0 +1,64 @@
+# Local development of the website: WordPress built from this repository, MariaDB and Mailpit (catches all mail).
+# The child theme and the must-use plugins are mounted from the repository, so changes show up without a rebuild.
+# Operation (portal) runs from bike-maintainer-deploy/portal/, which pulls the published image instead.
+#
+#   cp .env.example .env
+#   docker compose up -d --build
+#   docker compose exec -u www-data wordpress bm-setup
+#
+# Website: http://localhost:${WEBSITE_PORT:-8095}  ·  Mailpit: http://localhost:${MAILPIT_PORT:-8025}
+name: bike-maintainer-portal
+
+services:
+  wordpress:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - '127.0.0.1:${WEBSITE_PORT:-8095}:80'
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: ${BM_WEBSITE_DB_PASSWORD:?set BM_WEBSITE_DB_PASSWORD in .env}
+      WORDPRESS_DEBUG: '1'
+      # The repository is mounted below; the entrypoint must not replace it with the copy from the image.
+      BM_SYNC_OWN_CODE: 'false'
+      # Used by bm-setup for the first installation.
+      BM_SITE_URL: http://localhost:${WEBSITE_PORT:-8095}
+      BM_ADMIN_USER: ${BM_ADMIN_USER:-admin}
+      BM_ADMIN_EMAIL: ${BM_ADMIN_EMAIL:-admin@example.org}
+      BM_ADMIN_PASSWORD: ${BM_ADMIN_PASSWORD:?set BM_ADMIN_PASSWORD in .env}
+      # Mail goes to Mailpit.
+      BM_SMTP_HOST: mailpit
+      BM_SMTP_PORT: '1025'
+      BM_SMTP_FROM: noreply@bike-maintainer.de
+    volumes:
+      - wordpress:/var/www/html
+      - ./wp-content/themes/bike-maintainer:/var/www/html/wp-content/themes/bike-maintainer
+      - ./wp-content/mu-plugins:/var/www/html/wp-content/mu-plugins
+
+  db:
+    image: mariadb:11
+    environment:
+      MARIADB_DATABASE: wordpress
+      MARIADB_USER: wordpress
+      MARIADB_PASSWORD: ${BM_WEBSITE_DB_PASSWORD:?set BM_WEBSITE_DB_PASSWORD in .env}
+      MARIADB_RANDOM_ROOT_PASSWORD: '1'
+    healthcheck:
+      test: ['CMD', 'healthcheck.sh', '--connect', '--innodb_initialized']
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - db:/var/lib/mysql
+
+  mailpit:
+    image: axllent/mailpit:v1
+    ports:
+      - '127.0.0.1:${MAILPIT_PORT:-8025}:8025'
+
+volumes:
+  wordpress:
+  db:
