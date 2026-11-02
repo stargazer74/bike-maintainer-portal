@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<ruleset name="bike-maintainer-portal">
+    <description>WordPress Coding Standards for our own code (child theme and must-use plugins).</description>
+
+    <file>wp-content</file>
+    <arg name="extensions" value="php"/>
+    <arg name="colors"/>
+    <arg name="cache" value=".phpcs-cache"/>
+    <arg value="sp"/>
+
+    <rule ref="WordPress"/>
+
+    <!-- Same minimum as the image and the theme header (Requires PHP / Requires at least). -->
+    <config name="testVersion" value="8.3-"/>
+    <config name="minimum_wp_version" value="6.7"/>
+    <rule ref="PHPCompatibilityWP"/>
+
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="bike-maintainer"/>
+            </property>
+        </properties>
+    </rule>
+</ruleset>

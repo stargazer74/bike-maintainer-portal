@@ -1,0 +1,23 @@
+{
+    "name": "stargazer74/bike-maintainer-portal",
+    "description": "Website of the Bike Maintainer portal (WordPress child theme and must-use plugins). Composer is only used for development tools; nothing of it goes into the image.",
+    "type": "project",
+    "license": "MIT",
+    "require": {},
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "platform": {
+            "php": "8.3"
+        }
+    },
+    "scripts": {
+        "lint": "find wp-content -name '*.php' -print0 | xargs -0 -r -n1 php -l",
+        "phpcs": "phpcs"
+    },
+    "require-dev": {
+        "wp-coding-standards/wpcs": "^3",
+        "phpcompatibility/phpcompatibility-wp": "^2.1"
+    }
+}
