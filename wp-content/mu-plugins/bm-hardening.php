@@ -116,7 +116,7 @@ add_filter(
 		if ( (int) get_transient( bm_login_failures_key() ) >= BM_LOGIN_MAX_FAILURES ) {
 			return new WP_Error(
 				'bm_too_many_attempts',
-				__( 'Zu viele fehlgeschlagene Anmeldungen. Bitte versuche es in 15 Minuten erneut.', 'bike-maintainer' )
+				__( 'Too many failed logins. Please try again in 15 minutes.', 'bike-maintainer' )
 			);
 		}
 		return $user;
