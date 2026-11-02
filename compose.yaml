@@ -23,6 +23,9 @@ services:
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: ${BM_WEBSITE_DB_PASSWORD:?set BM_WEBSITE_DB_PASSWORD in .env}
       WORDPRESS_DEBUG: '1'
+      # Read patterns and theme.json fresh on every request. Without it WordPress caches the theme's pattern list per
+      # theme version, which stays X.Y.Z-SNAPSHOT during development – new or changed patterns would not show up.
+      WORDPRESS_CONFIG_EXTRA: "define( 'WP_DEVELOPMENT_MODE', 'theme' );"
       # The repository is mounted below; the entrypoint must not replace it with the copy from the image.
       BM_SYNC_OWN_CODE: 'false'
       # Used by bm-setup for the first installation.
