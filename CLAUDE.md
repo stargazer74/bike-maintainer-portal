@@ -17,6 +17,10 @@ German-only UI for now; text in templates and patterns is German. Code, comments
   patterns). No build toolchain, no Tailwind, no page builder.
 - `wp-content/mu-plugins/bm-*.php` – our must-use plugins. Only `bm-*.php` files are ours; the entrypoint replaces
   exactly these in the volume.
+- Must-use plugins: `bm-updates.php` (auto-updates; our theme excluded from wordpress.org update checks),
+  `bm-hardening.php` (XML-RPC off, no app passwords, no user enumeration for guests, no version, no file editor,
+  per-IP login limit 10/15 min), `bm-smtp.php` (SMTP from `BM_SMTP_*`; no host = no mail). The client IP comes from
+  Apache `mod_remoteip` (X-Forwarded-For from private networks only).
 - `docker-entrypoint-bm.sh` – runs the official `docker-ensure-installed.sh`, then syncs theme and `bm-*.php` from
   `/usr/src/bm` into `/var/www/html/wp-content`, then hands over to `docker-entrypoint.sh`.
 - `scripts/setup.sh` – idempotent WP-CLI setup (`bm-setup` in the image). Plugins to install go into `PLUGINS`.
