@@ -41,6 +41,11 @@ code. Consequences:
 
 ## Rules
 
+- Development setups run with `WP_DEVELOPMENT_MODE=theme` (via `WORDPRESS_CONFIG_EXTRA`). Without it WordPress caches
+  the pattern list per theme *version* in a site transient; the version stays `X.Y.Z-SNAPSHOT` during development, so
+  new patterns would not appear. Stale cache: `wp transient delete --all --network`. Releases change the version, so
+  operation needs no development mode.
+
 - No external requests from the browser: fonts are local in the theme (no Google Fonts), icons inline SVG, no CDNs.
 - PHP follows the WordPress Coding Standards (`phpcs.xml.dist`, text domain `bike-maintainer`); escape output, check
   capabilities and nonces.
