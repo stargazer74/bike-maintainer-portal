@@ -58,9 +58,15 @@ jobs:
       - name: Check translations
         run: |
           theme=/usr/src/wordpress/wp-content/themes/bike-maintainer
-          docker run --rm -u "$(id -u):$(id -g)" -e HOME=/tmp -v "$PWD/wp-content/themes/bike-maintainer:$theme" \
-            -w "$theme" --entrypoint wp "$IMAGE" i18n make-pot . languages/bike-maintainer.pot \
+          mu=/usr/src/wordpress/wp-content/mu-plugins
+          run() {
+            docker run --rm -u "$(id -u):$(id -g)" -e HOME=/tmp -v "$PWD/wp-content/themes/bike-maintainer:$theme" \
+              -v "$PWD/wp-content/mu-plugins:$mu" -w "$theme" --entrypoint wp "$IMAGE" "$@"
+          }
+          run i18n make-pot . languages/bike-maintainer.pot \
             --slug=bike-maintainer --domain=bike-maintainer --exclude=assets --skip-audit
+          run i18n make-pot "$mu" languages/bike-maintainer.pot --merge=languages/bike-maintainer.pot \
+            --slug=bike-maintainer --domain=bike-maintainer --skip-audit
           python3 scripts/check-translations.py
 
       # Starts the image against a real MariaDB: the entrypoint must copy WordPress, create wp-config.php, sync our

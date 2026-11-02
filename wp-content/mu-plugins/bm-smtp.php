@@ -35,7 +35,7 @@ if ( '' === bm_smtp_env( 'BM_SMTP_HOST' ) ) {
 			}
 			printf(
 				'<div class="notice notice-error"><p>%s</p></div>',
-				esc_html__( 'Es werden keine E-Mails versendet: BM_SMTP_HOST ist nicht gesetzt.', 'bike-maintainer' )
+				esc_html__( 'No emails are sent: BM_SMTP_HOST is not set.', 'bike-maintainer' )
 			);
 		}
 	);

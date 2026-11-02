@@ -9,7 +9,9 @@ set -Eeuo pipefail
 
 # Plugins installed from wordpress.org on setup; afterwards WordPress keeps them up to date itself.
 PLUGINS=(
-    polylang    # German and English (Epic #48)
+    polylang        # German and English (Epic #48)
+    asgaros-forum   # Forum (/forum/, /en/community/)
+    antispam-bee    # Spam filter for comments
 )
 
 cd /var/www/html
@@ -60,12 +62,18 @@ for plugin in "${PLUGINS[@]}"; do
     if ! wp plugin is-installed "$plugin"; then
         wp plugin install "$plugin"
     fi
-    wp plugin activate "$plugin"
+    # Not loaded while being activated: Asgaros Forum expects its instance in a global variable, which does not exist
+    # when WP-CLI loads WordPress (activation would end in a fatal error).
+    wp plugin activate "$plugin" --skip-plugins="$plugin"
+    # Some plugins (Asgaros Forum) finish their setup – tables, first page – on the next web request, and WP-CLI
+    # commands fail until then; so make that request right away.
+    curl -s -o /dev/null http://localhost/ || true
 done
 if [ "${#PLUGINS[@]}" -gt 0 ]; then
     wp language plugin install "${PLUGINS[@]}" de_DE
 fi
 
 wp eval-file /usr/src/bm/setup-languages.php
+wp eval-file /usr/src/bm/setup-forum.php
 
 echo "Setup complete: $(wp option get siteurl)"

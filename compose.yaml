@@ -35,6 +35,8 @@ services:
       BM_ADMIN_PASSWORD: ${BM_ADMIN_PASSWORD:?set BM_ADMIN_PASSWORD in .env}
       # Target of the "Zur App" links: the app of the complete stack in bike-maintainer-deploy/dev.
       BM_APP_URL: ${BM_APP_URL:-http://localhost:8100}
+      # ALTCHA on registration and lost password (bm-altcha.php); public development key, never for operation.
+      BM_ALTCHA_HMAC_KEY: local-development-key-not-for-production
       # Mail goes to Mailpit.
       BM_SMTP_HOST: mailpit
       BM_SMTP_PORT: '1025'

@@ -32,12 +32,17 @@ messages are English.
 - Patterns link within the site via `bike_maintainer_home_url()` / `bike_maintainer_legal_url()` (language-aware);
   shortcode blocks inside patterns are rendered by the `render_block_core/shortcode` filter (templates would leave them
   raw otherwise).
-- Must-use plugins: `bm-polylang.php` (no Polylang cookie), `bm-updates.php` (auto-updates; our theme excluded from wordpress.org update checks),
+- Must-use plugins: `bm-altcha.php` (self-hosted ALTCHA on registration and lost password, needs `BM_ALTCHA_HMAC_KEY`;
+  widget file vendored in `bm-altcha/`), `bm-privacy.php` (local avatars, never Gravatar), `bm-polylang.php` (no Polylang cookie), `bm-updates.php` (auto-updates; our theme excluded from wordpress.org update checks),
   `bm-hardening.php` (XML-RPC off, no app passwords, no user enumeration for guests, no version, no file editor,
   per-IP login limit 10/15 min), `bm-smtp.php` (SMTP from `BM_SMTP_*`; no host = no mail). The client IP comes from
   Apache `mod_remoteip` (X-Forwarded-For from private networks only).
 - `docker-entrypoint-bm.sh` – runs the official `docker-ensure-installed.sh`, then syncs theme and `bm-*.php` from
   `/usr/src/bm` into `/var/www/html/wp-content`, then hands over to `docker-entrypoint.sh`.
+- Forum: Asgaros Forum on `/forum/` (de) and `/en/community/` (en), set up by `scripts/setup-forum.php`. Asgaros
+  crashes when WP-CLI loads it right after activation (it expects a global instance); `setup.sh` therefore activates
+  plugins with `--skip-plugins` and makes a web request after each activation. Asgaros caches date formats before
+  Polylang knows the language – `functions.php` re-reads them on `wp`.
 - `scripts/setup.sh` – idempotent WP-CLI setup (`bm-setup` in the image). Plugins to install go into `PLUGINS`.
   Polylang (languages, options, English start page linked to the German one) is set up by
   `scripts/setup-languages.php` via `wp eval-file`, as the free Polylang has no WP-CLI commands.

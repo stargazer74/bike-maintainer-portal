@@ -106,5 +106,18 @@ if ( $bm_start && ! pll_get_post( $bm_start, 'en' ) ) {
 // Polylang caches each language's start page when the language is created; refresh it now that both exist.
 $bm_model->languages->clean_cache();
 
+// Date and time formats: German as the site default (WordPress was installed in English first), English via
+// Polylang's translation of the WordPress formats.
+update_option( 'date_format', 'j. F Y' );
+update_option( 'time_format', 'G:i' );
+$bm_english = $bm_model->get_language( 'en' );
+if ( $bm_english && class_exists( 'PLL_MO' ) ) {
+	$bm_mo = new PLL_MO();
+	$bm_mo->import_from_db( $bm_english );
+	$bm_mo->add_entry( $bm_mo->make_entry( 'j. F Y', 'F j, Y' ) );
+	$bm_mo->add_entry( $bm_mo->make_entry( 'G:i', 'g:i a' ) );
+	$bm_mo->export_to_db( $bm_english );
+}
+
 flush_rewrite_rules();
 WP_CLI::success( 'Languages: ' . implode( ', ', pll_languages_list() ) );

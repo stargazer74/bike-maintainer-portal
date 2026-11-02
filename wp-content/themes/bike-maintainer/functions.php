@@ -158,6 +158,20 @@ function bike_maintainer_legal_url( $page ) {
 	return home_url( ( 'en' === $language ? '/en/' : '/' ) . $slugs[ $language ][ $page ] . '/' );
 }
 
+/**
+ * Forum page in the current language (/forum/ or /en/community/, see scripts/setup-forum.php).
+ *
+ * @return string
+ */
+function bike_maintainer_forum_url() {
+	$forum = get_page_by_path( 'forum' );
+	if ( ! $forum ) {
+		return home_url( '/forum/' );
+	}
+	$id = function_exists( 'pll_get_post' ) ? pll_get_post( $forum->ID ) : $forum->ID;
+	return (string) get_permalink( $id ? $id : $forum->ID );
+}
+
 /*
  * Block templates run shortcodes before the blocks inside them are rendered, so a shortcode block inside a pattern
  * (like the language switcher in the header) would stay raw text. Run them when the block itself is rendered.
@@ -211,5 +225,59 @@ add_action(
 			'bike-maintainer',
 			array( 'label' => __( 'Bike Maintainer', 'bike-maintainer' ) )
 		);
+	}
+);
+
+/*
+ * Forum members (subscribers) never need the WordPress admin: no admin bar, and after login they go to the forum
+ * instead of their profile in /wp-admin/.
+ */
+add_filter(
+	'show_admin_bar',
+	/**
+	 * Admin bar only for users who can edit content.
+	 *
+	 * @param bool $show Whether to show the admin bar.
+	 * @return bool
+	 */
+	static function ( $show ) {
+		return $show && current_user_can( 'edit_posts' );
+	}
+);
+
+add_filter(
+	'login_redirect',
+	/**
+	 * Sends forum members to the forum after login unless another target was requested.
+	 *
+	 * @param string           $redirect_to           Target URL.
+	 * @param string           $requested_redirect_to Target requested by the form.
+	 * @param WP_User|WP_Error $user                  Logged-in user.
+	 * @return string
+	 */
+	static function ( $redirect_to, $requested_redirect_to, $user ) {
+		// The login form sends the admin dashboard as target by default; anything else was asked for explicitly.
+		$explicit = '' !== $requested_redirect_to && untrailingslashit( admin_url() ) !== untrailingslashit( $requested_redirect_to );
+		if ( $explicit || ! $user instanceof WP_User || $user->has_cap( 'edit_posts' ) ) {
+			return $redirect_to;
+		}
+		return bike_maintainer_forum_url();
+	},
+	10,
+	3
+);
+
+add_action(
+	'wp',
+	/**
+	 * Asgaros Forum reads the date and time formats when it loads, before Polylang knows the language of the request;
+	 * read them again once it does, so English pages get the English formats.
+	 */
+	static function () {
+		global $asgarosforum;
+		if ( is_object( $asgarosforum ) && property_exists( $asgarosforum, 'date_format' ) ) {
+			$asgarosforum->date_format = get_option( 'date_format' );
+			$asgarosforum->time_format = get_option( 'time_format' );
+		}
 	}
 );

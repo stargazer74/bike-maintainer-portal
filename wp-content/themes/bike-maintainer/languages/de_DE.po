@@ -16,7 +16,7 @@ msgstr ""
 
 #. Theme Name of the theme
 #: style.css
-#: functions.php:212
+#: functions.php:226
 msgid "Bike Maintainer"
 msgstr "Bike Maintainer"
 
@@ -31,11 +31,13 @@ msgid "Website of the Bike Maintainer portal. Block child theme of Twenty Twenty
 msgstr "Website des Bike-Maintainer-Portals. Block-Child-Theme von Twenty Twenty-Five."
 
 #. Author of the theme
+#. Author of the plugin
 #: style.css
+#: bm-hardening.php
 msgid "Chris Wohlbrecht"
 msgstr ""
 
-#: functions.php:200
+#: functions.php:214
 msgid "Language"
 msgstr "Sprache"
 
@@ -213,7 +215,7 @@ msgstr "Selbst betreiben"
 msgid "FAQ"
 msgstr "FAQ"
 
-#: patterns/header.php:44
+#: patterns/header.php:45
 #: patterns/hero.php:47
 #: patterns/self-hosting.php:65
 msgid "Open the app"
@@ -450,3 +452,84 @@ msgstr "App-Vorschau"
 msgctxt "Style variation name"
 msgid "Secondary"
 msgstr "Sekundär"
+
+#: patterns/header.php:35
+msgid "Forum"
+msgstr "Forum"
+
+#. Plugin Name of the plugin
+#: bm-hardening.php
+msgid "Bike Maintainer – Hardening"
+msgstr "Bike Maintainer – Härtung"
+
+#. Description of the plugin
+#: bm-hardening.php
+msgid "No XML-RPC, no application passwords, no user enumeration for guests, no version in the page, no file editor in the admin, and a per-IP limit for failed logins."
+msgstr "Kein XML-RPC, keine Anwendungspasswörter, keine Nutzer-Aufzählung für Gäste, keine Versionsangabe auf der Seite, kein Datei-Editor im Admin und ein Limit für fehlgeschlagene Anmeldungen pro IP."
+
+#: bm-altcha.php:162
+msgid "Visit altcha.org"
+msgstr "altcha.org besuchen"
+
+#: bm-altcha.php:163
+msgid "Verification failed, please try again later."
+msgstr "Bestätigung fehlgeschlagen, bitte später erneut versuchen."
+
+#: bm-altcha.php:164
+msgid "Verification expired, please try again."
+msgstr "Bestätigung abgelaufen, bitte erneut versuchen."
+
+#. translators: %s: link to altcha.org with the name ALTCHA.
+#: bm-altcha.php:167
+#, php-format
+msgid "Protected by %s"
+msgstr "Geschützt durch %s"
+
+#: bm-altcha.php:170
+msgid "I'm not a robot"
+msgstr "Ich bin kein Roboter"
+
+#: bm-altcha.php:171
+msgid "Loading …"
+msgstr "Wird geladen …"
+
+#: bm-altcha.php:172
+msgid "Reload"
+msgstr "Neu laden"
+
+#: bm-altcha.php:173
+msgid "Verify"
+msgstr "Bestätigen"
+
+#: bm-altcha.php:174
+msgid "Verification required!"
+msgstr "Bestätigung erforderlich!"
+
+#: bm-altcha.php:175
+msgid "Verified"
+msgstr "Bestätigt"
+
+#: bm-altcha.php:176
+msgid "Verifying …"
+msgstr "Wird bestätigt …"
+
+#: bm-altcha.php:177
+msgid "Verifying … please wait."
+msgstr "Wird bestätigt … bitte warten."
+
+#: bm-altcha.php:197
+msgid "This form is not available at the moment."
+msgstr "Dieses Formular ist im Moment nicht verfügbar."
+
+#: bm-altcha.php:230
+#: bm-altcha.php:249
+msgid "Please confirm that you are not a robot."
+msgstr "Bitte bestätige, dass du kein Roboter bist."
+
+#: bm-hardening.php:119
+msgid "Too many failed logins. Please try again in 15 minutes."
+msgstr "Zu viele fehlgeschlagene Anmeldungen. Bitte versuche es in 15 Minuten erneut."
+
+#: bm-smtp.php:38
+msgid "No emails are sent: BM_SMTP_HOST is not set."
+msgstr "Es werden keine E-Mails versendet: BM_SMTP_HOST ist nicht gesetzt."

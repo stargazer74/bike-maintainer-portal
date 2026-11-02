@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Fails if a text of the theme has no German translation (empty or missing msgstr in de_DE.po).
 
-Proper names (author, font names, URLs) may stay untranslated. Used by scripts/i18n.sh and the CI.
+Proper names (author, font names, URLs) may stay untranslated; plugin headers of the must-use plugins are skipped.
+Used by scripts/i18n.sh and the CI.
 """
 import re
 import sys
@@ -14,7 +15,16 @@ ENTRY = re.compile(r'(?:^msgctxt "((?:[^"\\]|\\.)*)"\n)?^msgid "((?:[^"\\]|\\.)*
 
 
 def entries(path):
-    return {(ctx, msgid): msgstr for ctx, msgid, msgstr in ENTRY.findall(path.read_text(encoding="utf-8")) if msgid}
+    """(context, msgid) -> msgstr. Skips plugin headers: WP-CLI extracts the header of one of the must-use plugins
+    (which one depends on the file system order); it only shows in the admin's list of must-use plugins."""
+    result = {}
+    for block in path.read_text(encoding="utf-8").split("\n\n"):
+        if "of the plugin" in block and block.lstrip().startswith("#."):
+            continue
+        for ctx, msgid, msgstr in ENTRY.findall(block):
+            if msgid:
+                result[(ctx, msgid)] = msgstr
+    return result
 
 
 template = entries(LANGUAGES / "bike-maintainer.pot")

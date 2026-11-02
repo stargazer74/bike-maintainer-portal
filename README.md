@@ -42,6 +42,8 @@ Immer aktiv, im Admin nicht abschaltbar (`wp-content/mu-plugins/`):
 | Datei | Wirkung |
 |---|---|
 | `bm-updates.php` | automatische Updates für Kern (auch Major-Versionen), Plugins, Themes und Übersetzungen. Unser Child-Theme ist ausgenommen und wird gar nicht erst an wordpress.org gemeldet – ein gleichnamiges fremdes Theme dort könnte es sonst als „Update“ überschreiben. |
+| `bm-altcha.php` | ALTCHA bei Registrierung und „Passwort vergessen“ (siehe „Forum“) |
+| `bm-privacy.php` | Avatare nur lokal, nie von gravatar.com |
 | `bm-polylang.php` | Polylang setzt kein Sprach-Cookie; Weiterleitung nach Browsersprache ohne Cookie (siehe „Sprachen“) |
 | `bm-hardening.php` | kein XML-RPC (`xmlrpc.php` → 403), keine Anwendungspasswörter, keine Nutzer-Aufzählung für Gäste (`/wp-json/wp/v2/users`, `?author=N`, Nutzer-Sitemap), keine Versionsangabe, kein Datei-Editor im Admin, Login-Sperre pro IP |
 | `bm-smtp.php` | Mailversand über SMTP aus der Umgebung (siehe unten); ohne `BM_SMTP_HOST` werden **keine** Mails versendet und Admins sehen einen Hinweis |
@@ -116,6 +118,27 @@ Polylang miteinander verknüpft. `bm-setup` richtet das ein (`scripts/setup-lang
 - **Inhalte** (Seiten, Beiträge) übersetzt man im Editor über Polylang: je Sprache eine eigene, verknüpfte Seite.
 - **Impressum und Datenschutz:** `/impressum/` und `/datenschutz/` bzw. `/en/legal-notice/` und `/en/privacy/` – die
   Fußzeile verlinkt je nach Sprache dorthin; die Seiten legt der Betreiber an.
+
+## Forum
+
+Forum mit **Asgaros Forum** unter `/forum/` (Deutsch) und `/en/community/` (Englisch – die kostenlose Version von
+Polylang erlaubt keinen gleichen Slug in zwei Sprachen). Beide Seiten zeigen dasselbe Forum, Oberfläche und Links in
+der jeweiligen Sprache. `bm-setup` richtet es ein (`scripts/setup-forum.php`).
+
+- **Konten:** offene Registrierung über `wp-login.php?action=register`, Rolle *Abonnent*. WordPress schickt einen Link
+  zum Setzen des Passworts – das bestätigt zugleich die E-Mail-Adresse. Mitglieder landen nach dem Login im Forum und
+  sehen keine Admin-Leiste. Ein gemeinsames Login mit der App kommt später (OIDC, eigenes Epic).
+- **Spam-Schutz:** ALTCHA wie in der App (`bm-altcha.php`), bei Registrierung und „Passwort vergessen“, ohne externen
+  Dienst. Braucht **`BM_ALTCHA_HMAC_KEY`** (langer Zufallswert, z. B. `openssl rand -hex 32`); ohne Schlüssel sind beide
+  Formulare gesperrt. Das Widget (`bm-altcha/altcha.min.js`, MIT) liegt im Repository – Aktualisierung siehe
+  `bm-altcha/README.md`. Dazu Asgaros' Mindestabstand von 30 Sekunden zwischen Beiträgen; Antispam Bee für Kommentare.
+- **Moderation:** Unter *Benutzer → Profil* bzw. *Forum → Benutzer* die Forum-Rolle *Moderator* vergeben. Moderatoren
+  können Themen schließen, Beiträge löschen und verschieben; Mitglieder können Beiträge melden.
+- **Datenschutz:** keine Avatare von Gravatar (`bm-privacy.php`), Profile und Mitgliederliste nur für Mitglieder, kein
+  Online-Status, keine Datei-Uploads, kein RSS. Fakten für die Datenschutzerklärung: `docs/datenschutz-hinweise.md`.
+- **Konto löschen:** *Benutzer → Löschen*; Asgaros fragt, ob die Beiträge gelöscht oder zugeordnet werden sollen.
+- **Bekannte Grenzen:** Asgaros übersetzt Foren- und Kategorienamen nicht (daher „Allgemein · General“); einzelne
+  Plugin-Texte fehlen in der deutschen Übersetzung (z. B. der Hinweis zum Mindestabstand).
 
 ## Lokale Entwicklung
 

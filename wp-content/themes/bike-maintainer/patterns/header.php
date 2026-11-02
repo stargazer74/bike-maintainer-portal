@@ -32,6 +32,7 @@
 				<!-- wp:navigation-link {"label":"<?php echo esc_html__( 'Features', 'bike-maintainer' ); ?>","url":"<?php echo esc_url( bike_maintainer_home_url( 'funktionen' ) ); ?>","kind":"custom"} /-->
 				<!-- wp:navigation-link {"label":"<?php echo esc_html__( 'Self-hosting', 'bike-maintainer' ); ?>","url":"<?php echo esc_url( bike_maintainer_home_url( 'betrieb' ) ); ?>","kind":"custom"} /-->
 				<!-- wp:navigation-link {"label":"<?php echo esc_html__( 'FAQ', 'bike-maintainer' ); ?>","url":"<?php echo esc_url( bike_maintainer_home_url( 'faq' ) ); ?>","kind":"custom"} /-->
+				<!-- wp:navigation-link {"label":"<?php echo esc_html__( 'Forum', 'bike-maintainer' ); ?>","url":"<?php echo esc_url( bike_maintainer_forum_url() ); ?>","kind":"custom"} /-->
 			<!-- /wp:navigation -->
 
 			<!-- wp:shortcode -->
