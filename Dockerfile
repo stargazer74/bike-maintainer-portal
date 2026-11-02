@@ -16,6 +16,16 @@ RUN apt-get update \
 
 COPY --from=wp-cli /usr/local/bin/wp /usr/local/bin/wp
 
+# Behind the nginx-proxy-manager: take the client IP from X-Forwarded-For, but only from proxies in private networks
+# (Docker networks). Without this, WordPress sees the proxy as the client of every request and the login limit
+# (bm-hardening.php) would lock out everyone at once.
+RUN a2enmod remoteip \
+    && printf '%s\n' \
+        'RemoteIPHeader X-Forwarded-For' \
+        'RemoteIPInternalProxy 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16 127.0.0.0/8' \
+        > /etc/apache2/conf-available/remoteip.conf \
+    && a2enconf remoteip
+
 # Our own code, copied into the volume on every start.
 COPY wp-content/themes/bike-maintainer /usr/src/bm/themes/bike-maintainer
 COPY wp-content/mu-plugins /usr/src/bm/mu-plugins

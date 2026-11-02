@@ -35,6 +35,37 @@ anzufassen. Mit `BM_SYNC_OWN_CODE=false` (Entwicklung) entfällt der Abgleich; e
 
 Das Image läuft nur auf `linux/amd64`: Die Website gibt es nur im Portal, nie auf dem Raspberry Pi.
 
+## Must-use-Plugins
+
+Immer aktiv, im Admin nicht abschaltbar (`wp-content/mu-plugins/`):
+
+| Datei | Wirkung |
+|---|---|
+| `bm-updates.php` | automatische Updates für Kern (auch Major-Versionen), Plugins, Themes und Übersetzungen. Unser Child-Theme ist ausgenommen und wird gar nicht erst an wordpress.org gemeldet – ein gleichnamiges fremdes Theme dort könnte es sonst als „Update“ überschreiben. |
+| `bm-hardening.php` | kein XML-RPC (`xmlrpc.php` → 403), keine Anwendungspasswörter, keine Nutzer-Aufzählung für Gäste (`/wp-json/wp/v2/users`, `?author=N`, Nutzer-Sitemap), keine Versionsangabe, kein Datei-Editor im Admin, Login-Sperre pro IP |
+| `bm-smtp.php` | Mailversand über SMTP aus der Umgebung (siehe unten); ohne `BM_SMTP_HOST` werden **keine** Mails versendet und Admins sehen einen Hinweis |
+
+### Mailversand
+
+| Variable | Bedeutung |
+|---|---|
+| `BM_SMTP_HOST` | SMTP-Server, z. B. `smtp.ionos.de`; leer = kein Versand |
+| `BM_SMTP_PORT` | Standard `587` (STARTTLS); `465` = TLS; andere Ports (Mailpit `1025`) unverschlüsselt |
+| `BM_SMTP_SECURE` | optional: `tls`, `ssl` oder `none` statt der Ableitung aus dem Port |
+| `BM_SMTP_USER`, `BM_SMTP_PASSWORD` | Zugang; ohne Nutzer keine Anmeldung am Server |
+| `BM_SMTP_FROM` | Absender, Standard `noreply@bike-maintainer.de` (Name „Bike Maintainer“) |
+
+### Login-Schutz
+
+Der nginx-proxy-manager vor dem Portal begrenzt keine einzelnen Pfade, deshalb sperrt WordPress selbst: nach
+**10 fehlgeschlagenen Anmeldungen** einer IP werden weitere Versuche dieser IP abgewiesen, auch mit richtigem
+Passwort; jeder weitere Fehlversuch verlängert die Sperre um **15 Minuten** (gleiche Werte wie in der App). XML-RPC und
+Anwendungspasswörter sind aus, es bleibt nur das Login-Formular.
+
+Damit WordPress die echte Client-IP sieht, übernimmt Apache (`mod_remoteip`, siehe `Dockerfile`) die Adresse aus
+`X-Forwarded-For` – aber nur von Proxys in privaten Netzen (Docker-Netze). Der nginx-proxy-manager setzt den Header
+von sich aus.
+
 ## Lokale Entwicklung
 
 ```bash
