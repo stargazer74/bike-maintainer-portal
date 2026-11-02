@@ -1,13 +1,30 @@
 {
 	"$schema": "https://schemas.wp.org/wp/6.9/theme.json",
 	"version": 3,
-	"title": "Karte",
+	"title": "Card",
 	"slug": "card",
-	"blockTypes": [ "core/group", "core/column" ],
+	"blockTypes": [
+		"core/group",
+		"core/column"
+	],
 	"styles": {
-		"color": { "background": "var:preset|color|accent-2" },
-		"border": { "radius": "16px", "width": "1px", "style": "solid", "color": "var:preset|color|accent-6" },
-		"spacing": { "padding": { "top": "1.5rem", "bottom": "1.5rem", "left": "1.5rem", "right": "1.5rem" } },
+		"color": {
+			"background": "var:preset|color|accent-2"
+		},
+		"border": {
+			"radius": "16px",
+			"width": "1px",
+			"style": "solid",
+			"color": "var:preset|color|accent-6"
+		},
+		"spacing": {
+			"padding": {
+				"top": "1.5rem",
+				"bottom": "1.5rem",
+				"left": "1.5rem",
+				"right": "1.5rem"
+			}
+		},
 		"css": "transition: border-color .2s ease; &:hover { border-color: rgba(249, 99, 2, .5); }"
 	}
 }

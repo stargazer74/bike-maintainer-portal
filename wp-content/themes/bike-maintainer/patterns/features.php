@@ -1,9 +1,9 @@
 <?php
 /**
- * Title: Funktionen
+ * Title: Features
  * Slug: bike-maintainer/features
  * Categories: bike-maintainer
- * Description: Sechs Funktionen der App als Karten mit Icon.
+ * Description: Six features of the app as cards with icons.
  *
  * @package BikeMaintainer
  */
@@ -14,15 +14,15 @@
 	<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"bottom":"3rem"},"blockGap":"0.75rem"}},"layout":{"type":"constrained","contentSize":"720px"}} -->
 	<div class="wp-block-group alignwide" style="margin-bottom:3rem">
 		<!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
-		<p class="has-text-align-center is-style-eyebrow">Aus der Praxis für die Praxis</p>
+		<p class="has-text-align-center is-style-eyebrow"><?php esc_html_e( 'Made in the workshop, for the workshop', 'bike-maintainer' ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:heading {"textAlign":"center","style":{"typography":{"fontSize":"clamp(1.75rem, 4vw, 2.5rem)"}}} -->
-		<h2 class="wp-block-heading has-text-align-center" style="font-size:clamp(1.75rem, 4vw, 2.5rem)">Für alle, die ihr Fahrzeug selbst pflegen</h2>
+		<h2 class="wp-block-heading has-text-align-center" style="font-size:clamp(1.75rem, 4vw, 2.5rem)"><?php esc_html_e( 'For everyone who looks after their own vehicles', 'bike-maintainer' ); ?></h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"align":"center","textColor":"accent-4"} -->
-		<p class="has-text-align-center has-accent-4-color has-text-color">Alles, was du brauchst, um Wert und Zuverlässigkeit deiner Fahrzeuge lückenlos zu belegen.</p>
+		<p class="has-text-align-center has-accent-4-color has-text-color"><?php esc_html_e( 'Everything you need to document the value and reliability of your vehicles without gaps.', 'bike-maintainer' ); ?></p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->
@@ -36,11 +36,11 @@
 				<!-- /wp:image -->
 
 				<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.125rem","fontWeight":"700"}}} -->
-				<h3 class="wp-block-heading" style="font-size:1.125rem;font-weight:700">Intervalle nach Kilometer oder Zeit</h3>
+				<h3 class="wp-block-heading" style="font-size:1.125rem;font-weight:700"><?php esc_html_e( 'Intervals by mileage or time', 'bike-maintainer' ); ?></h3>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->
-				<p class="has-accent-4-color has-text-color" style="font-size:0.9rem">Erinnerung nach Kilometerstand oder Monaten – was zuerst kommt. Fällige und überfällige Arbeiten siehst du auf einen Blick.</p>
+				<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'Reminders by mileage or months – whichever comes first. See due and overdue work at a glance.', 'bike-maintainer' ); ?></p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:column -->
@@ -52,11 +52,11 @@
 				<!-- /wp:image -->
 
 				<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.125rem","fontWeight":"700"}}} -->
-				<h3 class="wp-block-heading" style="font-size:1.125rem;font-weight:700">Bericht und Checkliste als PDF</h3>
+				<h3 class="wp-block-heading" style="font-size:1.125rem;font-weight:700"><?php esc_html_e( 'Report and checklist as PDF', 'bike-maintainer' ); ?></h3>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->
-				<p class="has-accent-4-color has-text-color" style="font-size:0.9rem">Ein lückenloser Wartungsbericht für die eigenen Unterlagen oder den Verkauf, dazu eine Checkliste für den nächsten Werkstatttermin.</p>
+				<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'A complete maintenance report for your records or when you sell, plus a checklist for your next workshop visit.', 'bike-maintainer' ); ?></p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:column -->
@@ -68,11 +68,11 @@
 				<!-- /wp:image -->
 
 				<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.125rem","fontWeight":"700"}}} -->
-				<h3 class="wp-block-heading" style="font-size:1.125rem;font-weight:700">Material und Kosten</h3>
+				<h3 class="wp-block-heading" style="font-size:1.125rem;font-weight:700"><?php esc_html_e( 'Parts and costs', 'bike-maintainer' ); ?></h3>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->
-				<p class="has-accent-4-color has-text-color" style="font-size:0.9rem">Teile mit Menge und Preis, Arbeitskosten und eine Übersicht für das laufende Jahr und insgesamt – auch in mehreren Währungen.</p>
+				<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'Parts with quantity and price, labour costs and an overview for the current year and in total – in several currencies, too.', 'bike-maintainer' ); ?></p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:column -->
@@ -88,11 +88,11 @@
 				<!-- /wp:image -->
 
 				<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.125rem","fontWeight":"700"}}} -->
-				<h3 class="wp-block-heading" style="font-size:1.125rem;font-weight:700">Mehrere Fahrzeuge</h3>
+				<h3 class="wp-block-heading" style="font-size:1.125rem;font-weight:700"><?php esc_html_e( 'Several vehicles', 'bike-maintainer' ); ?></h3>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->
-				<p class="has-accent-4-color has-text-color" style="font-size:0.9rem">Motorräder und Autos nebeneinander, jedes mit eigenem Wartungsplan und eigener Historie. Weitere Fahrzeugtypen folgen.</p>
+				<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'Motorcycles and cars side by side, each with its own maintenance plan and history. More vehicle types are coming.', 'bike-maintainer' ); ?></p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:column -->
@@ -104,11 +104,11 @@
 				<!-- /wp:image -->
 
 				<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.125rem","fontWeight":"700"}}} -->
-				<h3 class="wp-block-heading" style="font-size:1.125rem;font-weight:700">Für den ganzen Haushalt</h3>
+				<h3 class="wp-block-heading" style="font-size:1.125rem;font-weight:700"><?php esc_html_e( 'For the whole household', 'bike-maintainer' ); ?></h3>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->
-				<p class="has-accent-4-color has-text-color" style="font-size:0.9rem">Im Haushaltsmodus wählt jede Person ihr Profil – ohne Passwort, im eigenen Heimnetz.</p>
+				<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'In household mode everyone picks their profile – no password, in your own home network.', 'bike-maintainer' ); ?></p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:column -->
@@ -120,11 +120,11 @@
 				<!-- /wp:image -->
 
 				<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.125rem","fontWeight":"700"}}} -->
-				<h3 class="wp-block-heading" style="font-size:1.125rem;font-weight:700">Deutsch und Englisch</h3>
+				<h3 class="wp-block-heading" style="font-size:1.125rem;font-weight:700"><?php esc_html_e( 'German and English', 'bike-maintainer' ); ?></h3>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->
-				<p class="has-accent-4-color has-text-color" style="font-size:0.9rem">Oberfläche, E-Mails und PDFs gibt es in beiden Sprachen, eingestellt pro Konto.</p>
+				<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'Interface, emails and PDFs are available in both languages, set per account.', 'bike-maintainer' ); ?></p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:column -->

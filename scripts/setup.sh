@@ -9,6 +9,7 @@ set -Eeuo pipefail
 
 # Plugins installed from wordpress.org on setup; afterwards WordPress keeps them up to date itself.
 PLUGINS=(
+    polylang    # German and English (Epic #48)
 )
 
 cd /var/www/html
@@ -53,6 +54,8 @@ fi
 wp option update show_on_front page
 wp option update page_on_front "$start_id"
 
+# Languages (Polylang): needs the start page above and the plugins below, so it runs at the end.
+
 for plugin in "${PLUGINS[@]}"; do
     if ! wp plugin is-installed "$plugin"; then
         wp plugin install "$plugin"
@@ -60,7 +63,9 @@ for plugin in "${PLUGINS[@]}"; do
     wp plugin activate "$plugin"
 done
 if [ "${#PLUGINS[@]}" -gt 0 ]; then
-    wp language plugin install de_DE "${PLUGINS[@]}"
+    wp language plugin install "${PLUGINS[@]}" de_DE
 fi
+
+wp eval-file /usr/src/bm/setup-languages.php
 
 echo "Setup complete: $(wp option get siteurl)"

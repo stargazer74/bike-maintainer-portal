@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: Fußzeile
+ * Title: Footer
  * Slug: bike-maintainer/footer
  * Categories: footer
  * Block Types: core/template-part/footer
@@ -15,17 +15,17 @@
 	<!-- wp:group {"align":"wide","style":{"typography":{"fontSize":"0.8rem"}},"textColor":"accent-4","layout":{"type":"flex","justifyContent":"space-between"}} -->
 	<div class="wp-block-group alignwide has-accent-4-color has-text-color" style="font-size:0.8rem">
 		<!-- wp:paragraph -->
-		<p><strong class="has-inline-color has-white-color">bike-maintainer<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">.de</mark></strong> · © <?php echo esc_html( gmdate( 'Y' ) ); ?> · Von Schraubern für Schrauber gebaut</p>
+		<p><strong class="has-inline-color has-white-color">bike-maintainer<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-accent-1-color">.de</mark></strong> · © <?php echo esc_html( gmdate( 'Y' ) ); ?> · <?php esc_html_e( 'Built by home mechanics for home mechanics', 'bike-maintainer' ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:group {"style":{"spacing":{"blockGap":"1.5rem"},"elements":{"link":{"color":{"text":"var:preset|color|accent-4"},":hover":{"color":{"text":"var:preset|color|white"}}}}},"layout":{"type":"flex"}} -->
 		<div class="wp-block-group has-link-color">
 			<!-- wp:paragraph -->
-			<p><a href="<?php echo esc_url( home_url( '/impressum/' ) ); ?>">Impressum</a></p>
+			<p><a href="<?php echo esc_url( bike_maintainer_legal_url( 'imprint' ) ); ?>"><?php esc_html_e( 'Legal notice', 'bike-maintainer' ); ?></a></p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph -->
-			<p><a href="<?php echo esc_url( home_url( '/datenschutz/' ) ); ?>">Datenschutz</a></p>
+			<p><a href="<?php echo esc_url( bike_maintainer_legal_url( 'privacy' ) ); ?>"><?php esc_html_e( 'Privacy', 'bike-maintainer' ); ?></a></p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph -->

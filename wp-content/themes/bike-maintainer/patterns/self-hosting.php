@@ -1,9 +1,9 @@
 <?php
 /**
- * Title: Portal oder selbst betreiben
+ * Title: Portal or self-hosted
  * Slug: bike-maintainer/self-hosting
  * Categories: bike-maintainer
- * Description: Die zwei Wege zur App als Karten, darunter die Installation im Heimnetz per Docker Compose.
+ * Description: The two ways to use the app as cards, followed by the home network installation with Docker Compose.
  *
  * @package BikeMaintainer
  */
@@ -14,15 +14,15 @@
 	<!-- wp:group {"align":"wide","style":{"spacing":{"margin":{"bottom":"3rem"},"blockGap":"0.75rem"}},"layout":{"type":"constrained","contentSize":"720px"}} -->
 	<div class="wp-block-group alignwide" style="margin-bottom:3rem">
 		<!-- wp:paragraph {"align":"center","className":"is-style-eyebrow"} -->
-		<p class="has-text-align-center is-style-eyebrow">Zwei Wege</p>
+		<p class="has-text-align-center is-style-eyebrow"><?php esc_html_e( 'Two ways', 'bike-maintainer' ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:heading {"textAlign":"center","style":{"typography":{"fontSize":"clamp(1.75rem, 4vw, 2.5rem)"}}} -->
-		<h2 class="wp-block-heading has-text-align-center" style="font-size:clamp(1.75rem, 4vw, 2.5rem)">Im Portal oder selbst betrieben</h2>
+		<h2 class="wp-block-heading has-text-align-center" style="font-size:clamp(1.75rem, 4vw, 2.5rem)"><?php esc_html_e( 'In the portal or self-hosted', 'bike-maintainer' ); ?></h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph {"align":"center","textColor":"accent-4"} -->
-		<p class="has-text-align-center has-accent-4-color has-text-color">Dieselbe App, dieselben Funktionen – du entscheidest, wo deine Daten liegen.</p>
+		<p class="has-text-align-center has-accent-4-color has-text-color"><?php esc_html_e( 'Same app, same features – you decide where your data lives.', 'bike-maintainer' ); ?></p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->
@@ -36,25 +36,25 @@
 			<!-- /wp:image -->
 
 			<!-- wp:heading {"level":3} -->
-			<h3 class="wp-block-heading">Im Portal</h3>
+			<h3 class="wp-block-heading"><?php esc_html_e( 'In the portal', 'bike-maintainer' ); ?></h3>
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.95rem"}}} -->
-			<p class="has-accent-4-color has-text-color" style="font-size:0.95rem">Registrieren und loslegen – ohne eigenen Server. Jede Person hat ihr eigenes Konto.</p>
+			<p class="has-accent-4-color has-text-color" style="font-size:0.95rem"><?php esc_html_e( 'Sign up and get started – no server of your own. Everyone has their own account.', 'bike-maintainer' ); ?></p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:list {"className":"is-style-checklist"} -->
 			<ul class="wp-block-list is-style-checklist">
 				<!-- wp:list-item -->
-				<li>Keine Installation nötig</li>
+				<li><?php esc_html_e( 'No installation needed', 'bike-maintainer' ); ?></li>
 				<!-- /wp:list-item -->
 
 				<!-- wp:list-item -->
-				<li>Erreichbar von unterwegs</li>
+				<li><?php esc_html_e( 'Available on the go', 'bike-maintainer' ); ?></li>
 				<!-- /wp:list-item -->
 
 				<!-- wp:list-item -->
-				<li>Konto mit E-Mail-Adresse und Passwort</li>
+				<li><?php esc_html_e( 'Account with email address and password', 'bike-maintainer' ); ?></li>
 				<!-- /wp:list-item -->
 			</ul>
 			<!-- /wp:list -->
@@ -62,7 +62,7 @@
 			<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"1.5rem"}}}} -->
 			<div class="wp-block-buttons" style="margin-top:1.5rem">
 				<!-- wp:button {"width":100} -->
-				<div class="wp-block-button has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="#bm-app">Zur App</a></div>
+				<div class="wp-block-button has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="#bm-app"><?php esc_html_e( 'Open the app', 'bike-maintainer' ); ?></a></div>
 				<!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->
@@ -76,25 +76,25 @@
 			<!-- /wp:image -->
 
 			<!-- wp:heading {"level":3} -->
-			<h3 class="wp-block-heading">Selbst betrieben</h3>
+			<h3 class="wp-block-heading"><?php esc_html_e( 'Self-hosted', 'bike-maintainer' ); ?></h3>
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.95rem"}}} -->
-			<p class="has-accent-4-color has-text-color" style="font-size:0.95rem">Der Haushaltsmodus läuft in deinem Heimnetz – auf PC, Server oder Raspberry Pi. Jede Person wählt ihr Profil, ganz ohne Passwort.</p>
+			<p class="has-accent-4-color has-text-color" style="font-size:0.95rem"><?php esc_html_e( 'Household mode runs in your home network – on a PC, a server or a Raspberry Pi. Everyone picks their profile, no password needed.', 'bike-maintainer' ); ?></p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:list {"className":"is-style-checklist"} -->
 			<ul class="wp-block-list is-style-checklist">
 				<!-- wp:list-item -->
-				<li>Kostenlos und quelloffen</li>
+				<li><?php esc_html_e( 'Free and open source', 'bike-maintainer' ); ?></li>
 				<!-- /wp:list-item -->
 
 				<!-- wp:list-item -->
-				<li>Docker-Images für amd64 und arm64</li>
+				<li><?php esc_html_e( 'Docker images for amd64 and arm64', 'bike-maintainer' ); ?></li>
 				<!-- /wp:list-item -->
 
 				<!-- wp:list-item -->
-				<li>Deine Daten bleiben bei dir</li>
+				<li><?php esc_html_e( 'Your data stays with you', 'bike-maintainer' ); ?></li>
 				<!-- /wp:list-item -->
 			</ul>
 			<!-- /wp:list -->
@@ -102,7 +102,7 @@
 			<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"1.5rem"}}}} -->
 			<div class="wp-block-buttons" style="margin-top:1.5rem">
 				<!-- wp:button {"width":100,"className":"is-style-secondary"} -->
-				<div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-secondary"><a class="wp-block-button__link wp-element-button" href="https://github.com/stargazer74/bike-maintainer-deploy#selbst-hosten-im-heimnetz">Anleitung auf GitHub</a></div>
+				<div class="wp-block-button has-custom-width wp-block-button__width-100 is-style-secondary"><a class="wp-block-button__link wp-element-button" href="https://github.com/stargazer74/bike-maintainer-deploy#selbst-hosten-im-heimnetz"><?php esc_html_e( 'Guide on GitHub', 'bike-maintainer' ); ?></a></div>
 				<!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->
@@ -112,14 +112,14 @@
 	<!-- /wp:columns -->
 
 	<!-- wp:paragraph {"align":"center","textColor":"accent-4","style":{"spacing":{"margin":{"top":"3rem"}},"typography":{"fontSize":"0.9rem"}}} -->
-	<p class="has-text-align-center has-accent-4-color has-text-color" style="margin-top:3rem;font-size:0.9rem">Im Heimnetz in vier Schritten – auf jedem Rechner mit Docker:</p>
+	<p class="has-text-align-center has-accent-4-color has-text-color" style="margin-top:3rem;font-size:0.9rem"><?php esc_html_e( 'In your home network in four steps – on any computer with Docker:', 'bike-maintainer' ); ?></p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:code -->
 	<pre class="wp-block-code"><code>mkdir bike-maintainer &amp;&amp; cd bike-maintainer
 curl -fsSLO https://raw.githubusercontent.com/stargazer74/bike-maintainer-deploy/main/household/compose.yaml
 curl -fsSL -o .env https://raw.githubusercontent.com/stargazer74/bike-maintainer-deploy/main/household/.env.example
-docker compose up -d     # vorher in .env ein Passwort für BM_DB_PASSWORD setzen</code></pre>
+docker compose up -d     # <?php esc_html_e( 'set a password for BM_DB_PASSWORD in .env first', 'bike-maintainer' ); ?></code></pre>
 	<!-- /wp:code -->
 </div>
 <!-- /wp:group -->

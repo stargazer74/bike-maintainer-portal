@@ -1,13 +1,24 @@
 {
 	"$schema": "https://schemas.wp.org/wp/6.9/theme.json",
 	"version": 3,
-	"title": "Häkchen-Liste",
+	"title": "Checklist",
 	"slug": "checklist",
-	"blockTypes": [ "core/list" ],
+	"blockTypes": [
+		"core/list"
+	],
 	"styles": {
-		"color": { "text": "var:preset|color|accent-4" },
-		"typography": { "fontSize": "0.9rem", "fontWeight": "500" },
-		"spacing": { "padding": { "left": "0" } },
+		"color": {
+			"text": "var:preset|color|accent-4"
+		},
+		"typography": {
+			"fontSize": "0.9rem",
+			"fontWeight": "500"
+		},
+		"spacing": {
+			"padding": {
+				"left": "0"
+			}
+		},
 		"css": "list-style: none; & li { display: flex; gap: .5rem; align-items: baseline; margin-block: .35rem; } & li::before { content: '✓'; color: var(--wp--preset--color--accent-1); font-weight: 800; }"
 	}
 }

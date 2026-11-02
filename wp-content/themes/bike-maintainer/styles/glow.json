@@ -1,11 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/wp/6.9/theme.json",
 	"version": 3,
-	"title": "Raster mit Glow",
+	"title": "Grid with glow",
 	"slug": "glow",
-	"blockTypes": [ "core/group" ],
+	"blockTypes": [
+		"core/group"
+	],
 	"styles": {
-		"color": { "background": "var:preset|color|base" },
+		"color": {
+			"background": "var:preset|color|base"
+		},
 		"css": "background-image: radial-gradient(circle at 50% 20%, rgba(249, 99, 2, .15) 0%, rgba(11, 15, 25, 0) 70%), radial-gradient(rgba(249, 99, 2, .12) 1px, transparent 1px); background-size: 100% 100%, 24px 24px;"
 	}
 }

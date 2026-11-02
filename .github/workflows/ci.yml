@@ -53,6 +53,16 @@ jobs:
       - name: Build image
         run: docker build -t "$IMAGE" .
 
+      # The template is generated from the code inside the image (theme.json texts need the WordPress files there), so a
+      # new or changed text without German translation fails here even if scripts/i18n.sh was not run.
+      - name: Check translations
+        run: |
+          theme=/usr/src/wordpress/wp-content/themes/bike-maintainer
+          docker run --rm -u "$(id -u):$(id -g)" -e HOME=/tmp -v "$PWD/wp-content/themes/bike-maintainer:$theme" \
+            -w "$theme" --entrypoint wp "$IMAGE" i18n make-pot . languages/bike-maintainer.pot \
+            --slug=bike-maintainer --domain=bike-maintainer --exclude=assets --skip-audit
+          python3 scripts/check-translations.py
+
       # Starts the image against a real MariaDB: the entrypoint must copy WordPress, create wp-config.php, sync our
       # code and serve the installer.
       - name: Smoke test
