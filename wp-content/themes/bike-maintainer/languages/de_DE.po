@@ -1,0 +1,452 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Bike Maintainer 0.1.0-SNAPSHOT\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/bike-maintainer\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Deutsch\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-11-02T13:52:08+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language: de_DE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: bike-maintainer\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Theme Name of the theme
+#: style.css
+#: functions.php:212
+msgid "Bike Maintainer"
+msgstr "Bike Maintainer"
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://github.com/stargazer74/bike-maintainer-portal"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "Website of the Bike Maintainer portal. Block child theme of Twenty Twenty-Five."
+msgstr "Website des Bike-Maintainer-Portals. Block-Child-Theme von Twenty Twenty-Five."
+
+#. Author of the theme
+#: style.css
+msgid "Chris Wohlbrecht"
+msgstr ""
+
+#: functions.php:200
+msgid "Language"
+msgstr "Sprache"
+
+#: patterns/faq.php
+msgctxt "Pattern title"
+msgid "Frequently asked questions"
+msgstr "Häufige Fragen"
+
+#: patterns/faq.php
+msgctxt "Pattern description"
+msgid "Expandable questions and answers (core block “Details”)."
+msgstr "Aufklappbare Fragen und Antworten (Kern-Block „Details“)."
+
+#: patterns/faq.php:15
+msgid "Frequently asked questions"
+msgstr "Häufige Fragen"
+
+#: patterns/faq.php:19
+msgid "Which vehicles can I manage?"
+msgstr "Welche Fahrzeuge kann ich verwalten?"
+
+#: patterns/faq.php:21
+msgid "Motorcycles and cars, as many as you like. Bicycles, e-bikes, quads and scooters are coming next."
+msgstr "Motorräder und Autos, beliebig viele. Fahrrad, E-Bike, Quad und Roller kommen als Nächstes dazu."
+
+#: patterns/faq.php:27
+msgid "How do the intervals work?"
+msgstr "Wie funktionieren die Intervalle?"
+
+#: patterns/faq.php:29
+msgid "For each job you set after how many kilometres and/or months it is due. Whichever is reached first counts. The app shows you what is due soon or already overdue."
+msgstr "Für jede Arbeit legst du fest, nach wie vielen Kilometern und/oder Monaten sie fällig ist. Es zählt, was zuerst erreicht ist. Die App zeigt dir, was bald fällig oder schon überfällig ist."
+
+#: patterns/faq.php:35
+msgid "What is in the PDF report?"
+msgstr "Was steht im PDF-Bericht?"
+
+#: patterns/faq.php:37
+msgid "The selected maintenance entries with date, mileage, work done, parts and costs – for your records or when you sell your vehicle."
+msgstr "Die ausgewählten Wartungen mit Datum, Kilometerstand, erledigten Arbeiten, Material und Kosten – für die eigenen Unterlagen oder beim Verkauf deines Fahrzeugs."
+
+#: patterns/faq.php:43
+msgid "What is the difference between the portal and household mode?"
+msgstr "Was ist der Unterschied zwischen Portal und Haushaltsmodus?"
+
+#: patterns/faq.php:45
+msgid "In the portal everyone has their own account with email address and password. Household mode is meant for your home network: no login, everyone picks their profile. That is why it must not be reachable from the internet."
+msgstr "Im Portal hat jede Person ein eigenes Konto mit E-Mail-Adresse und Passwort. Der Haushaltsmodus ist für dein Heimnetz gedacht: ohne Anmeldung, jede Person wählt ihr Profil. Er darf deshalb nicht aus dem Internet erreichbar sein."
+
+#: patterns/faq.php:51
+msgid "Is Bike Maintainer open source?"
+msgstr "Ist Bike Maintainer Open Source?"
+
+#: patterns/faq.php:53
+msgid "Yes, under the MIT licence. The source code is on GitHub."
+msgstr "Ja, unter der MIT-Lizenz. Der Quellcode liegt auf GitHub."
+
+#: patterns/faq.php:59
+msgid "Which languages are available?"
+msgstr "Welche Sprachen gibt es?"
+
+#: patterns/faq.php:61
+msgid "German and English – for the interface, the emails and the PDFs. You choose the language in your account."
+msgstr "Deutsch und Englisch – für die Oberfläche, die E-Mails und die PDFs. Die Sprache stellst du in deinem Konto ein."
+
+#: patterns/features.php
+msgctxt "Pattern title"
+msgid "Features"
+msgstr "Funktionen"
+
+#: patterns/features.php
+msgctxt "Pattern description"
+msgid "Six features of the app as cards with icons."
+msgstr "Sechs Funktionen der App als Karten mit Icon."
+
+#: patterns/features.php:17
+msgid "Made in the workshop, for the workshop"
+msgstr "Aus der Praxis für die Praxis"
+
+#: patterns/features.php:21
+msgid "For everyone who looks after their own vehicles"
+msgstr "Für alle, die ihr Fahrzeug selbst pflegen"
+
+#: patterns/features.php:25
+msgid "Everything you need to document the value and reliability of your vehicles without gaps."
+msgstr "Alles, was du brauchst, um Wert und Zuverlässigkeit deiner Fahrzeuge lückenlos zu belegen."
+
+#: patterns/features.php:39
+msgid "Intervals by mileage or time"
+msgstr "Intervalle nach Kilometer oder Zeit"
+
+#: patterns/features.php:43
+msgid "Reminders by mileage or months – whichever comes first. See due and overdue work at a glance."
+msgstr "Erinnerung nach Kilometerstand oder Monaten – was zuerst kommt. Fällige und überfällige Arbeiten siehst du auf einen Blick."
+
+#: patterns/features.php:55
+msgid "Report and checklist as PDF"
+msgstr "Bericht und Checkliste als PDF"
+
+#: patterns/features.php:59
+msgid "A complete maintenance report for your records or when you sell, plus a checklist for your next workshop visit."
+msgstr "Ein lückenloser Wartungsbericht für die eigenen Unterlagen oder den Verkauf, dazu eine Checkliste für den nächsten Werkstatttermin."
+
+#: patterns/features.php:71
+msgid "Parts and costs"
+msgstr "Material und Kosten"
+
+#: patterns/features.php:75
+msgid "Parts with quantity and price, labour costs and an overview for the current year and in total – in several currencies, too."
+msgstr "Teile mit Menge und Preis, Arbeitskosten und eine Übersicht für das laufende Jahr und insgesamt – auch in mehreren Währungen."
+
+#: patterns/features.php:91
+msgid "Several vehicles"
+msgstr "Mehrere Fahrzeuge"
+
+#: patterns/features.php:95
+msgid "Motorcycles and cars side by side, each with its own maintenance plan and history. More vehicle types are coming."
+msgstr "Motorräder und Autos nebeneinander, jedes mit eigenem Wartungsplan und eigener Historie. Weitere Fahrzeugtypen folgen."
+
+#: patterns/features.php:107
+msgid "For the whole household"
+msgstr "Für den ganzen Haushalt"
+
+#: patterns/features.php:111
+msgid "In household mode everyone picks their profile – no password, in your own home network."
+msgstr "Im Haushaltsmodus wählt jede Person ihr Profil – ohne Passwort, im eigenen Heimnetz."
+
+#: patterns/features.php:123
+msgid "German and English"
+msgstr "Deutsch und Englisch"
+
+#: patterns/features.php:127
+msgid "Interface, emails and PDFs are available in both languages, set per account."
+msgstr "Oberfläche, E-Mails und PDFs gibt es in beiden Sprachen, eingestellt pro Konto."
+
+#: patterns/footer.php
+msgctxt "Pattern title"
+msgid "Footer"
+msgstr "Fußzeile"
+
+#: patterns/footer.php:18
+msgid "Built by home mechanics for home mechanics"
+msgstr "Von Schraubern für Schrauber gebaut"
+
+#: patterns/footer.php:24
+msgid "Legal notice"
+msgstr "Impressum"
+
+#: patterns/footer.php:28
+msgid "Privacy"
+msgstr "Datenschutz"
+
+#: patterns/header.php
+msgctxt "Pattern title"
+msgid "Header"
+msgstr "Kopfzeile"
+
+#: patterns/header.php:20
+msgid "Bike Maintainer – home page"
+msgstr "Bike Maintainer – Startseite"
+
+#: patterns/header.php:31
+msgid "Main navigation"
+msgstr "Hauptnavigation"
+
+#: patterns/header.php:32
+msgid "Features"
+msgstr "Funktionen"
+
+#: patterns/header.php:33
+msgid "Self-hosting"
+msgstr "Selbst betreiben"
+
+#: patterns/header.php:34
+msgid "FAQ"
+msgstr "FAQ"
+
+#: patterns/header.php:44
+#: patterns/hero.php:47
+#: patterns/self-hosting.php:65
+msgid "Open the app"
+msgstr "Zur App"
+
+#: patterns/hero.php
+msgctxt "Pattern title"
+msgid "Hero with app preview"
+msgstr "Hero mit App-Vorschau"
+
+#: patterns/hero.php
+msgctxt "Pattern description"
+msgid "Start of the landing page: heading, text, two buttons, benefits and a preview of the app."
+msgstr "Einstieg der Landing Page: Überschrift, Text, zwei Buttons, Vorteile und eine Vorschau der App."
+
+#: patterns/hero.php:33
+msgid "Open source · in the portal or on your own hardware"
+msgstr "Open Source · im Portal oder auf eigener Hardware"
+
+#. translators: %s: highlighted part of the heading, "your bike and its maintenance".
+#: patterns/hero.php:14
+#, php-format
+msgid "Keep control of %s."
+msgstr "Behalte die Kontrolle über %s."
+
+#: patterns/hero.php:15
+msgid "your bike and its maintenance"
+msgstr "dein Bike und seine Wartung"
+
+#: patterns/hero.php:41
+msgid "No more forgotten oil changes and piles of paper. Bike Maintainer reminds you by mileage or time – whichever comes first – and keeps your service book: <strong>in the portal</strong> or for free <strong>on your own computer</strong>, for example a Raspberry Pi."
+msgstr "Schluss mit vergessenen Ölwechseln und Zettelwirtschaft. Bike Maintainer erinnert nach Kilometerstand oder Zeit – was zuerst kommt – und führt dein Wartungsheft: <strong>im Portal</strong> oder kostenlos <strong>auf deinem eigenen Rechner</strong>, zum Beispiel einem Raspberry Pi."
+
+#: patterns/hero.php:51
+msgid "Host it yourself"
+msgstr "Selbst betreiben"
+
+#: patterns/hero.php:59
+msgid "No ads, no tracking"
+msgstr "Keine Werbung, kein Tracking"
+
+#: patterns/hero.php:63
+msgid "Open source code (MIT licence)"
+msgstr "Quellcode offen (MIT-Lizenz)"
+
+#: patterns/hero.php:67
+msgid "Maintenance report as PDF"
+msgstr "Wartungsbericht als PDF"
+
+#: patterns/hero.php:77
+msgid "Vehicle page of the app: mileage and maintenance due for a motorcycle"
+msgstr "Fahrzeugseite der App: Kilometerstand und fällige Wartungen eines Motorrads"
+
+#: patterns/landing.php
+msgctxt "Pattern title"
+msgid "Landing Page"
+msgstr "Landing Page"
+
+#: patterns/landing.php
+msgctxt "Pattern description"
+msgid "Complete start page with hero, features, “portal or self-hosted” and FAQ."
+msgstr "Komplette Startseite aus Hero, Funktionen, „Portal oder selbst betreiben“ und FAQ."
+
+#: patterns/self-hosting.php
+msgctxt "Pattern title"
+msgid "Portal or self-hosted"
+msgstr "Portal oder selbst betreiben"
+
+#: patterns/self-hosting.php
+msgctxt "Pattern description"
+msgid "The two ways to use the app as cards, followed by the home network installation with Docker Compose."
+msgstr "Die zwei Wege zur App als Karten, darunter die Installation im Heimnetz per Docker Compose."
+
+#: patterns/self-hosting.php:17
+msgid "Two ways"
+msgstr "Zwei Wege"
+
+#: patterns/self-hosting.php:21
+msgid "In the portal or self-hosted"
+msgstr "Im Portal oder selbst betrieben"
+
+#: patterns/self-hosting.php:25
+msgid "Same app, same features – you decide where your data lives."
+msgstr "Dieselbe App, dieselben Funktionen – du entscheidest, wo deine Daten liegen."
+
+#: patterns/self-hosting.php:39
+msgid "In the portal"
+msgstr "Im Portal"
+
+#: patterns/self-hosting.php:43
+msgid "Sign up and get started – no server of your own. Everyone has their own account."
+msgstr "Registrieren und loslegen – ohne eigenen Server. Jede Person hat ihr eigenes Konto."
+
+#: patterns/self-hosting.php:49
+msgid "No installation needed"
+msgstr "Keine Installation nötig"
+
+#: patterns/self-hosting.php:53
+msgid "Available on the go"
+msgstr "Erreichbar von unterwegs"
+
+#: patterns/self-hosting.php:57
+msgid "Account with email address and password"
+msgstr "Konto mit E-Mail-Adresse und Passwort"
+
+#: patterns/self-hosting.php:79
+msgid "Self-hosted"
+msgstr "Selbst betrieben"
+
+#: patterns/self-hosting.php:83
+msgid "Household mode runs in your home network – on a PC, a server or a Raspberry Pi. Everyone picks their profile, no password needed."
+msgstr "Der Haushaltsmodus läuft in deinem Heimnetz – auf PC, Server oder Raspberry Pi. Jede Person wählt ihr Profil, ganz ohne Passwort."
+
+#: patterns/self-hosting.php:89
+msgid "Free and open source"
+msgstr "Kostenlos und quelloffen"
+
+#: patterns/self-hosting.php:93
+msgid "Docker images for amd64 and arm64"
+msgstr "Docker-Images für amd64 und arm64"
+
+#: patterns/self-hosting.php:97
+msgid "Your data stays with you"
+msgstr "Deine Daten bleiben bei dir"
+
+#: patterns/self-hosting.php:105
+msgid "Guide on GitHub"
+msgstr "Anleitung auf GitHub"
+
+#: patterns/self-hosting.php:115
+msgid "In your home network in four steps – on any computer with Docker:"
+msgstr "Im Heimnetz in vier Schritten – auf jedem Rechner mit Docker:"
+
+#: patterns/self-hosting.php:122
+msgid "set a password for BM_DB_PASSWORD in .env first"
+msgstr "vorher in .env ein Passwort für BM_DB_PASSWORD setzen"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Background"
+msgstr "Hintergrund"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Text"
+msgstr "Text"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Orange"
+msgstr "Orange"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Card"
+msgstr "Karte"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Light orange"
+msgstr "Orange hell"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Muted text"
+msgstr "Text gedämpft"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Surface"
+msgstr "Fläche"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Border"
+msgstr "Rahmen"
+
+#: theme.json
+msgctxt "Color name"
+msgid "White"
+msgstr "Weiß"
+
+#: theme.json
+msgctxt "Color name"
+msgid "Green"
+msgstr "Grün"
+
+#: theme.json
+msgctxt "Font family name"
+msgid "Inter"
+msgstr ""
+
+#: theme.json
+msgctxt "Font family name"
+msgid "JetBrains Mono"
+msgstr ""
+
+#: styles/badge.json
+msgctxt "Style variation name"
+msgid "Badge"
+msgstr "Badge"
+
+#: styles/card.json
+msgctxt "Style variation name"
+msgid "Card"
+msgstr "Karte"
+
+#: styles/checklist.json
+msgctxt "Style variation name"
+msgid "Checklist"
+msgstr "Häkchen-Liste"
+
+#: styles/eyebrow.json
+msgctxt "Style variation name"
+msgid "Eyebrow"
+msgstr "Überzeile"
+
+#: styles/glow.json
+msgctxt "Style variation name"
+msgid "Grid with glow"
+msgstr "Raster mit Glow"
+
+#: styles/icon-tile.json
+msgctxt "Style variation name"
+msgid "Icon tile"
+msgstr "Icon-Kachel"
+
+#: styles/preview.json
+msgctxt "Style variation name"
+msgid "App preview"
+msgstr "App-Vorschau"
+
+#: styles/secondary.json
+msgctxt "Style variation name"
+msgid "Secondary"
+msgstr "Sekundär"

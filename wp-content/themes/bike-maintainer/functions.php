@@ -109,6 +109,101 @@ add_action( 'admin_head', 'bike_maintainer_svg_icon', 98 );
 add_action( 'login_head', 'bike_maintainer_svg_icon', 98 );
 
 add_action(
+	'after_setup_theme',
+	/** Translations of the theme (languages/bike-maintainer-{locale}.mo); German and English, see README. */
+	static function () {
+		load_child_theme_textdomain( 'bike-maintainer', get_stylesheet_directory() . '/languages' );
+	}
+);
+
+/**
+ * Current language of the website: "de" or "en" (Polylang), "de" without Polylang.
+ *
+ * @return string
+ */
+function bike_maintainer_language() {
+	$language = function_exists( 'pll_current_language' ) ? pll_current_language() : '';
+	return 'en' === $language ? 'en' : 'de';
+}
+
+/**
+ * URL on the start page of the current language, e.g. "#betrieb" -> /#betrieb or /en/#betrieb.
+ *
+ * @param string $fragment Optional fragment without "#".
+ * @return string
+ */
+function bike_maintainer_home_url( $fragment = '' ) {
+	$home = function_exists( 'pll_home_url' ) ? pll_home_url() : home_url( '/' );
+	return trailingslashit( $home ) . ( '' === $fragment ? '' : '#' . $fragment );
+}
+
+/**
+ * Legal pages per language. The pages themselves are created by the operator (Epic #48).
+ *
+ * @param string $page "imprint" or "privacy".
+ * @return string
+ */
+function bike_maintainer_legal_url( $page ) {
+	$slugs    = array(
+		'de' => array(
+			'imprint' => 'impressum',
+			'privacy' => 'datenschutz',
+		),
+		'en' => array(
+			'imprint' => 'legal-notice',
+			'privacy' => 'privacy',
+		),
+	);
+	$language = bike_maintainer_language();
+	return home_url( ( 'en' === $language ? '/en/' : '/' ) . $slugs[ $language ][ $page ] . '/' );
+}
+
+/*
+ * Block templates run shortcodes before the blocks inside them are rendered, so a shortcode block inside a pattern
+ * (like the language switcher in the header) would stay raw text. Run them when the block itself is rendered.
+ */
+add_filter( 'render_block_core/shortcode', 'do_shortcode' );
+
+add_shortcode(
+	'bm_language_switcher',
+	/**
+	 * "DE | EN" switcher like in the app; links to the translation of the current page if there is one, otherwise to
+	 * the start page of the language. Empty without Polylang.
+	 *
+	 * @return string
+	 */
+	static function () {
+		if ( ! function_exists( 'pll_the_languages' ) ) {
+			return '';
+		}
+		$languages = pll_the_languages(
+			array(
+				'raw'                    => 1,
+				'hide_if_no_translation' => 0,
+			)
+		);
+		if ( empty( $languages ) ) {
+			return '';
+		}
+		$links = '';
+		foreach ( $languages as $language ) {
+			$links .= sprintf(
+				'<a href="%1$s" hreflang="%2$s" lang="%2$s"%3$s>%4$s</a>',
+				esc_url( $language['url'] ),
+				esc_attr( $language['locale'] ? str_replace( '_', '-', $language['locale'] ) : $language['slug'] ),
+				$language['current_lang'] ? ' aria-current="true"' : '',
+				esc_html( strtoupper( $language['slug'] ) )
+			);
+		}
+		return sprintf(
+			'<nav class="bm-language-switcher" aria-label="%1$s">%2$s</nav>',
+			esc_attr__( 'Language', 'bike-maintainer' ),
+			$links
+		);
+	}
+);
+
+add_action(
 	'init',
 	/** Groups our patterns in the inserter. */
 	static function () {

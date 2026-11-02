@@ -9,7 +9,15 @@ WordPress website of the Bike Maintainer **portal** (`bike-maintainer.de`): land
 Epic stargazer74/bike-maintainer-backend#48. Note the naming: "portal" is also the operating mode of the app
 (`BM_MODE=portal`); this repo is only the website.
 
-German-only UI for now; text in templates and patterns is German. Code, comments and commit messages are English.
+German and English (Polylang): German at `/`, English at `/en/`, switcher `DE | EN` in the header. Theme texts are
+English source strings (`__()`/`esc_html_e()` with text domain `bike-maintainer`) translated in
+`wp-content/themes/bike-maintainer/languages/de_DE.po`; after changing texts run `scripts/i18n.sh` and fill in the
+empty `msgstr` entries – CI fails on missing German translations. Only `.pot`/`.po` are committed; `.mo`/`.l10n.php` are
+compiled in the image (and by `scripts/i18n.sh` for development). Polylang sets no cookie and its own browser
+detection is off (`bm-polylang.php`, privacy); instead `bm-polylang.php` redirects visitors from outside on `/` to `/en/`
+if their Accept-Language prefers English – never when the referrer is our own host, so a manual switch to German
+sticks without a cookie. Code, comments and commit
+messages are English.
 
 ## What lives where
 
@@ -21,13 +29,18 @@ German-only UI for now; text in templates and patterns is German. Code, comments
   the block editor would save, or the editor flags the block as invalid – check new patterns in the editor.
 - `wp-content/mu-plugins/bm-*.php` – our must-use plugins. Only `bm-*.php` files are ours; the entrypoint replaces
   exactly these in the volume.
-- Must-use plugins: `bm-updates.php` (auto-updates; our theme excluded from wordpress.org update checks),
+- Patterns link within the site via `bike_maintainer_home_url()` / `bike_maintainer_legal_url()` (language-aware);
+  shortcode blocks inside patterns are rendered by the `render_block_core/shortcode` filter (templates would leave them
+  raw otherwise).
+- Must-use plugins: `bm-polylang.php` (no Polylang cookie), `bm-updates.php` (auto-updates; our theme excluded from wordpress.org update checks),
   `bm-hardening.php` (XML-RPC off, no app passwords, no user enumeration for guests, no version, no file editor,
   per-IP login limit 10/15 min), `bm-smtp.php` (SMTP from `BM_SMTP_*`; no host = no mail). The client IP comes from
   Apache `mod_remoteip` (X-Forwarded-For from private networks only).
 - `docker-entrypoint-bm.sh` – runs the official `docker-ensure-installed.sh`, then syncs theme and `bm-*.php` from
   `/usr/src/bm` into `/var/www/html/wp-content`, then hands over to `docker-entrypoint.sh`.
 - `scripts/setup.sh` – idempotent WP-CLI setup (`bm-setup` in the image). Plugins to install go into `PLUGINS`.
+  Polylang (languages, options, English start page linked to the German one) is set up by
+  `scripts/setup-languages.php` via `wp eval-file`, as the free Polylang has no WP-CLI commands.
 - Content (pages, posts, forum, uploads) lives in the database/volume, never in the repo.
 
 ## Update model (decided 2026-11-02, "variant B")

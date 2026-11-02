@@ -29,8 +29,12 @@ RUN a2enmod remoteip \
 # Our own code, copied into the volume on every start.
 COPY wp-content/themes/bike-maintainer /usr/src/bm/themes/bike-maintainer
 COPY wp-content/mu-plugins /usr/src/bm/mu-plugins
+# Compile the theme translations (.mo and the faster .l10n.php); only the .po files are in the repository.
+RUN wp i18n make-mo /usr/src/bm/themes/bike-maintainer/languages --allow-root \
+    && wp i18n make-php /usr/src/bm/themes/bike-maintainer/languages --allow-root
 COPY --chmod=755 docker-entrypoint-bm.sh /usr/local/bin/docker-entrypoint-bm.sh
 COPY --chmod=755 scripts/setup.sh /usr/local/bin/bm-setup
+COPY scripts/setup-languages.php /usr/src/bm/setup-languages.php
 
 ENTRYPOINT ["docker-entrypoint-bm.sh"]
 CMD ["apache2-foreground"]

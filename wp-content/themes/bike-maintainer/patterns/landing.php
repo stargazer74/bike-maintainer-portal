@@ -3,7 +3,7 @@
  * Title: Landing Page
  * Slug: bike-maintainer/landing
  * Categories: bike-maintainer
- * Description: Komplette Startseite aus Hero, Funktionen, „Portal oder selbst betreiben“ und FAQ.
+ * Description: Complete start page with hero, features, “portal or self-hosted” and FAQ.
  * Block Types: core/post-content
  * Post Types: page
  * Viewport Width: 1400

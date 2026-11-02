@@ -13,7 +13,7 @@
         }
     },
     "scripts": {
-        "lint": "find wp-content -name '*.php' -print0 | xargs -0 -r -n1 php -l",
+        "lint": "find wp-content scripts -name '*.php' -print0 | xargs -0 -r -n1 php -l",
         "phpcs": "phpcs"
     },
     "require-dev": {
