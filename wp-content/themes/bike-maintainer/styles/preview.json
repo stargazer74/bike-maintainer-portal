@@ -1,0 +1,12 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.9/theme.json",
+	"version": 3,
+	"title": "App-Vorschau",
+	"slug": "preview",
+	"blockTypes": [
+		"core/image"
+	],
+	"styles": {
+		"css": "& img { width: 100%; height: auto; aspect-ratio: 1650 / 1305; border-radius: 16px; border: 1px solid var(--wp--preset--color--accent-6); box-shadow: 0 0 30px rgba(249, 99, 2, .3); } @media (prefers-reduced-motion: no-preference) { & img { animation: bm-glow 4s ease-in-out infinite; } }"
+	}
+}
