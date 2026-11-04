@@ -281,3 +281,44 @@ add_action(
 		}
 	}
 );
+
+/*
+ * Login, registration and lost password (wp-login.php): design of the website instead of the white WordPress page,
+ * logo and name of the website linking to its start page.
+ */
+add_action(
+	'login_enqueue_scripts',
+	/** Stylesheet of the login page. */
+	static function () {
+		wp_enqueue_style(
+			'bike-maintainer-login',
+			get_stylesheet_directory_uri() . '/assets/css/login.css',
+			array( 'login' ),
+			wp_get_theme()->get( 'Version' )
+		);
+	}
+);
+
+add_filter(
+	'login_headerurl',
+	/**
+	 * The logo above the form links to the start page of the website, not to wordpress.org.
+	 *
+	 * @return string
+	 */
+	static function () {
+		return bike_maintainer_home_url();
+	}
+);
+
+add_filter(
+	'login_headertext',
+	/**
+	 * Name of the website next to the logo.
+	 *
+	 * @return string
+	 */
+	static function () {
+		return 'bike-maintainer.de';
+	}
+);

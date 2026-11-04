@@ -1,0 +1,223 @@
+/*
+ * Login, registration and lost password (wp-login.php) in the dark design of the website. WordPress loads no theme
+ * styles there, so colours and the font are repeated here (values from theme.json).
+ */
+@font-face {
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 100 900;
+	font-display: swap;
+	src: url("../fonts/InterVariable.woff2") format("woff2");
+}
+
+body.login {
+	--bm-base: #0b0f19;
+	--bm-card: #121826;
+	--bm-surface: #1e293b;
+	--bm-border: #1f293d;
+	--bm-text: #f3f4f6;
+	--bm-muted: #9ca3af;
+	--bm-accent: #f96302;
+	--bm-accent-light: #ff7d26;
+	--bm-error: #f87171;
+	/* ALTCHA widget 3.x */
+	--altcha-color-base: var(--bm-base);
+	--altcha-color-base-content: var(--bm-text);
+	--altcha-color-neutral: var(--bm-muted);
+	--altcha-color-neutral-content: var(--bm-base);
+	--altcha-color-primary: var(--bm-accent);
+	--altcha-color-primary-content: var(--bm-base);
+	--altcha-color-error: var(--bm-error);
+	--altcha-color-success: #34d399;
+	--altcha-border-color: var(--bm-border);
+	--altcha-border-radius: 8px;
+	--altcha-checkbox-border-color: var(--bm-muted);
+	--altcha-spinner-color: var(--bm-accent);
+	--altcha-shadow: none;
+	--altcha-max-width: 100%;
+	background: var(--bm-base);
+	color: var(--bm-text);
+	font-family: Inter, system-ui, sans-serif;
+}
+
+/* Logo and name of the website instead of the WordPress logo. */
+.login h1 a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	width: auto;
+	height: auto;
+	margin: 0 auto 24px;
+	padding-top: 0;
+	background: none;
+	color: var(--bm-text);
+	font-size: 22px;
+	font-weight: 800;
+	line-height: 48px;
+	text-indent: 0;
+	text-decoration: none;
+	overflow: visible;
+}
+.login h1 a::before {
+	content: "";
+	width: 48px;
+	height: 48px;
+	background: url("../images/logo.svg") center / contain no-repeat;
+}
+.login h1 a:focus {
+	box-shadow: none;
+	outline: 2px solid var(--bm-accent);
+	outline-offset: 4px;
+	border-radius: 8px;
+}
+
+#login {
+	width: 360px;
+	max-width: calc(100% - 32px);
+	padding-top: 8vh;
+}
+
+.login form {
+	margin-top: 16px;
+	padding: 28px 24px;
+	background: var(--bm-card);
+	border: 1px solid var(--bm-border);
+	border-radius: 16px;
+	box-shadow: 0 20px 40px rgb(0 0 0 / 35%);
+	color: var(--bm-text);
+}
+.login label {
+	color: var(--bm-text);
+	font-size: 14px;
+	font-weight: 500;
+}
+.login form .input,
+.login input[type="text"],
+.login input[type="email"],
+.login input[type="password"] {
+	margin-top: 6px;
+	padding: 6px 12px;
+	background: var(--bm-base);
+	border: 1px solid var(--bm-border);
+	border-radius: 8px;
+	box-shadow: none;
+	color: var(--bm-text);
+	font-size: 16px;
+}
+.login form .input:focus,
+.login input[type="text"]:focus,
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+	border-color: var(--bm-accent);
+	box-shadow: 0 0 0 1px var(--bm-accent);
+	outline: none;
+}
+.login .button.wp-hide-pw {
+	color: var(--bm-muted);
+}
+.login .button.wp-hide-pw:focus {
+	border-color: var(--bm-accent);
+	box-shadow: 0 0 0 1px var(--bm-accent);
+}
+.login form input[type="checkbox"] {
+	background: var(--bm-base);
+	border-color: var(--bm-border);
+}
+.login form input[type="checkbox"]:checked::before {
+	filter: invert(1);
+}
+#reg_passmail,
+.login .forgetmenot label {
+	color: var(--bm-muted);
+	font-size: 13px;
+}
+
+/* Dark text on orange: white fails WCAG AA (as on the website). */
+.login .button-primary {
+	min-height: 40px;
+	padding: 0 20px;
+	background: var(--bm-accent);
+	border: none;
+	border-radius: 10px;
+	box-shadow: none;
+	color: var(--bm-base);
+	font-weight: 700;
+	text-shadow: none;
+}
+.login .button-primary:hover,
+.login .button-primary:focus {
+	background: var(--bm-accent-light);
+	color: var(--bm-base);
+	box-shadow: 0 0 0 2px var(--bm-base), 0 0 0 4px var(--bm-accent);
+}
+
+/* Messages above the form and inside it (e.g. "form not available" without ALTCHA key). */
+.login .message,
+.login .notice,
+.login .success,
+.login #login_error {
+	margin-bottom: 16px;
+	padding: 12px 16px;
+	background: var(--bm-surface);
+	border: none;
+	border-left: 4px solid var(--bm-accent);
+	border-radius: 8px;
+	box-shadow: none;
+	color: var(--bm-text);
+}
+.login #login_error,
+.login .notice-error {
+	border-left-color: var(--bm-error);
+}
+.login .message a,
+.login .notice a,
+.login #login_error a {
+	color: var(--bm-accent-light);
+}
+
+/* Links below the form. */
+.login #nav,
+.login #backtoblog {
+	padding: 0 8px;
+	color: var(--bm-muted);
+}
+.login #nav a,
+.login #backtoblog a {
+	color: var(--bm-muted);
+}
+.login #nav a:hover,
+.login #backtoblog a:hover,
+.login #nav a:focus,
+.login #backtoblog a:focus {
+	color: var(--bm-accent-light);
+	box-shadow: none;
+}
+.login .privacy-policy-page-link a {
+	color: var(--bm-muted);
+}
+
+/* Language selection of WordPress below the form. */
+.login .language-switcher {
+	color: var(--bm-muted);
+}
+.login .language-switcher .dashicons {
+	color: var(--bm-muted);
+}
+.login .language-switcher select {
+	background-color: var(--bm-card);
+	border-color: var(--bm-border);
+	border-radius: 8px;
+	color: var(--bm-text);
+}
+.login .language-switcher .button {
+	background: transparent;
+	border-color: var(--bm-border);
+	border-radius: 8px;
+	color: var(--bm-text);
+}
+.login .language-switcher .button:hover,
+.login .language-switcher .button:focus {
+	border-color: var(--bm-accent);
+	color: var(--bm-accent-light);
+}

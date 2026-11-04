@@ -50,8 +50,8 @@ foreach ( $bm_forum_pages as $bm_page ) {
 	}
 }
 
-// Wide column: the forum needs more room than the text column of a page.
-$bm_content = '<!-- wp:group {"align":"wide","layout":{"type":"constrained","contentSize":"1100px"}} -->' . "\n"
+// Wide column (wide size of theme.json, as wide as the header): the forum needs more room than the text column.
+$bm_content = '<!-- wp:group {"align":"wide","layout":{"type":"default"}} -->' . "\n"
 	. '<div class="wp-block-group alignwide"><!-- wp:shortcode -->' . "\n[forum]\n" . '<!-- /wp:shortcode --></div>' . "\n"
 	. '<!-- /wp:group -->';
 foreach ( array(
