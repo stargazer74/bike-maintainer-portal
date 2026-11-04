@@ -69,9 +69,10 @@ for plugin in "${PLUGINS[@]}"; do
     # commands fail until then; so make that request right away.
     curl -s -o /dev/null http://localhost/ || true
 done
-if [ "${#PLUGINS[@]}" -gt 0 ]; then
-    wp language plugin install "${PLUGINS[@]}" de_DE
-fi
+# One plugin per call: "wp language plugin install a b de_DE" would take b as a language.
+for plugin in "${PLUGINS[@]}"; do
+    wp language plugin install "$plugin" de_DE
+done
 
 wp eval-file /usr/src/bm/setup-languages.php
 wp eval-file /usr/src/bm/setup-forum.php
