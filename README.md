@@ -52,11 +52,11 @@ Immer aktiv, im Admin nicht abschaltbar (`wp-content/mu-plugins/`):
 
 | Variable | Bedeutung |
 |---|---|
-| `BM_SMTP_HOST` | SMTP-Server, z. B. `smtp.ionos.de`; leer = kein Versand |
+| `BM_SMTP_HOST` | SMTP-Server, z. B. `smtp.example.com`; leer = kein Versand |
 | `BM_SMTP_PORT` | Standard `587` (STARTTLS); `465` = TLS; andere Ports (Mailpit `1025`) unverschlüsselt |
 | `BM_SMTP_SECURE` | optional: `tls`, `ssl` oder `none` statt der Ableitung aus dem Port |
 | `BM_SMTP_USER`, `BM_SMTP_PASSWORD` | Zugang; ohne Nutzer keine Anmeldung am Server |
-| `BM_SMTP_FROM` | Absender, Standard `noreply@bike-maintainer.de` (Name „Bike Maintainer“) |
+| `BM_SMTP_FROM` | Absender, Standard `BM_SMTP_USER` (Name „Bike Maintainer“) |
 
 ### Login-Schutz
 

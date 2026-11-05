@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Bike Maintainer – Mail via SMTP
- * Description: Sends all mail through the SMTP server from the environment (BM_SMTP_*), e.g. noreply@bike-maintainer.de at IONOS or Mailpit in development. Without BM_SMTP_HOST no mail is sent at all.
+ * Description: Sends all mail through the SMTP server from the environment (BM_SMTP_*), e.g. the sending mailbox of your mail provider or Mailpit in development. Without BM_SMTP_HOST no mail is sent at all.
  * Author: Chris Wohlbrecht
  * License: MIT
  *
@@ -69,5 +69,6 @@ add_action(
 	}
 );
 
-add_filter( 'wp_mail_from', static fn() => bm_smtp_env( 'BM_SMTP_FROM', 'noreply@bike-maintainer.de' ) );
+// Sender: BM_SMTP_FROM, else the SMTP login (most providers accept no other sender), else WordPress' default.
+add_filter( 'wp_mail_from', static fn( $from ) => bm_smtp_env( 'BM_SMTP_FROM', bm_smtp_env( 'BM_SMTP_USER', $from ) ) );
 add_filter( 'wp_mail_from_name', static fn() => 'Bike Maintainer' );

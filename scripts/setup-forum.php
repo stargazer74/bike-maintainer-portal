@@ -88,7 +88,7 @@ pll_save_post_translations(
 );
 
 // Forum options: privacy-friendly defaults (no avatars, profiles and member list only for members, nobody's online
-// status), mails from noreply@ like the rest of the website.
+// status), mails from the same sender as the rest of the website (bm-smtp.php: BM_SMTP_FROM, else the SMTP login).
 $bm_options = array_merge(
 	(array) get_option( 'asgarosforum_options', array() ),
 	array(
@@ -107,9 +107,12 @@ $bm_options = array_merge(
 		'reports_enabled'                  => true,
 		'reports_notifications'            => true,
 		'notification_sender_name'         => 'Bike Maintainer',
-		'notification_sender_mail'         => getenv( 'BM_SMTP_FROM' ) ? getenv( 'BM_SMTP_FROM' ) : 'noreply@bike-maintainer.de',
 	)
 );
+$bm_sender  = getenv( 'BM_SMTP_FROM' ) ? getenv( 'BM_SMTP_FROM' ) : getenv( 'BM_SMTP_USER' );
+if ( $bm_sender ) {
+	$bm_options['notification_sender_mail'] = $bm_sender;
+}
 update_option( 'asgarosforum_options', $bm_options );
 
 // Colours and font of the theme (dark "workshop" design), see theme.json.
