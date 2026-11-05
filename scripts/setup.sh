@@ -76,5 +76,6 @@ done
 
 wp eval-file /usr/src/bm/setup-languages.php
 wp eval-file /usr/src/bm/setup-forum.php
+wp eval-file /usr/src/bm/setup-legal.php
 
 echo "Setup complete: $(wp option get siteurl)"

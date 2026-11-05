@@ -117,7 +117,10 @@ Polylang miteinander verknüpft. `bm-setup` richtet das ein (`scripts/setup-lang
   und `.po`; `.mo` und `.l10n.php` erzeugt der Image-Build.
 - **Inhalte** (Seiten, Beiträge) übersetzt man im Editor über Polylang: je Sprache eine eigene, verknüpfte Seite.
 - **Impressum und Datenschutz:** `/impressum/` und `/datenschutz/` bzw. `/en/legal-notice/` und `/en/privacy/` – die
-  Fußzeile verlinkt je nach Sprache dorthin; die Seiten legt der Betreiber an.
+  Fußzeile der Website und die App verlinken je nach Sprache dorthin. `bm-setup` legt fehlende Seiten als
+  **Entwürfe** mit Platzhalter an, verknüpft die Sprachen und setzt die Datenschutzseite von WordPress (Link bei
+  Registrierung und Anmeldung) – `scripts/setup-legal.php`. Den Text schreibt der Betreiber im Editor und
+  veröffentlicht die Seiten; vorhandene Seiten ändert `bm-setup` nie.
 
 ## Forum
 
