@@ -46,6 +46,9 @@ messages are English.
 - `scripts/setup.sh` – idempotent WP-CLI setup (`bm-setup` in the image). Plugins to install go into `PLUGINS`.
   Polylang (languages, options, English start page linked to the German one) is set up by
   `scripts/setup-languages.php` via `wp eval-file`, as the free Polylang has no WP-CLI commands.
+- Legal pages (`/impressum/`, `/datenschutz/`, `/en/legal-notice/`, `/en/privacy/`, linked by the footer and the
+  app): `scripts/setup-legal.php` creates missing ones as drafts with a placeholder, links the languages and sets
+  WordPress' privacy page. It never touches existing pages – their text is the operator's.
 - Content (pages, posts, forum, uploads) lives in the database/volume, never in the repo.
 
 ## Update model (decided 2026-11-02, "variant B")
