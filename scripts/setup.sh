@@ -14,6 +14,10 @@ PLUGINS=(
     antispam-bee    # Spam filter for comments
 )
 
+# WP-CLI caches downloads in ~/.wp-cli/cache; the home of www-data (/var/www) belongs to root, which would warn on
+# every download.
+export WP_CLI_CACHE_DIR="${WP_CLI_CACHE_DIR:-/tmp/wp-cli-cache}"
+
 cd /var/www/html
 
 if ! wp core is-installed 2>/dev/null; then
