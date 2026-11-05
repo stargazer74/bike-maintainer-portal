@@ -40,7 +40,7 @@ services:
       # Mail goes to Mailpit.
       BM_SMTP_HOST: mailpit
       BM_SMTP_PORT: '1025'
-      BM_SMTP_FROM: noreply@bike-maintainer.de
+      BM_SMTP_FROM: noreply@example.org
     volumes:
       - wordpress:/var/www/html
       - ./wp-content/themes/bike-maintainer:/var/www/html/wp-content/themes/bike-maintainer
