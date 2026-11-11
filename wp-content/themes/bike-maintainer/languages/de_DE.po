@@ -33,7 +33,7 @@ msgstr "Website des Bike-Maintainer-Portals. Block-Child-Theme von Twenty Twenty
 #. Author of the theme
 #. Author of the plugin
 #: style.css
-#: bm-hardening.php
+#: bm-seo.php
 msgid "Chris Wohlbrecht"
 msgstr ""
 
@@ -457,16 +457,6 @@ msgstr "Sekundär"
 msgid "Forum"
 msgstr "Forum"
 
-#. Plugin Name of the plugin
-#: bm-hardening.php
-msgid "Bike Maintainer – Hardening"
-msgstr "Bike Maintainer – Härtung"
-
-#. Description of the plugin
-#: bm-hardening.php
-msgid "No XML-RPC, no application passwords, no user enumeration for guests, no version in the page, no file editor in the admin, and a per-IP limit for failed logins."
-msgstr "Kein XML-RPC, keine Anwendungspasswörter, keine Nutzer-Aufzählung für Gäste, keine Versionsangabe auf der Seite, kein Datei-Editor im Admin und ein Limit für fehlgeschlagene Anmeldungen pro IP."
-
 #: bm-altcha.php:162
 msgid "Visit altcha.org"
 msgstr "altcha.org besuchen"
@@ -533,3 +523,33 @@ msgstr "Zu viele fehlgeschlagene Anmeldungen. Bitte versuche es in 15 Minuten er
 #: bm-smtp.php:38
 msgid "No emails are sent: BM_SMTP_HOST is not set."
 msgstr "Es werden keine E-Mails versendet: BM_SMTP_HOST ist nicht gesetzt."
+
+#. Plugin Name of the plugin
+#: bm-seo.php
+msgid "Bike Maintainer – SEO"
+msgstr ""
+
+#. Description of the plugin
+#: bm-seo.php
+msgid "Search engines and link previews: a title with tagline and a description on the start page, Open Graph and Twitter Card tags with a local preview image, structured data (JSON-LD) for the website and the app, hreflang x-default, forum topics in the sitemap and language links that stay on the same forum topic. Everything is plain markup in the page – no SEO service, no tracking, no request to a third party."
+msgstr ""
+
+#: bm-seo.php:59
+msgid "Bike Maintainer reminds you of maintenance by mileage or time and keeps the service book of your motorcycle or car. Open source, in the portal or self-hosted."
+msgstr "Bike Maintainer erinnert dich an Wartungen nach Kilometerstand oder Zeit und führt das Scheckheft für Motorrad und Auto. Open Source, im Portal oder selbst betrieben."
+
+#: bm-seo.php:102
+msgid "Maintenance planner for motorcycles and cars"
+msgstr "Wartungsplaner für Motorrad und Auto"
+
+#: bm-seo.php:118
+msgid "Questions, tips and discussion about maintaining motorcycles and cars – the community of Bike Maintainer."
+msgstr "Fragen, Tipps und Austausch rund um die Wartung von Motorrad und Auto – die Community von Bike Maintainer."
+
+#: bm-seo.php:235
+msgid "Bike Maintainer – maintenance planner for motorcycles and cars"
+msgstr "Bike Maintainer – Wartungsplaner für Motorrad und Auto"
+
+#: bm-seo.php:257
+msgid "Web browser; self-hosted with Docker on Linux, also on a Raspberry Pi"
+msgstr "Webbrowser; selbst betrieben mit Docker unter Linux, auch auf einem Raspberry Pi"

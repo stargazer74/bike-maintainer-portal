@@ -2,14 +2,14 @@
 # This file is distributed under the MIT.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bike Maintainer – Hardening\n"
+"Project-Id-Version: Bike Maintainer – SEO\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bike-maintainer\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-02T14:45:00+00:00\n"
+"POT-Creation-Date: 2026-11-11T14:41:59+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: bike-maintainer\n"
@@ -33,7 +33,7 @@ msgstr ""
 #. Author of the theme
 #. Author of the plugin
 #: style.css
-#: bm-hardening.php
+#: bm-seo.php
 msgid "Chris Wohlbrecht"
 msgstr ""
 
@@ -458,13 +458,13 @@ msgid "Secondary"
 msgstr ""
 
 #. Plugin Name of the plugin
-#: bm-hardening.php
-msgid "Bike Maintainer – Hardening"
+#: bm-seo.php
+msgid "Bike Maintainer – SEO"
 msgstr ""
 
 #. Description of the plugin
-#: bm-hardening.php
-msgid "No XML-RPC, no application passwords, no user enumeration for guests, no version in the page, no file editor in the admin, and a per-IP limit for failed logins."
+#: bm-seo.php
+msgid "Search engines and link previews: a title with tagline and a description on the start page, Open Graph and Twitter Card tags with a local preview image, structured data (JSON-LD) for the website and the app, hreflang x-default, forum topics in the sitemap and language links that stay on the same forum topic. Everything is plain markup in the page – no SEO service, no tracking, no request to a third party."
 msgstr ""
 
 #: bm-altcha.php:162
@@ -528,6 +528,26 @@ msgstr ""
 
 #: bm-hardening.php:119
 msgid "Too many failed logins. Please try again in 15 minutes."
+msgstr ""
+
+#: bm-seo.php:59
+msgid "Bike Maintainer reminds you of maintenance by mileage or time and keeps the service book of your motorcycle or car. Open source, in the portal or self-hosted."
+msgstr ""
+
+#: bm-seo.php:102
+msgid "Maintenance planner for motorcycles and cars"
+msgstr ""
+
+#: bm-seo.php:118
+msgid "Questions, tips and discussion about maintaining motorcycles and cars – the community of Bike Maintainer."
+msgstr ""
+
+#: bm-seo.php:235
+msgid "Bike Maintainer – maintenance planner for motorcycles and cars"
+msgstr ""
+
+#: bm-seo.php:257
+msgid "Web browser; self-hosted with Docker on Linux, also on a Raspberry Pi"
 msgstr ""
 
 #: bm-smtp.php:38
