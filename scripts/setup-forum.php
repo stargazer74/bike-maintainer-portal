@@ -160,5 +160,15 @@ if ( $bm_example ) {
 	WP_CLI::log( 'Renamed the example category and forum' );
 }
 
+// Accounts from before bm-privacy.php gave neutral names (#15): no login name in public, also not for administrators.
+// Only names that show the login name are changed; a nickname chosen by the member stays.
+$bm_renamed = 0;
+foreach ( get_users( array( 'fields' => 'ID' ) ) as $bm_user_id ) {
+	$bm_renamed += bm_neutralize_public_names( (int) $bm_user_id ) ? 1 : 0;
+}
+if ( $bm_renamed > 0 ) {
+	WP_CLI::log( "Neutral public names for $bm_renamed account(s)" );
+}
+
 flush_rewrite_rules();
 WP_CLI::success( "Forum pages: de $bm_forum_de, en $bm_forum_en" );

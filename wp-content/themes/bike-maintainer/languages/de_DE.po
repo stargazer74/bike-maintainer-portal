@@ -462,62 +462,62 @@ msgstr "Forum"
 msgid "Bike Maintainer – Hardening"
 msgstr "Bike Maintainer – Härtung"
 
-#: bm-altcha.php:162
+#: bm-altcha.php:191
 msgid "Visit altcha.org"
 msgstr "altcha.org besuchen"
 
-#: bm-altcha.php:163
+#: bm-altcha.php:192
 msgid "Verification failed, please try again later."
 msgstr "Bestätigung fehlgeschlagen, bitte später erneut versuchen."
 
-#: bm-altcha.php:164
+#: bm-altcha.php:193
 msgid "Verification expired, please try again."
 msgstr "Bestätigung abgelaufen, bitte erneut versuchen."
 
 #. translators: %s: link to altcha.org with the name ALTCHA.
-#: bm-altcha.php:167
+#: bm-altcha.php:196
 #, php-format
 msgid "Protected by %s"
 msgstr "Geschützt durch %s"
 
-#: bm-altcha.php:170
+#: bm-altcha.php:199
 msgid "I'm not a robot"
 msgstr "Ich bin kein Roboter"
 
-#: bm-altcha.php:171
+#: bm-altcha.php:200
 msgid "Loading …"
 msgstr "Wird geladen …"
 
-#: bm-altcha.php:172
+#: bm-altcha.php:201
 msgid "Reload"
 msgstr "Neu laden"
 
-#: bm-altcha.php:173
+#: bm-altcha.php:202
 msgid "Verify"
 msgstr "Bestätigen"
 
-#: bm-altcha.php:174
+#: bm-altcha.php:203
 msgid "Verification required!"
 msgstr "Bestätigung erforderlich!"
 
-#: bm-altcha.php:175
+#: bm-altcha.php:204
 msgid "Verified"
 msgstr "Bestätigt"
 
-#: bm-altcha.php:176
+#: bm-altcha.php:205
 msgid "Verifying …"
 msgstr "Wird bestätigt …"
 
-#: bm-altcha.php:177
+#: bm-altcha.php:206
 msgid "Verifying … please wait."
 msgstr "Wird bestätigt … bitte warten."
 
-#: bm-altcha.php:197
+#: bm-altcha.php:226
 msgid "This form is not available at the moment."
 msgstr "Dieses Formular ist im Moment nicht verfügbar."
 
-#: bm-altcha.php:230
-#: bm-altcha.php:249
+#: bm-altcha.php:259
+#: bm-altcha.php:278
 msgid "Please confirm that you are not a robot."
 msgstr "Bitte bestätige, dass du kein Roboter bist."
 
@@ -528,6 +528,21 @@ msgstr "Zu viele fehlgeschlagene Anmeldungen. Bitte versuche es in 15 Minuten er
 #: bm-smtp.php:38
 msgid "No emails are sent: BM_SMTP_HOST is not set."
 msgstr "Es werden keine E-Mails versendet: BM_SMTP_HOST ist nicht gesetzt."
+
+#. translators: %d: user ID
+#: bm-privacy.php:60
+#, php-format
+msgid "Member #%d"
+msgstr "Mitglied #%d"
+
+#: bm-privacy.php:91
+msgid "Your username must not be shown publicly. Please choose another nickname and display name."
+msgstr "Dein Benutzername darf nicht öffentlich angezeigt werden. Bitte wähle einen anderen Spitznamen und Anzeigenamen."
+
+#. Description of the plugin
+#: bm-hardening.php
+msgid "No XML-RPC, no application passwords, no user enumeration for guests (also not through the login, registration and lost password forms), no version in the page, no file editor in the admin, and a per-IP limit for failed logins."
+msgstr ""
 
 #: bm-hardening.php:167
 msgid "Error:"
@@ -564,8 +579,3 @@ msgstr ""
 #, php-format
 msgid "[%s] Registration with your email address"
 msgstr "[%s] Registrierung mit deiner E-Mail-Adresse"
-
-#. Description of the plugin
-#: bm-hardening.php
-msgid "No XML-RPC, no application passwords, no user enumeration for guests (also not through the login, registration and lost password forms), no version in the page, no file editor in the admin, and a per-IP limit for failed logins."
-msgstr ""
