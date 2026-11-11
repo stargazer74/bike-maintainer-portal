@@ -34,7 +34,8 @@ messages are English.
   raw otherwise).
 - Must-use plugins: `bm-altcha.php` (self-hosted ALTCHA on registration and lost password, needs `BM_ALTCHA_HMAC_KEY`;
   widget file vendored in `bm-altcha/`), `bm-privacy.php` (local avatars, never Gravatar), `bm-polylang.php` (no Polylang cookie), `bm-updates.php` (auto-updates; our theme excluded from wordpress.org update checks),
-  `bm-hardening.php` (XML-RPC off, no app passwords, no user enumeration for guests, no version, no file editor,
+  `bm-hardening.php` (XML-RPC off, no app passwords, no user enumeration for guests – login, registration and lost
+  password answer alike for known and unknown accounts, an existing account gets a notice mail instead – no version, no file editor,
   per-IP login limit 10/15 min), `bm-smtp.php` (SMTP from `BM_SMTP_*`; no host = no mail). The client IP comes from
   Apache `mod_remoteip` (X-Forwarded-For from private networks only).
 - `docker-entrypoint-bm.sh` – runs the official `docker-ensure-installed.sh`, then syncs theme and `bm-*.php` from

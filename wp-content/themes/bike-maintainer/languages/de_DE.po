@@ -462,11 +462,6 @@ msgstr "Forum"
 msgid "Bike Maintainer – Hardening"
 msgstr "Bike Maintainer – Härtung"
 
-#. Description of the plugin
-#: bm-hardening.php
-msgid "No XML-RPC, no application passwords, no user enumeration for guests, no version in the page, no file editor in the admin, and a per-IP limit for failed logins."
-msgstr "Kein XML-RPC, keine Anwendungspasswörter, keine Nutzer-Aufzählung für Gäste, keine Versionsangabe auf der Seite, kein Datei-Editor im Admin und ein Limit für fehlgeschlagene Anmeldungen pro IP."
-
 #: bm-altcha.php:162
 msgid "Visit altcha.org"
 msgstr "altcha.org besuchen"
@@ -533,3 +528,44 @@ msgstr "Zu viele fehlgeschlagene Anmeldungen. Bitte versuche es in 15 Minuten er
 #: bm-smtp.php:38
 msgid "No emails are sent: BM_SMTP_HOST is not set."
 msgstr "Es werden keine E-Mails versendet: BM_SMTP_HOST ist nicht gesetzt."
+
+#: bm-hardening.php:167
+msgid "Error:"
+msgstr "Fehler:"
+
+#: bm-hardening.php:168
+msgid "The email address, username or password is not correct."
+msgstr "E-Mail-Adresse, Benutzername oder Passwort sind nicht korrekt."
+
+#. translators: 1: site name, 2: login URL, 3: lost password URL
+#: bm-hardening.php:245
+#, php-format
+msgid ""
+"Hello,\n"
+"\n"
+"someone tried to register at %1$s with your email address. You already have an account.\n"
+"\n"
+"Log in: %2$s\n"
+"Forgot your password: %3$s\n"
+"\n"
+"If this was not you, you can ignore this email. Nothing was changed on your account."
+msgstr ""
+"Hallo,\n"
+"\n"
+"jemand wollte sich bei %1$s mit deiner E-Mail-Adresse registrieren. Du hast bereits ein Konto.\n"
+"\n"
+"Anmelden: %2$s\n"
+"Passwort vergessen: %3$s\n"
+"\n"
+"Falls du das nicht warst, kannst du diese E-Mail ignorieren. An deinem Konto wurde nichts geändert."
+
+#. translators: %s: site name
+#: bm-hardening.php:251
+#, php-format
+msgid "[%s] Registration with your email address"
+msgstr "[%s] Registrierung mit deiner E-Mail-Adresse"
+
+#. Description of the plugin
+#: bm-hardening.php
+msgid "No XML-RPC, no application passwords, no user enumeration for guests (also not through the login, registration and lost password forms), no version in the page, no file editor in the admin, and a per-IP limit for failed logins."
+msgstr ""

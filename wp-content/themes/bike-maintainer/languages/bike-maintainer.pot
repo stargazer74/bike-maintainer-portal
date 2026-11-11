@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-02T14:45:00+00:00\n"
+"POT-Creation-Date: 2026-11-11T13:44:08+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: bike-maintainer\n"
@@ -464,7 +464,7 @@ msgstr ""
 
 #. Description of the plugin
 #: bm-hardening.php
-msgid "No XML-RPC, no application passwords, no user enumeration for guests, no version in the page, no file editor in the admin, and a per-IP limit for failed logins."
+msgid "No XML-RPC, no application passwords, no user enumeration for guests (also not through the login, registration and lost password forms), no version in the page, no file editor in the admin, and a per-IP limit for failed logins."
 msgstr ""
 
 #: bm-altcha.php:162
@@ -528,6 +528,34 @@ msgstr ""
 
 #: bm-hardening.php:119
 msgid "Too many failed logins. Please try again in 15 minutes."
+msgstr ""
+
+#: bm-hardening.php:167
+msgid "Error:"
+msgstr ""
+
+#: bm-hardening.php:168
+msgid "The email address, username or password is not correct."
+msgstr ""
+
+#. translators: 1: site name, 2: login URL, 3: lost password URL
+#: bm-hardening.php:245
+#, php-format
+msgid ""
+"Hello,\n"
+"\n"
+"someone tried to register at %1$s with your email address. You already have an account.\n"
+"\n"
+"Log in: %2$s\n"
+"Forgot your password: %3$s\n"
+"\n"
+"If this was not you, you can ignore this email. Nothing was changed on your account."
+msgstr ""
+
+#. translators: %s: site name
+#: bm-hardening.php:251
+#, php-format
+msgid "[%s] Registration with your email address"
 msgstr ""
 
 #: bm-smtp.php:38
