@@ -13,9 +13,13 @@
 
 defined( 'ABSPATH' ) || exit;
 
+require_once __DIR__ . '/setup-lib.php';
+
 if ( ! function_exists( 'PLL' ) || ! function_exists( 'pll_set_post_language' ) ) {
 	WP_CLI::error( 'Polylang is not active.' );
 }
+
+bm_setup_init();
 
 $bm_model = PLL()->model;
 foreach (
@@ -107,17 +111,22 @@ if ( $bm_start && ! pll_get_post( $bm_start, 'en' ) ) {
 $bm_model->languages->clean_cache();
 
 // Date and time formats: German as the site default (WordPress was installed in English first), English via
-// Polylang's translation of the WordPress formats.
-update_option( 'date_format', 'j. F Y' );
-update_option( 'time_format', 'G:i' );
-$bm_english = $bm_model->get_language( 'en' );
-if ( $bm_english && class_exists( 'PLL_MO' ) ) {
-	$bm_mo = new PLL_MO();
-	$bm_mo->import_from_db( $bm_english );
-	$bm_mo->add_entry( $bm_mo->make_entry( 'j. F Y', 'F j, Y' ) );
-	$bm_mo->add_entry( $bm_mo->make_entry( 'G:i', 'g:i a' ) );
-	$bm_mo->export_to_db( $bm_english );
-}
+// Polylang's translation of the WordPress formats. Once only: afterwards they are the admins' settings.
+bm_setup_once(
+	'date-formats',
+	static function () use ( $bm_model ) {
+		update_option( 'date_format', 'j. F Y' );
+		update_option( 'time_format', 'G:i' );
+		$english = $bm_model->get_language( 'en' );
+		if ( $english && class_exists( 'PLL_MO' ) ) {
+			$mo = new PLL_MO();
+			$mo->import_from_db( $english );
+			$mo->add_entry( $mo->make_entry( 'j. F Y', 'F j, Y' ) );
+			$mo->add_entry( $mo->make_entry( 'G:i', 'g:i a' ) );
+			$mo->export_to_db( $english );
+		}
+	}
+);
 
 flush_rewrite_rules();
 WP_CLI::success( 'Languages: ' . implode( ', ', pll_languages_list() ) );
