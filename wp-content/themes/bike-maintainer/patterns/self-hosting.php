@@ -96,6 +96,10 @@
 				<!-- wp:list-item -->
 				<li><?php esc_html_e( 'Your data stays with you', 'bike-maintainer' ); ?></li>
 				<!-- /wp:list-item -->
+
+				<!-- wp:list-item -->
+				<li><?php esc_html_e( 'Move vehicles between portal and home by export and import', 'bike-maintainer' ); ?></li>
+				<!-- /wp:list-item -->
 			</ul>
 			<!-- /wp:list -->
 
