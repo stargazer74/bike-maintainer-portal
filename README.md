@@ -46,6 +46,7 @@ Immer aktiv, im Admin nicht abschaltbar (`wp-content/mu-plugins/`):
 | `bm-privacy.php` | Avatare nur lokal, nie von gravatar.com |
 | `bm-polylang.php` | Polylang setzt kein Sprach-Cookie; Weiterleitung nach Browsersprache ohne Cookie (siehe „Sprachen“) |
 | `bm-hardening.php` | kein XML-RPC (`xmlrpc.php` → 403), keine Anwendungspasswörter, keine Nutzer-Aufzählung für Gäste (`/wp-json/wp/v2/users`, `?author=N`, Nutzer-Sitemap), keine Versionsangabe, kein Datei-Editor im Admin, Login-Sperre pro IP |
+| `bm-seo.php` | Suchmaschinen und Link-Vorschau: Titel mit Untertitel und Beschreibung der Startseite, Open Graph/Twitter Card mit lokalem Vorschaubild (`assets/images/social-preview.png`), JSON-LD (`WebSite`, `WebApplication`), hreflang `x-default`, Forum-Themen in der Sitemap (`wp-sitemap-forum-1.xml` je Sprache, nur öffentliche Kategorien) und Sprachlinks, die im Forum auf demselben Thema bleiben. Nur Markup in der Seite – kein SEO-Dienst, kein Tracking. Ein im Admin gesetzter Untertitel bzw. eine Forenbeschreibung haben Vorrang. |
 | `bm-smtp.php` | Mailversand über SMTP aus der Umgebung (siehe unten); ohne `BM_SMTP_HOST` werden **keine** Mails versendet und Admins sehen einen Hinweis |
 
 ### Mailversand

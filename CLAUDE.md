@@ -39,7 +39,10 @@ messages are English.
   `bm-hardening.php` (XML-RPC off, no app passwords, no user enumeration for guests – login, registration and lost
   password answer alike for known and unknown accounts, an existing account gets a notice mail instead – no version,
   no file editor,
-  per-IP login limit 10/15 min), `bm-smtp.php` (SMTP from `BM_SMTP_*`; no host = no mail). The client IP comes from
+  per-IP login limit 10/15 min), `bm-smtp.php` (SMTP from `BM_SMTP_*`; no host = no mail), `bm-seo.php` (description,
+  Open Graph with `assets/images/social-preview.png`, JSON-LD, hreflang x-default, forum topics in the sitemap via
+  `bm-seo/class-bm-forum-sitemap.php`; on forum pages Asgaros prints canonical/description/og:title itself). The
+  client IP comes from
   Apache `mod_remoteip` (X-Forwarded-For from private networks only).
 - `docker-entrypoint-bm.sh` – runs the official `docker-ensure-installed.sh`, then syncs theme and `bm-*.php` from
   `/usr/src/bm` into `/var/www/html/wp-content`, then hands over to `docker-entrypoint.sh`.

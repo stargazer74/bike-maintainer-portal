@@ -33,7 +33,7 @@ msgstr "Website des Bike-Maintainer-Portals. Block-Child-Theme von Twenty Twenty
 #. Author of the theme
 #. Author of the plugin
 #: style.css
-#: bm-hardening.php
+#: bm-privacy.php
 msgid "Chris Wohlbrecht"
 msgstr ""
 
@@ -427,11 +427,6 @@ msgstr "Sekundär"
 msgid "Forum"
 msgstr "Forum"
 
-#. Plugin Name of the plugin
-#: bm-hardening.php
-msgid "Bike Maintainer – Hardening"
-msgstr "Bike Maintainer – Härtung"
-
 #: bm-altcha.php:191
 msgid "Visit altcha.org"
 msgstr "altcha.org besuchen"
@@ -508,11 +503,6 @@ msgstr "Mitglied #%d"
 #: bm-privacy.php:91
 msgid "Your username must not be shown publicly. Please choose another nickname and display name."
 msgstr "Dein Benutzername darf nicht öffentlich angezeigt werden. Bitte wähle einen anderen Spitznamen und Anzeigenamen."
-
-#. Description of the plugin
-#: bm-hardening.php
-msgid "No XML-RPC, no application passwords, no user enumeration for guests (also not through the login, registration and lost password forms), no version in the page, no file editor in the admin, and a per-IP limit for failed logins."
-msgstr ""
 
 #: bm-hardening.php:167
 msgid "Error:"
@@ -709,3 +699,33 @@ msgstr "Komplette Startseite mit Hero, Funktionen, Android-App, „Portal oder s
 #: patterns/self-hosting.php:101
 msgid "Move vehicles between portal and home by export and import"
 msgstr "Fahrzeuge per Export und Import zwischen Portal und Zuhause umziehen"
+
+#. Plugin Name of the plugin
+#: bm-privacy.php
+msgid "Bike Maintainer – Privacy"
+msgstr ""
+
+#. Description of the plugin
+#: bm-privacy.php
+msgid "Avatars never come from gravatar.com (that would send each visitor's IP address and a hash of the members' email addresses to a third party); every avatar is a local placeholder – also where plugins such as Asgaros Forum force avatars on. Login names never appear publicly: members get a neutral display name and URL name."
+msgstr ""
+
+#: bm-seo.php:60
+msgid "Bike Maintainer reminds you of maintenance by mileage or time and keeps the service book of your motorcycle, car or bicycle. Open source, in the portal or self-hosted."
+msgstr "Bike Maintainer erinnert an Wartungen nach Kilometerstand oder Zeit und führt das Scheckheft für Motorrad, Auto und Fahrrad. Open Source, im Portal oder selbst betrieben."
+
+#: bm-seo.php:103
+msgid "Maintenance planner for motorcycles, cars and bicycles"
+msgstr "Wartungsplaner für Motorrad, Auto und Fahrrad"
+
+#: bm-seo.php:119
+msgid "Questions, tips and discussion about maintaining your vehicles – the community of Bike Maintainer."
+msgstr "Fragen, Tipps und Austausch rund um die Wartung deiner Fahrzeuge – die Community von Bike Maintainer."
+
+#: bm-seo.php:236
+msgid "Bike Maintainer – maintenance planner for motorcycles, cars and bicycles"
+msgstr "Bike Maintainer – Wartungsplaner für Motorrad, Auto und Fahrrad"
+
+#: bm-seo.php:258
+msgid "Web browser; self-hosted with Docker on Linux, also on a Raspberry Pi"
+msgstr "Webbrowser; selbst betrieben mit Docker unter Linux, auch auf einem Raspberry Pi"

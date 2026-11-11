@@ -2,14 +2,14 @@
 # This file is distributed under the MIT.
 msgid ""
 msgstr ""
-"Project-Id-Version: Bike Maintainer – Hardening\n"
+"Project-Id-Version: Bike Maintainer – Privacy\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/bike-maintainer\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-11T15:06:08+00:00\n"
+"POT-Creation-Date: 2026-11-11T15:13:07+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: bike-maintainer\n"
@@ -33,7 +33,7 @@ msgstr ""
 #. Author of the theme
 #. Author of the plugin
 #: style.css
-#: bm-hardening.php
+#: bm-privacy.php
 msgid "Chris Wohlbrecht"
 msgstr ""
 
@@ -588,13 +588,13 @@ msgid "Secondary"
 msgstr ""
 
 #. Plugin Name of the plugin
-#: bm-hardening.php
-msgid "Bike Maintainer – Hardening"
+#: bm-privacy.php
+msgid "Bike Maintainer – Privacy"
 msgstr ""
 
 #. Description of the plugin
-#: bm-hardening.php
-msgid "No XML-RPC, no application passwords, no user enumeration for guests (also not through the login, registration and lost password forms), no version in the page, no file editor in the admin, and a per-IP limit for failed logins."
+#: bm-privacy.php
+msgid "Avatars never come from gravatar.com (that would send each visitor's IP address and a hash of the members' email addresses to a third party); every avatar is a local placeholder – also where plugins such as Asgaros Forum force avatars on. Login names never appear publicly: members get a neutral display name and URL name."
 msgstr ""
 
 #: bm-altcha.php:191
@@ -696,6 +696,26 @@ msgstr ""
 
 #: bm-privacy.php:91
 msgid "Your username must not be shown publicly. Please choose another nickname and display name."
+msgstr ""
+
+#: bm-seo.php:60
+msgid "Bike Maintainer reminds you of maintenance by mileage or time and keeps the service book of your motorcycle, car or bicycle. Open source, in the portal or self-hosted."
+msgstr ""
+
+#: bm-seo.php:103
+msgid "Maintenance planner for motorcycles, cars and bicycles"
+msgstr ""
+
+#: bm-seo.php:119
+msgid "Questions, tips and discussion about maintaining your vehicles – the community of Bike Maintainer."
+msgstr ""
+
+#: bm-seo.php:236
+msgid "Bike Maintainer – maintenance planner for motorcycles, cars and bicycles"
+msgstr ""
+
+#: bm-seo.php:258
+msgid "Web browser; self-hosted with Docker on Linux, also on a Raspberry Pi"
 msgstr ""
 
 #: bm-smtp.php:38
