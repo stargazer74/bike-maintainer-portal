@@ -48,6 +48,11 @@ messages are English.
   plugins with `--skip-plugins` and makes a web request after each activation. Asgaros caches date formats before
   Polylang knows the language – `functions.php` re-reads them on `wp`.
 - `scripts/setup.sh` – idempotent WP-CLI setup (`bm-setup` in the image). Plugins to install go into `PLUGINS`.
+  Defaults that belong to the admins afterwards (date formats, registration, forum options and colours) are applied
+  once only via `bm_setup_once()` (`scripts/setup-lib.php`, done steps in the option `bm_setup_done`); a later run
+  keeps what admins changed. Wrap new defaults of that kind the same way; settings that point to our own objects
+  (e.g. Asgaros' `location`) are set on every run. The web request after each plugin activation must succeed
+  (`curl --fail`), and `setup-forum.php` stops if Asgaros' tables are missing.
   Polylang (languages, options, English start page linked to the German one) is set up by
   `scripts/setup-languages.php` via `wp eval-file`, as the free Polylang has no WP-CLI commands.
 - Legal pages (`/impressum/`, `/datenschutz/`, `/en/legal-notice/`, `/en/privacy/`, linked by the footer and the
