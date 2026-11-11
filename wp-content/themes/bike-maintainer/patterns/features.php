@@ -3,7 +3,7 @@
  * Title: Features
  * Slug: bike-maintainer/features
  * Categories: bike-maintainer
- * Description: Six features of the app as cards with icons.
+ * Description: Nine features of the app as cards with icons, in three rows.
  *
  * @package BikeMaintainer
  */
@@ -40,7 +40,7 @@
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->
-				<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'Reminders by mileage or months – whichever comes first. See due and overdue work at a glance.', 'bike-maintainer' ); ?></p>
+				<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'Reminders by mileage or months – whichever comes first. See due and overdue work at a glance, and record extra work right along with the maintenance.', 'bike-maintainer' ); ?></p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:column -->
@@ -79,6 +79,58 @@
 	</div>
 	<!-- /wp:columns -->
 
+	<!-- wp:columns {"align":"wide","style":{"spacing":{"margin":{"bottom":"2rem"},"blockGap":{"left":"2rem"}}}} -->
+	<div class="wp-block-columns alignwide" style="margin-bottom:2rem">
+			<!-- wp:column {"className":"is-style-card"} -->
+			<div class="wp-block-column is-style-card">
+				<!-- wp:image {"width":"48px","height":"48px","linkDestination":"none","className":"is-style-icon-tile"} -->
+				<figure class="wp-block-image is-resized is-style-icon-tile"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/icons/clipboard-list.svg' ) ); ?>" alt="" style="width:48px;height:48px"/></figure>
+				<!-- /wp:image -->
+
+				<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.125rem","fontWeight":"700"}}} -->
+				<h3 class="wp-block-heading" style="font-size:1.125rem;font-weight:700"><?php esc_html_e( 'Worksheets for the workshop', 'bike-maintainer' ); ?></h3>
+				<!-- /wp:heading -->
+
+				<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->
+				<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'Print a worksheet for valve clearance, brakes, chain or tyres, fill it in by hand at the bike and photograph it with the app. Your phone reads the values – the photo never leaves it.', 'bike-maintainer' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"className":"is-style-card"} -->
+			<div class="wp-block-column is-style-card">
+				<!-- wp:image {"width":"48px","height":"48px","linkDestination":"none","className":"is-style-icon-tile"} -->
+				<figure class="wp-block-image is-resized is-style-icon-tile"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/icons/gauge.svg' ) ); ?>" alt="" style="width:48px;height:48px"/></figure>
+				<!-- /wp:image -->
+
+				<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.125rem","fontWeight":"700"}}} -->
+				<h3 class="wp-block-heading" style="font-size:1.125rem;font-weight:700"><?php esc_html_e( 'Measured values and targets', 'bike-maintainer' ); ?></h3>
+				<!-- /wp:heading -->
+
+				<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->
+				<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'Store the target values from the workshop manual. Values outside them are highlighted, and for shim-adjusted valves the app suggests the new shim.', 'bike-maintainer' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"className":"is-style-card"} -->
+			<div class="wp-block-column is-style-card">
+				<!-- wp:image {"width":"48px","height":"48px","linkDestination":"none","className":"is-style-icon-tile"} -->
+				<figure class="wp-block-image is-resized is-style-icon-tile"><img src="<?php echo esc_url( get_theme_file_uri( 'assets/icons/arrow-left-right.svg' ) ); ?>" alt="" style="width:48px;height:48px"/></figure>
+				<!-- /wp:image -->
+
+				<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.125rem","fontWeight":"700"}}} -->
+				<h3 class="wp-block-heading" style="font-size:1.125rem;font-weight:700"><?php esc_html_e( 'Take your data with you', 'bike-maintainer' ); ?></h3>
+				<!-- /wp:heading -->
+
+				<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->
+				<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'Export a vehicle with its whole history as a file and import it elsewhere – from the portal to your own server or the other way round.', 'bike-maintainer' ); ?></p>
+				<!-- /wp:paragraph -->
+			</div>
+			<!-- /wp:column -->
+	</div>
+	<!-- /wp:columns -->
+
 	<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"2rem"}}}} -->
 	<div class="wp-block-columns alignwide">
 			<!-- wp:column {"className":"is-style-card"} -->
@@ -88,11 +140,11 @@
 				<!-- /wp:image -->
 
 				<!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"1.125rem","fontWeight":"700"}}} -->
-				<h3 class="wp-block-heading" style="font-size:1.125rem;font-weight:700"><?php esc_html_e( 'Several vehicles', 'bike-maintainer' ); ?></h3>
+				<h3 class="wp-block-heading" style="font-size:1.125rem;font-weight:700"><?php esc_html_e( 'Every kind of vehicle', 'bike-maintainer' ); ?></h3>
 				<!-- /wp:heading -->
 
 				<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->
-				<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'Motorcycles and cars side by side, each with its own maintenance plan and history. More vehicle types are coming.', 'bike-maintainer' ); ?></p>
+				<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'Motorcycles, cars, bicycles, e-bikes, quads and scooters side by side, each with its own maintenance plan and history.', 'bike-maintainer' ); ?></p>
 				<!-- /wp:paragraph -->
 			</div>
 			<!-- /wp:column -->

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-02T14:45:00+00:00\n"
+"POT-Creation-Date: 2026-11-11T14:56:32+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: bike-maintainer\n"
@@ -41,6 +41,68 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
+#: patterns/app.php
+msgctxt "Pattern title"
+msgid "Android app"
+msgstr ""
+
+#: patterns/app.php
+msgctxt "Pattern description"
+msgid "The Android app: what it does as a card, how to get it as a second card with a link to the releases."
+msgstr ""
+
+#: patterns/app.php:17
+msgid "Android app"
+msgstr ""
+
+#: patterns/app.php:21
+msgid "Your service book in your pocket"
+msgstr ""
+
+#: patterns/app.php:25
+msgid "The app works with the portal and with your own server – and gets by without Google services."
+msgstr ""
+
+#: patterns/app.php:39
+msgid "At the bike, not at the desk"
+msgstr ""
+
+#: patterns/app.php:45
+msgid "Reminders of due maintenance as notifications"
+msgstr ""
+
+#: patterns/app.php:49
+msgid "Record maintenance with parts, costs and measured values"
+msgstr ""
+
+#: patterns/app.php:53
+msgid "Photograph filled-in worksheets – the values are read on the phone"
+msgstr ""
+
+#: patterns/app.php:57
+msgid "For accounts in the portal and for household mode"
+msgstr ""
+
+#: patterns/app.php:71
+msgid "Installation"
+msgstr ""
+
+#: patterns/app.php:75
+msgid "The signed APK is on GitHub, for Android 10 or newer. Updates come automatically with Obtainium, or you install each new version by hand. You create your portal account in the web app; the app only signs in."
+msgstr ""
+
+#: patterns/app.php:81
+msgid "No Google services needed"
+msgstr ""
+
+#: patterns/app.php:85
+msgid "Open source (MIT licence)"
+msgstr ""
+
+#: patterns/app.php:93
+msgid "Download on GitHub"
+msgstr ""
+
 #: patterns/faq.php
 msgctxt "Pattern title"
 msgid "Frequently asked questions"
@@ -60,7 +122,7 @@ msgid "Which vehicles can I manage?"
 msgstr ""
 
 #: patterns/faq.php:21
-msgid "Motorcycles and cars, as many as you like. Bicycles, e-bikes, quads and scooters are coming next."
+msgid "Motorcycles, cars, bicycles, e-bikes, quads and scooters – as many as you like."
 msgstr ""
 
 #: patterns/faq.php:27
@@ -103,6 +165,38 @@ msgstr ""
 msgid "German and English – for the interface, the emails and the PDFs. You choose the language in your account."
 msgstr ""
 
+#: patterns/faq.php:67
+msgid "Is there an app for my phone?"
+msgstr ""
+
+#: patterns/faq.php:69
+msgid "Yes, for Android 10 or newer. It reminds you of due maintenance and lets you record work right at the vehicle. The APK is on GitHub; Obtainium keeps it up to date. It needs no Google services."
+msgstr ""
+
+#: patterns/faq.php:75
+msgid "What happens to the photos of the worksheets?"
+msgstr ""
+
+#: patterns/faq.php:77
+msgid "The app reads the values on your phone. The photo is not uploaded – only the values you confirm are saved."
+msgstr ""
+
+#: patterns/faq.php:83
+msgid "Can I take my data with me?"
+msgstr ""
+
+#: patterns/faq.php:85
+msgid "Yes. Every vehicle can be exported as a file with its tasks, entries and target values and imported again – in the portal or on your own server."
+msgstr ""
+
+#: patterns/faq.php:91
+msgid "Where can I ask questions?"
+msgstr ""
+
+#: patterns/faq.php:93
+msgid "In the forum. Bugs and ideas are also welcome as issues on GitHub."
+msgstr ""
+
 #: patterns/features.php
 msgctxt "Pattern title"
 msgid "Features"
@@ -110,7 +204,7 @@ msgstr ""
 
 #: patterns/features.php
 msgctxt "Pattern description"
-msgid "Six features of the app as cards with icons."
+msgid "Nine features of the app as cards with icons, in three rows."
 msgstr ""
 
 #: patterns/features.php:17
@@ -130,7 +224,7 @@ msgid "Intervals by mileage or time"
 msgstr ""
 
 #: patterns/features.php:43
-msgid "Reminders by mileage or months – whichever comes first. See due and overdue work at a glance."
+msgid "Reminders by mileage or months – whichever comes first. See due and overdue work at a glance, and record extra work right along with the maintenance."
 msgstr ""
 
 #: patterns/features.php:55
@@ -150,26 +244,50 @@ msgid "Parts with quantity and price, labour costs and an overview for the curre
 msgstr ""
 
 #: patterns/features.php:91
-msgid "Several vehicles"
+msgid "Worksheets for the workshop"
 msgstr ""
 
 #: patterns/features.php:95
-msgid "Motorcycles and cars side by side, each with its own maintenance plan and history. More vehicle types are coming."
+msgid "Print a worksheet for valve clearance, brakes, chain or tyres, fill it in by hand at the bike and photograph it with the app. Your phone reads the values – the photo never leaves it."
 msgstr ""
 
 #: patterns/features.php:107
-msgid "For the whole household"
+msgid "Measured values and targets"
 msgstr ""
 
 #: patterns/features.php:111
-msgid "In household mode everyone picks their profile – no password, in your own home network."
+msgid "Store the target values from the workshop manual. Values outside them are highlighted, and for shim-adjusted valves the app suggests the new shim."
 msgstr ""
 
 #: patterns/features.php:123
-msgid "German and English"
+msgid "Take your data with you"
 msgstr ""
 
 #: patterns/features.php:127
+msgid "Export a vehicle with its whole history as a file and import it elsewhere – from the portal to your own server or the other way round."
+msgstr ""
+
+#: patterns/features.php:143
+msgid "Every kind of vehicle"
+msgstr ""
+
+#: patterns/features.php:147
+msgid "Motorcycles, cars, bicycles, e-bikes, quads and scooters side by side, each with its own maintenance plan and history."
+msgstr ""
+
+#: patterns/features.php:159
+msgid "For the whole household"
+msgstr ""
+
+#: patterns/features.php:163
+msgid "In household mode everyone picks their profile – no password, in your own home network."
+msgstr ""
+
+#: patterns/features.php:175
+msgid "German and English"
+msgstr ""
+
+#: patterns/features.php:179
 msgid "Interface, emails and PDFs are available in both languages, set per account."
 msgstr ""
 
@@ -208,18 +326,22 @@ msgid "Features"
 msgstr ""
 
 #: patterns/header.php:33
-msgid "Self-hosting"
+msgid "App"
 msgstr ""
 
 #: patterns/header.php:34
-msgid "FAQ"
+msgid "Self-hosting"
 msgstr ""
 
 #: patterns/header.php:35
+msgid "FAQ"
+msgstr ""
+
+#: patterns/header.php:36
 msgid "Forum"
 msgstr ""
 
-#: patterns/header.php:45
+#: patterns/header.php:46
 #: patterns/hero.php:47
 #: patterns/self-hosting.php:65
 msgid "Open the app"
@@ -246,7 +368,7 @@ msgid "your bike and its maintenance"
 msgstr ""
 
 #: patterns/hero.php:33
-msgid "Open source · in the portal or on your own hardware"
+msgid "Open source · in the portal, on your own hardware and as an Android app"
 msgstr ""
 
 #: patterns/hero.php:41
@@ -269,7 +391,11 @@ msgstr ""
 msgid "Maintenance report as PDF"
 msgstr ""
 
-#: patterns/hero.php:77
+#: patterns/hero.php:71
+msgid "Android app without Google services"
+msgstr ""
+
+#: patterns/hero.php:81
 msgid "Vehicle page of the app: mileage and maintenance due for a motorcycle"
 msgstr ""
 
@@ -280,7 +406,7 @@ msgstr ""
 
 #: patterns/landing.php
 msgctxt "Pattern description"
-msgid "Complete start page with hero, features, “portal or self-hosted” and FAQ."
+msgid "Complete start page with hero, features, Android app, “portal or self-hosted” and FAQ."
 msgstr ""
 
 #: patterns/self-hosting.php
@@ -345,15 +471,19 @@ msgstr ""
 msgid "Your data stays with you"
 msgstr ""
 
-#: patterns/self-hosting.php:105
+#: patterns/self-hosting.php:101
+msgid "Move vehicles between portal and home by export and import"
+msgstr ""
+
+#: patterns/self-hosting.php:109
 msgid "Guide on GitHub"
 msgstr ""
 
-#: patterns/self-hosting.php:115
+#: patterns/self-hosting.php:119
 msgid "In your home network in four steps – on any computer with Docker:"
 msgstr ""
 
-#: patterns/self-hosting.php:122
+#: patterns/self-hosting.php:126
 msgid "set a password for BM_DB_PASSWORD in .env first"
 msgstr ""
 
