@@ -120,12 +120,41 @@ function bm_altcha_verify( $payload ) {
 		return false;
 	}
 
-	// Single use: remember the challenge until it expires anyway.
-	$used = 'bm_altcha_' . md5( $signature );
-	if ( false !== get_transient( $used ) ) {
+	return bm_altcha_claim( $signature, (int) $parameters['expiresAt'] );
+}
+
+/**
+ * Marks a solved challenge as used – atomically, so of parallel requests with the same solution exactly one wins.
+ * A read-then-write (transients) let N simultaneous registrations through for one proof of work. The row goes into
+ * the options table, whose option_name is unique: INSERT IGNORE inserts it once, every other attempt changes nothing.
+ * Entries are removed once their challenge has expired anyway.
+ *
+ * @param string $signature  Signature of the challenge.
+ * @param int    $expires_at Unix time the challenge expires.
+ * @return bool Whether this request is the first to use it.
+ */
+function bm_altcha_claim( $signature, $expires_at ) {
+	global $wpdb;
+	$name = 'bm_altcha_used_' . md5( $signature );
+	// phpcs:ignore WordPress.DB.DirectDatabaseQuery -- the options API has no atomic "insert if missing"; no cache involved.
+	$inserted = $wpdb->query(
+		$wpdb->prepare(
+			"INSERT IGNORE INTO {$wpdb->options} (option_name, option_value, autoload) VALUES (%s, %s, 'off')",
+			$name,
+			(string) $expires_at
+		)
+	);
+	if ( 1 !== $inserted ) {
 		return false;
 	}
-	set_transient( $used, 1, max( 1, (int) $parameters['expiresAt'] - time() ) );
+	// phpcs:ignore WordPress.DB.DirectDatabaseQuery -- clean-up of our own expired rows, see above.
+	$wpdb->query(
+		$wpdb->prepare(
+			"DELETE FROM {$wpdb->options} WHERE option_name LIKE %s AND CAST(option_value AS UNSIGNED) < %d LIMIT 100",
+			$wpdb->esc_like( 'bm_altcha_used_' ) . '%',
+			time()
+		)
+	);
 	return true;
 }
 
