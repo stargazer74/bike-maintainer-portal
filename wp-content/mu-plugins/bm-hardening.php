@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Bike Maintainer – Hardening
- * Description: No XML-RPC, no application passwords, no user enumeration for guests, no version in the page, no file editor in the admin, and a per-IP limit for failed logins.
+ * Description: No XML-RPC, no application passwords, no user enumeration for guests (also not through the login, registration and lost password forms), no version in the page, no file editor in the admin, and a per-IP limit for failed logins.
  * Author: Chris Wohlbrecht
  * License: MIT
  *
@@ -141,3 +141,115 @@ add_action(
 		delete_transient( bm_login_failures_key() );
 	}
 );
+
+/*
+ * No account enumeration (#14): the public forms on wp-login.php answer the same for known and unknown accounts –
+ * same text, same status, same redirect. Otherwise anyone can find out who has an account, ALTCHA only slows that down.
+ */
+
+add_filter(
+	'login_errors',
+	/**
+	 * "Unknown user" and "wrong password" become one message on the login form.
+	 *
+	 * @param string $message Error HTML of the login form.
+	 * @return string
+	 */
+	static function ( $message ) {
+		global $errors;
+		if ( ! $errors instanceof WP_Error ) {
+			return $message;
+		}
+		$revealing = array( 'invalid_username', 'invalid_email', 'incorrect_password' );
+		if ( array() === array_intersect( $errors->get_error_codes(), $revealing ) ) {
+			return $message;
+		}
+		return '<strong>' . esc_html__( 'Error:', 'bike-maintainer' ) . '</strong> '
+			. esc_html__( 'The email address, username or password is not correct.', 'bike-maintainer' );
+	}
+);
+
+add_filter(
+	'lostpassword_errors',
+	/**
+	 * A reset request for an unknown account ends like a successful one: on "check your email". No mail is sent.
+	 * Other errors (empty field, failed ALTCHA) are still shown – they say nothing about accounts.
+	 *
+	 * @param WP_Error      $errors    Errors of the request.
+	 * @param WP_User|false $user_data The account, or false if there is none.
+	 * @return WP_Error
+	 */
+	static function ( $errors, $user_data ) {
+		if ( 'wp-login.php' !== ( $GLOBALS['pagenow'] ?? '' ) || $user_data ) {
+			return $errors;
+		}
+		$codes = array_diff( $errors->get_error_codes(), array( 'invalid_email', 'invalidcombo' ) );
+		if ( array() !== $codes ) {
+			return $errors;
+		}
+		bm_redirect_like_wp_login( 'wp-login.php?checkemail=confirm' );
+	},
+	10,
+	2
+);
+
+add_filter(
+	'registration_errors',
+	/**
+	 * A registration with an address that already has an account ends like a successful one. The account gets a
+	 * notice instead (log in or reset the password). Runs after ALTCHA (priority 10), so it costs a proof of work.
+	 *
+	 * @param WP_Error $errors      Registration errors.
+	 * @param string   $login       Requested username.
+	 * @param string   $email       Requested email address.
+	 * @return WP_Error
+	 */
+	static function ( $errors, $login, $email ) {
+		if ( array( 'email_exists' ) !== $errors->get_error_codes() ) {
+			return $errors;
+		}
+		$user = get_user_by( 'email', $email );
+		if ( $user ) {
+			bm_send_registration_exists_notice( $user );
+		}
+		bm_redirect_like_wp_login( 'wp-login.php?checkemail=registered' );
+	},
+	20,
+	3
+);
+
+/**
+ * Redirects as wp-login.php does after success (honouring a safe redirect_to) and stops.
+ *
+ * @param string $fallback Target if the form sent no redirect_to.
+ * @return never
+ */
+function bm_redirect_like_wp_login( $fallback ) {
+	// The login forms have no nonce (same as core); wp_safe_redirect only allows our own host.
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+	$redirect_to = isset( $_REQUEST['redirect_to'] ) ? wp_unslash( $_REQUEST['redirect_to'] ) : '';
+	wp_safe_redirect( '' !== $redirect_to ? $redirect_to : $fallback );
+	exit;
+}
+
+/**
+ * Tells the owner of an existing account that someone tried to register with their address.
+ *
+ * @param WP_User $user The existing account.
+ */
+function bm_send_registration_exists_notice( WP_User $user ) {
+	$switched = switch_to_user_locale( $user->ID );
+	$site     = wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES );
+	$message  = sprintf(
+		/* translators: 1: site name, 2: login URL, 3: lost password URL */
+		__( "Hello,\n\nsomeone tried to register at %1\$s with your email address. You already have an account.\n\nLog in: %2\$s\nForgot your password: %3\$s\n\nIf this was not you, you can ignore this email. Nothing was changed on your account.", 'bike-maintainer' ),
+		$site,
+		wp_login_url(),
+		wp_lostpassword_url()
+	);
+	/* translators: %s: site name */
+	wp_mail( $user->user_email, sprintf( __( '[%s] Registration with your email address', 'bike-maintainer' ), $site ), $message );
+	if ( $switched ) {
+		restore_previous_locale();
+	}
+}

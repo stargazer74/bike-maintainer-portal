@@ -18,7 +18,7 @@
 	<!-- wp:details -->
 	<details class="wp-block-details"><summary><?php esc_html_e( 'Which vehicles can I manage?', 'bike-maintainer' ); ?></summary>
 		<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->
-		<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'Motorcycles and cars, as many as you like. Bicycles, e-bikes, quads and scooters are coming next.', 'bike-maintainer' ); ?></p>
+		<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'Motorcycles, cars, bicycles, e-bikes, quads and scooters – as many as you like.', 'bike-maintainer' ); ?></p>
 		<!-- /wp:paragraph -->
 	</details>
 	<!-- /wp:details -->
@@ -59,6 +59,38 @@
 	<details class="wp-block-details"><summary><?php esc_html_e( 'Which languages are available?', 'bike-maintainer' ); ?></summary>
 		<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->
 		<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'German and English – for the interface, the emails and the PDFs. You choose the language in your account.', 'bike-maintainer' ); ?></p>
+		<!-- /wp:paragraph -->
+	</details>
+	<!-- /wp:details -->
+
+	<!-- wp:details -->
+	<details class="wp-block-details"><summary><?php esc_html_e( 'Is there an app for my phone?', 'bike-maintainer' ); ?></summary>
+		<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->
+		<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'Yes, for Android 10 or newer. It reminds you of due maintenance and lets you record work right at the vehicle. The APK is on GitHub; Obtainium keeps it up to date. It needs no Google services.', 'bike-maintainer' ); ?></p>
+		<!-- /wp:paragraph -->
+	</details>
+	<!-- /wp:details -->
+
+	<!-- wp:details -->
+	<details class="wp-block-details"><summary><?php esc_html_e( 'What happens to the photos of the worksheets?', 'bike-maintainer' ); ?></summary>
+		<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->
+		<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'The app reads the values on your phone. The photo is not uploaded – only the values you confirm are saved.', 'bike-maintainer' ); ?></p>
+		<!-- /wp:paragraph -->
+	</details>
+	<!-- /wp:details -->
+
+	<!-- wp:details -->
+	<details class="wp-block-details"><summary><?php esc_html_e( 'Can I take my data with me?', 'bike-maintainer' ); ?></summary>
+		<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->
+		<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'Yes. Every vehicle can be exported as a file with its tasks, entries and target values and imported again – in the portal or on your own server.', 'bike-maintainer' ); ?></p>
+		<!-- /wp:paragraph -->
+	</details>
+	<!-- /wp:details -->
+
+	<!-- wp:details -->
+	<details class="wp-block-details"><summary><?php esc_html_e( 'Where can I ask questions?', 'bike-maintainer' ); ?></summary>
+		<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->
+		<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'In the forum. Bugs and ideas are also welcome as issues on GitHub.', 'bike-maintainer' ); ?></p>
 		<!-- /wp:paragraph -->
 	</details>
 	<!-- /wp:details -->

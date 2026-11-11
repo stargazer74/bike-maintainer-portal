@@ -172,6 +172,11 @@ Die Compose-Datei für das Portal liegt in `bike-maintainer-deploy/portal/` und 
 dem ersten Start einmal `bm-setup` ausführen (mit `BM_SITE_URL`, `BM_ADMIN_USER`, `BM_ADMIN_EMAIL`,
 `BM_ADMIN_PASSWORD`).
 
+`bm-setup` darf erneut laufen (z. B. nach einem Update). Voreinstellungen, die danach den Admins gehören
+(Datums-/Zeitformat, Registrierung, Forum-Optionen und -Farben), setzt es nur beim ersten Mal; was im Backend geändert
+wurde, bleibt. Erledigte Schritte stehen in der Option `bm_setup_done`. Schlägt die Web-Anfrage nach einer
+Plugin-Aktivierung fehl oder fehlen danach die Tabellen von Asgaros Forum, bricht `bm-setup` mit einer Fehlermeldung ab.
+
 ## Release
 
 Eigene Versionsnummer, unabhängig von Backend und Frontend. `main` trägt die kommende Version als

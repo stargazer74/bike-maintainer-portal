@@ -57,7 +57,7 @@ function bm_seo_home_url() {
  * @return string
  */
 function bm_seo_site_description() {
-	return __( 'Bike Maintainer reminds you of maintenance by mileage or time and keeps the service book of your motorcycle or car. Open source, in the portal or self-hosted.', 'bike-maintainer' );
+	return __( 'Bike Maintainer reminds you of maintenance by mileage or time and keeps the service book of your motorcycle, car or bicycle. Open source, in the portal or self-hosted.', 'bike-maintainer' );
 }
 
 /**
@@ -100,7 +100,7 @@ add_filter(
 	 */
 	static function ( $parts ) {
 		if ( is_front_page() && empty( $parts['tagline'] ) ) {
-			$parts['tagline'] = __( 'Maintenance planner for motorcycles and cars', 'bike-maintainer' );
+			$parts['tagline'] = __( 'Maintenance planner for motorcycles, cars and bicycles', 'bike-maintainer' );
 		}
 		return $parts;
 	}
@@ -116,7 +116,7 @@ add_action(
 	static function () {
 		global $asgarosforum;
 		if ( bm_seo_is_forum() && isset( $asgarosforum->options ) && '' === trim( (string) ( $asgarosforum->options['forum_description'] ?? '' ) ) ) {
-			$asgarosforum->options['forum_description'] = __( 'Questions, tips and discussion about maintaining motorcycles and cars – the community of Bike Maintainer.', 'bike-maintainer' );
+			$asgarosforum->options['forum_description'] = __( 'Questions, tips and discussion about maintaining your vehicles – the community of Bike Maintainer.', 'bike-maintainer' );
 		}
 	}
 );
@@ -233,7 +233,7 @@ add_action(
 			bm_seo_meta( 'property', 'og:image', $image );
 			bm_seo_meta( 'property', 'og:image:width', '1200' );
 			bm_seo_meta( 'property', 'og:image:height', '630' );
-			bm_seo_meta( 'property', 'og:image:alt', __( 'Bike Maintainer – maintenance planner for motorcycles and cars', 'bike-maintainer' ) );
+			bm_seo_meta( 'property', 'og:image:alt', __( 'Bike Maintainer – maintenance planner for motorcycles, cars and bicycles', 'bike-maintainer' ) );
 		}
 		bm_seo_meta( 'name', 'twitter:card', $image ? 'summary_large_image' : 'summary' );
 	},

@@ -30,7 +30,7 @@ $bm_heading = wp_kses(
 		<!-- wp:column {"verticalAlignment":"center","width":"58%"} -->
 		<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:58%">
 			<!-- wp:paragraph {"className":"is-style-badge"} -->
-			<p class="is-style-badge"><?php esc_html_e( 'Open source · in the portal or on your own hardware', 'bike-maintainer' ); ?></p>
+			<p class="is-style-badge"><?php esc_html_e( 'Open source · in the portal, on your own hardware and as an Android app', 'bike-maintainer' ); ?></p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:heading {"level":1,"style":{"typography":{"fontSize":"clamp(2.25rem, 5vw, 3.75rem)","fontWeight":"900"}}} -->
@@ -65,6 +65,10 @@ $bm_heading = wp_kses(
 
 				<!-- wp:list-item -->
 				<li><?php esc_html_e( 'Maintenance report as PDF', 'bike-maintainer' ); ?></li>
+				<!-- /wp:list-item -->
+
+				<!-- wp:list-item -->
+				<li><?php esc_html_e( 'Android app without Google services', 'bike-maintainer' ); ?></li>
 				<!-- /wp:list-item -->
 			</ul>
 			<!-- /wp:list -->

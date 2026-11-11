@@ -33,7 +33,7 @@ msgstr "Website des Bike-Maintainer-Portals. Block-Child-Theme von Twenty Twenty
 #. Author of the theme
 #. Author of the plugin
 #: style.css
-#: bm-seo.php
+#: bm-privacy.php
 msgid "Chris Wohlbrecht"
 msgstr ""
 
@@ -58,10 +58,6 @@ msgstr "Häufige Fragen"
 #: patterns/faq.php:19
 msgid "Which vehicles can I manage?"
 msgstr "Welche Fahrzeuge kann ich verwalten?"
-
-#: patterns/faq.php:21
-msgid "Motorcycles and cars, as many as you like. Bicycles, e-bikes, quads and scooters are coming next."
-msgstr "Motorräder und Autos, beliebig viele. Fahrrad, E-Bike, Quad und Roller kommen als Nächstes dazu."
 
 #: patterns/faq.php:27
 msgid "How do the intervals work?"
@@ -108,11 +104,6 @@ msgctxt "Pattern title"
 msgid "Features"
 msgstr "Funktionen"
 
-#: patterns/features.php
-msgctxt "Pattern description"
-msgid "Six features of the app as cards with icons."
-msgstr "Sechs Funktionen der App als Karten mit Icon."
-
 #: patterns/features.php:17
 msgid "Made in the workshop, for the workshop"
 msgstr "Aus der Praxis für die Praxis"
@@ -128,10 +119,6 @@ msgstr "Alles, was du brauchst, um Wert und Zuverlässigkeit deiner Fahrzeuge l�
 #: patterns/features.php:39
 msgid "Intervals by mileage or time"
 msgstr "Intervalle nach Kilometer oder Zeit"
-
-#: patterns/features.php:43
-msgid "Reminders by mileage or months – whichever comes first. See due and overdue work at a glance."
-msgstr "Erinnerung nach Kilometerstand oder Monaten – was zuerst kommt. Fällige und überfällige Arbeiten siehst du auf einen Blick."
 
 #: patterns/features.php:55
 msgid "Report and checklist as PDF"
@@ -149,27 +136,19 @@ msgstr "Material und Kosten"
 msgid "Parts with quantity and price, labour costs and an overview for the current year and in total – in several currencies, too."
 msgstr "Teile mit Menge und Preis, Arbeitskosten und eine Übersicht für das laufende Jahr und insgesamt – auch in mehreren Währungen."
 
-#: patterns/features.php:91
-msgid "Several vehicles"
-msgstr "Mehrere Fahrzeuge"
-
-#: patterns/features.php:95
-msgid "Motorcycles and cars side by side, each with its own maintenance plan and history. More vehicle types are coming."
-msgstr "Motorräder und Autos nebeneinander, jedes mit eigenem Wartungsplan und eigener Historie. Weitere Fahrzeugtypen folgen."
-
-#: patterns/features.php:107
+#: patterns/features.php:159
 msgid "For the whole household"
 msgstr "Für den ganzen Haushalt"
 
-#: patterns/features.php:111
+#: patterns/features.php:163
 msgid "In household mode everyone picks their profile – no password, in your own home network."
 msgstr "Im Haushaltsmodus wählt jede Person ihr Profil – ohne Passwort, im eigenen Heimnetz."
 
-#: patterns/features.php:123
+#: patterns/features.php:175
 msgid "German and English"
 msgstr "Deutsch und Englisch"
 
-#: patterns/features.php:127
+#: patterns/features.php:179
 msgid "Interface, emails and PDFs are available in both languages, set per account."
 msgstr "Oberfläche, E-Mails und PDFs gibt es in beiden Sprachen, eingestellt pro Konto."
 
@@ -207,15 +186,15 @@ msgstr "Hauptnavigation"
 msgid "Features"
 msgstr "Funktionen"
 
-#: patterns/header.php:33
+#: patterns/header.php:34
 msgid "Self-hosting"
 msgstr "Selbst betreiben"
 
-#: patterns/header.php:34
+#: patterns/header.php:35
 msgid "FAQ"
 msgstr "FAQ"
 
-#: patterns/header.php:45
+#: patterns/header.php:46
 #: patterns/hero.php:47
 #: patterns/self-hosting.php:65
 msgid "Open the app"
@@ -230,10 +209,6 @@ msgstr "Hero mit App-Vorschau"
 msgctxt "Pattern description"
 msgid "Start of the landing page: heading, text, two buttons, benefits and a preview of the app."
 msgstr "Einstieg der Landing Page: Überschrift, Text, zwei Buttons, Vorteile und eine Vorschau der App."
-
-#: patterns/hero.php:33
-msgid "Open source · in the portal or on your own hardware"
-msgstr "Open Source · im Portal oder auf eigener Hardware"
 
 #. translators: %s: highlighted part of the heading, "your bike and its maintenance".
 #: patterns/hero.php:14
@@ -265,7 +240,7 @@ msgstr "Quellcode offen (MIT-Lizenz)"
 msgid "Maintenance report as PDF"
 msgstr "Wartungsbericht als PDF"
 
-#: patterns/hero.php:77
+#: patterns/hero.php:81
 msgid "Vehicle page of the app: mileage and maintenance due for a motorcycle"
 msgstr "Fahrzeugseite der App: Kilometerstand und fällige Wartungen eines Motorrads"
 
@@ -273,11 +248,6 @@ msgstr "Fahrzeugseite der App: Kilometerstand und fällige Wartungen eines Motor
 msgctxt "Pattern title"
 msgid "Landing Page"
 msgstr "Landing Page"
-
-#: patterns/landing.php
-msgctxt "Pattern description"
-msgid "Complete start page with hero, features, “portal or self-hosted” and FAQ."
-msgstr "Komplette Startseite aus Hero, Funktionen, „Portal oder selbst betreiben“ und FAQ."
 
 #: patterns/self-hosting.php
 msgctxt "Pattern title"
@@ -341,15 +311,15 @@ msgstr "Docker-Images für amd64 und arm64"
 msgid "Your data stays with you"
 msgstr "Deine Daten bleiben bei dir"
 
-#: patterns/self-hosting.php:105
+#: patterns/self-hosting.php:109
 msgid "Guide on GitHub"
 msgstr "Anleitung auf GitHub"
 
-#: patterns/self-hosting.php:115
+#: patterns/self-hosting.php:119
 msgid "In your home network in four steps – on any computer with Docker:"
 msgstr "Im Heimnetz in vier Schritten – auf jedem Rechner mit Docker:"
 
-#: patterns/self-hosting.php:122
+#: patterns/self-hosting.php:126
 msgid "set a password for BM_DB_PASSWORD in .env first"
 msgstr "vorher in .env ein Passwort für BM_DB_PASSWORD setzen"
 
@@ -453,66 +423,66 @@ msgctxt "Style variation name"
 msgid "Secondary"
 msgstr "Sekundär"
 
-#: patterns/header.php:35
+#: patterns/header.php:36
 msgid "Forum"
 msgstr "Forum"
 
-#: bm-altcha.php:162
+#: bm-altcha.php:191
 msgid "Visit altcha.org"
 msgstr "altcha.org besuchen"
 
-#: bm-altcha.php:163
+#: bm-altcha.php:192
 msgid "Verification failed, please try again later."
 msgstr "Bestätigung fehlgeschlagen, bitte später erneut versuchen."
 
-#: bm-altcha.php:164
+#: bm-altcha.php:193
 msgid "Verification expired, please try again."
 msgstr "Bestätigung abgelaufen, bitte erneut versuchen."
 
 #. translators: %s: link to altcha.org with the name ALTCHA.
-#: bm-altcha.php:167
+#: bm-altcha.php:196
 #, php-format
 msgid "Protected by %s"
 msgstr "Geschützt durch %s"
 
-#: bm-altcha.php:170
+#: bm-altcha.php:199
 msgid "I'm not a robot"
 msgstr "Ich bin kein Roboter"
 
-#: bm-altcha.php:171
+#: bm-altcha.php:200
 msgid "Loading …"
 msgstr "Wird geladen …"
 
-#: bm-altcha.php:172
+#: bm-altcha.php:201
 msgid "Reload"
 msgstr "Neu laden"
 
-#: bm-altcha.php:173
+#: bm-altcha.php:202
 msgid "Verify"
 msgstr "Bestätigen"
 
-#: bm-altcha.php:174
+#: bm-altcha.php:203
 msgid "Verification required!"
 msgstr "Bestätigung erforderlich!"
 
-#: bm-altcha.php:175
+#: bm-altcha.php:204
 msgid "Verified"
 msgstr "Bestätigt"
 
-#: bm-altcha.php:176
+#: bm-altcha.php:205
 msgid "Verifying …"
 msgstr "Wird bestätigt …"
 
-#: bm-altcha.php:177
+#: bm-altcha.php:206
 msgid "Verifying … please wait."
 msgstr "Wird bestätigt … bitte warten."
 
-#: bm-altcha.php:197
+#: bm-altcha.php:226
 msgid "This form is not available at the moment."
 msgstr "Dieses Formular ist im Moment nicht verfügbar."
 
-#: bm-altcha.php:230
-#: bm-altcha.php:249
+#: bm-altcha.php:259
+#: bm-altcha.php:278
 msgid "Please confirm that you are not a robot."
 msgstr "Bitte bestätige, dass du kein Roboter bist."
 
@@ -524,32 +494,238 @@ msgstr "Zu viele fehlgeschlagene Anmeldungen. Bitte versuche es in 15 Minuten er
 msgid "No emails are sent: BM_SMTP_HOST is not set."
 msgstr "Es werden keine E-Mails versendet: BM_SMTP_HOST ist nicht gesetzt."
 
+#. translators: %d: user ID
+#: bm-privacy.php:60
+#, php-format
+msgid "Member #%d"
+msgstr "Mitglied #%d"
+
+#: bm-privacy.php:91
+msgid "Your username must not be shown publicly. Please choose another nickname and display name."
+msgstr "Dein Benutzername darf nicht öffentlich angezeigt werden. Bitte wähle einen anderen Spitznamen und Anzeigenamen."
+
+#: bm-hardening.php:167
+msgid "Error:"
+msgstr "Fehler:"
+
+#: bm-hardening.php:168
+msgid "The email address, username or password is not correct."
+msgstr "E-Mail-Adresse, Benutzername oder Passwort sind nicht korrekt."
+
+#. translators: 1: site name, 2: login URL, 3: lost password URL
+#: bm-hardening.php:245
+#, php-format
+msgid ""
+"Hello,\n"
+"\n"
+"someone tried to register at %1$s with your email address. You already have an account.\n"
+"\n"
+"Log in: %2$s\n"
+"Forgot your password: %3$s\n"
+"\n"
+"If this was not you, you can ignore this email. Nothing was changed on your account."
+msgstr ""
+"Hallo,\n"
+"\n"
+"jemand wollte sich bei %1$s mit deiner E-Mail-Adresse registrieren. Du hast bereits ein Konto.\n"
+"\n"
+"Anmelden: %2$s\n"
+"Passwort vergessen: %3$s\n"
+"\n"
+"Falls du das nicht warst, kannst du diese E-Mail ignorieren. An deinem Konto wurde nichts geändert."
+
+#. translators: %s: site name
+#: bm-hardening.php:251
+#, php-format
+msgid "[%s] Registration with your email address"
+msgstr "[%s] Registrierung mit deiner E-Mail-Adresse"
+
+#: patterns/app.php
+msgctxt "Pattern title"
+msgid "Android app"
+msgstr "Android-App"
+
+#: patterns/app.php
+msgctxt "Pattern description"
+msgid "The Android app: what it does as a card, how to get it as a second card with a link to the releases."
+msgstr "Die Android-App: was sie kann als Karte, wie man sie bekommt als zweite Karte mit Link zu den Releases."
+
+#: patterns/app.php:17
+msgid "Android app"
+msgstr "Android-App"
+
+#: patterns/app.php:21
+msgid "Your service book in your pocket"
+msgstr "Dein Serviceheft für die Hosentasche"
+
+#: patterns/app.php:25
+msgid "The app works with the portal and with your own server – and gets by without Google services."
+msgstr "Die App arbeitet mit dem Portal und mit deinem eigenen Server – und kommt ohne Google-Dienste aus."
+
+#: patterns/app.php:39
+msgid "At the bike, not at the desk"
+msgstr "Am Fahrzeug statt am Schreibtisch"
+
+#: patterns/app.php:45
+msgid "Reminders of due maintenance as notifications"
+msgstr "Erinnerung an fällige Wartungen per Benachrichtigung"
+
+#: patterns/app.php:49
+msgid "Record maintenance with parts, costs and measured values"
+msgstr "Wartungen mit Teilen, Kosten und Messwerten erfassen"
+
+#: patterns/app.php:53
+msgid "Photograph filled-in worksheets – the values are read on the phone"
+msgstr "Ausgefüllte Arbeitsblätter fotografieren – die Werte werden auf dem Handy erkannt"
+
+#: patterns/app.php:57
+msgid "For accounts in the portal and for household mode"
+msgstr "Für Konten im Portal und für den Haushaltsmodus"
+
+#: patterns/app.php:71
+msgid "Installation"
+msgstr "Installation"
+
+#: patterns/app.php:75
+msgid "The signed APK is on GitHub, for Android 10 or newer. Updates come automatically with Obtainium, or you install each new version by hand. You create your portal account in the web app; the app only signs in."
+msgstr "Die signierte APK gibt es auf GitHub, für Android 10 oder neuer. Updates kommen automatisch mit Obtainium, oder du installierst jede neue Version von Hand. Dein Portal-Konto legst du in der Web-App an; die App meldet sich nur an."
+
+#: patterns/app.php:81
+msgid "No Google services needed"
+msgstr "Keine Google-Dienste nötig"
+
+#: patterns/app.php:85
+msgid "Open source (MIT licence)"
+msgstr "Open Source (MIT-Lizenz)"
+
+#: patterns/app.php:93
+msgid "Download on GitHub"
+msgstr "Download auf GitHub"
+
+#: patterns/faq.php:21
+msgid "Motorcycles, cars, bicycles, e-bikes, quads and scooters – as many as you like."
+msgstr "Motorräder, Autos, Fahrräder, E-Bikes, Quads und Roller – so viele du willst."
+
+#: patterns/faq.php:67
+msgid "Is there an app for my phone?"
+msgstr "Gibt es eine App fürs Handy?"
+
+#: patterns/faq.php:69
+msgid "Yes, for Android 10 or newer. It reminds you of due maintenance and lets you record work right at the vehicle. The APK is on GitHub; Obtainium keeps it up to date. It needs no Google services."
+msgstr "Ja, für Android 10 oder neuer. Sie erinnert dich an fällige Wartungen und du erfasst Arbeiten direkt am Fahrzeug. Die APK liegt auf GitHub; Obtainium hält sie aktuell. Google-Dienste braucht sie nicht."
+
+#: patterns/faq.php:75
+msgid "What happens to the photos of the worksheets?"
+msgstr "Was passiert mit den Fotos der Arbeitsblätter?"
+
+#: patterns/faq.php:77
+msgid "The app reads the values on your phone. The photo is not uploaded – only the values you confirm are saved."
+msgstr "Die App erkennt die Werte auf deinem Handy. Das Foto wird nicht hochgeladen – gespeichert werden nur die Werte, die du bestätigst."
+
+#: patterns/faq.php:83
+msgid "Can I take my data with me?"
+msgstr "Kann ich meine Daten mitnehmen?"
+
+#: patterns/faq.php:85
+msgid "Yes. Every vehicle can be exported as a file with its tasks, entries and target values and imported again – in the portal or on your own server."
+msgstr "Ja. Jedes Fahrzeug lässt sich mit seinen Aufgaben, Einträgen und Sollwerten als Datei exportieren und wieder importieren – im Portal oder auf deinem eigenen Server."
+
+#: patterns/faq.php:91
+msgid "Where can I ask questions?"
+msgstr "Wo kann ich Fragen stellen?"
+
+#: patterns/faq.php:93
+msgid "In the forum. Bugs and ideas are also welcome as issues on GitHub."
+msgstr "Im Forum. Fehler und Ideen sind auch als Issues auf GitHub willkommen."
+
+#: patterns/features.php
+msgctxt "Pattern description"
+msgid "Nine features of the app as cards with icons, in three rows."
+msgstr "Neun Funktionen der App als Karten mit Icons, in drei Reihen."
+
+#: patterns/features.php:43
+msgid "Reminders by mileage or months – whichever comes first. See due and overdue work at a glance, and record extra work right along with the maintenance."
+msgstr "Erinnerung nach Kilometern oder Monaten – je nachdem, was zuerst eintritt. Fällige und überfällige Arbeiten auf einen Blick, weitere Arbeiten erfasst du direkt mit der Wartung."
+
+#: patterns/features.php:91
+msgid "Worksheets for the workshop"
+msgstr "Arbeitsblätter für die Werkstatt"
+
+#: patterns/features.php:95
+msgid "Print a worksheet for valve clearance, brakes, chain or tyres, fill it in by hand at the bike and photograph it with the app. Your phone reads the values – the photo never leaves it."
+msgstr "Arbeitsblatt für Ventilspiel, Bremsen, Kette oder Reifen drucken, am Fahrzeug von Hand ausfüllen und mit der App fotografieren. Dein Handy erkennt die Werte – das Foto verlässt es nie."
+
+#: patterns/features.php:107
+msgid "Measured values and targets"
+msgstr "Messwerte und Sollwerte"
+
+#: patterns/features.php:111
+msgid "Store the target values from the workshop manual. Values outside them are highlighted, and for shim-adjusted valves the app suggests the new shim."
+msgstr "Hinterlege die Sollwerte aus dem Werkstatthandbuch. Abweichende Werte werden markiert, und bei Ventilen mit Shims schlägt die App das neue Shim vor."
+
+#: patterns/features.php:123
+msgid "Take your data with you"
+msgstr "Deine Daten nimmst du mit"
+
+#: patterns/features.php:127
+msgid "Export a vehicle with its whole history as a file and import it elsewhere – from the portal to your own server or the other way round."
+msgstr "Exportiere ein Fahrzeug mit seiner ganzen Historie als Datei und importiere es anderswo – vom Portal auf deinen eigenen Server oder umgekehrt."
+
+#: patterns/features.php:143
+msgid "Every kind of vehicle"
+msgstr "Für jedes Fahrzeug"
+
+#: patterns/features.php:147
+msgid "Motorcycles, cars, bicycles, e-bikes, quads and scooters side by side, each with its own maintenance plan and history."
+msgstr "Motorräder, Autos, Fahrräder, E-Bikes, Quads und Roller nebeneinander, jedes mit eigenem Wartungsplan und eigener Historie."
+
+#: patterns/header.php:33
+msgid "App"
+msgstr "App"
+
+#: patterns/hero.php:33
+msgid "Open source · in the portal, on your own hardware and as an Android app"
+msgstr "Open Source · im Portal, auf eigener Hardware und als Android-App"
+
+#: patterns/hero.php:71
+msgid "Android app without Google services"
+msgstr "Android-App ohne Google-Dienste"
+
+#: patterns/landing.php
+msgctxt "Pattern description"
+msgid "Complete start page with hero, features, Android app, “portal or self-hosted” and FAQ."
+msgstr "Komplette Startseite mit Hero, Funktionen, Android-App, „Portal oder selbst gehostet“ und FAQ."
+
+#: patterns/self-hosting.php:101
+msgid "Move vehicles between portal and home by export and import"
+msgstr "Fahrzeuge per Export und Import zwischen Portal und Zuhause umziehen"
+
 #. Plugin Name of the plugin
-#: bm-seo.php
-msgid "Bike Maintainer – SEO"
+#: bm-privacy.php
+msgid "Bike Maintainer – Privacy"
 msgstr ""
 
 #. Description of the plugin
-#: bm-seo.php
-msgid "Search engines and link previews: a title with tagline and a description on the start page, Open Graph and Twitter Card tags with a local preview image, structured data (JSON-LD) for the website and the app, hreflang x-default, forum topics in the sitemap and language links that stay on the same forum topic. Everything is plain markup in the page – no SEO service, no tracking, no request to a third party."
+#: bm-privacy.php
+msgid "Avatars never come from gravatar.com (that would send each visitor's IP address and a hash of the members' email addresses to a third party); every avatar is a local placeholder – also where plugins such as Asgaros Forum force avatars on. Login names never appear publicly: members get a neutral display name and URL name."
 msgstr ""
 
-#: bm-seo.php:59
-msgid "Bike Maintainer reminds you of maintenance by mileage or time and keeps the service book of your motorcycle or car. Open source, in the portal or self-hosted."
-msgstr "Bike Maintainer erinnert dich an Wartungen nach Kilometerstand oder Zeit und führt das Scheckheft für Motorrad und Auto. Open Source, im Portal oder selbst betrieben."
+#: bm-seo.php:60
+msgid "Bike Maintainer reminds you of maintenance by mileage or time and keeps the service book of your motorcycle, car or bicycle. Open source, in the portal or self-hosted."
+msgstr "Bike Maintainer erinnert an Wartungen nach Kilometerstand oder Zeit und führt das Scheckheft für Motorrad, Auto und Fahrrad. Open Source, im Portal oder selbst betrieben."
 
-#: bm-seo.php:102
-msgid "Maintenance planner for motorcycles and cars"
-msgstr "Wartungsplaner für Motorrad und Auto"
+#: bm-seo.php:103
+msgid "Maintenance planner for motorcycles, cars and bicycles"
+msgstr "Wartungsplaner für Motorrad, Auto und Fahrrad"
 
-#: bm-seo.php:118
-msgid "Questions, tips and discussion about maintaining motorcycles and cars – the community of Bike Maintainer."
-msgstr "Fragen, Tipps und Austausch rund um die Wartung von Motorrad und Auto – die Community von Bike Maintainer."
+#: bm-seo.php:119
+msgid "Questions, tips and discussion about maintaining your vehicles – the community of Bike Maintainer."
+msgstr "Fragen, Tipps und Austausch rund um die Wartung deiner Fahrzeuge – die Community von Bike Maintainer."
 
-#: bm-seo.php:235
-msgid "Bike Maintainer – maintenance planner for motorcycles and cars"
-msgstr "Bike Maintainer – Wartungsplaner für Motorrad und Auto"
+#: bm-seo.php:236
+msgid "Bike Maintainer – maintenance planner for motorcycles, cars and bicycles"
+msgstr "Bike Maintainer – Wartungsplaner für Motorrad, Auto und Fahrrad"
 
-#: bm-seo.php:257
+#: bm-seo.php:258
 msgid "Web browser; self-hosted with Docker on Linux, also on a Raspberry Pi"
 msgstr "Webbrowser; selbst betrieben mit Docker unter Linux, auch auf einem Raspberry Pi"

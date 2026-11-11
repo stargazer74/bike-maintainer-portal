@@ -33,11 +33,16 @@ messages are English.
   shortcode blocks inside patterns are rendered by the `render_block_core/shortcode` filter (templates would leave them
   raw otherwise).
 - Must-use plugins: `bm-altcha.php` (self-hosted ALTCHA on registration and lost password, needs `BM_ALTCHA_HMAC_KEY`;
-  widget file vendored in `bm-altcha/`), `bm-privacy.php` (local avatars, never Gravatar), `bm-polylang.php` (no Polylang cookie), `bm-updates.php` (auto-updates; our theme excluded from wordpress.org update checks),
-  `bm-hardening.php` (XML-RPC off, no app passwords, no user enumeration for guests, no version, no file editor,
+  widget file vendored in `bm-altcha/`), `bm-privacy.php` (local avatars, never Gravatar; members get the neutral names
+  "Mitglied #ID" / `member-ID`, never the login name), `bm-polylang.php` (no Polylang cookie), `bm-updates.php`
+  (auto-updates; our theme excluded from wordpress.org update checks),
+  `bm-hardening.php` (XML-RPC off, no app passwords, no user enumeration for guests – login, registration and lost
+  password answer alike for known and unknown accounts, an existing account gets a notice mail instead – no version,
+  no file editor,
   per-IP login limit 10/15 min), `bm-smtp.php` (SMTP from `BM_SMTP_*`; no host = no mail), `bm-seo.php` (description,
   Open Graph with `assets/images/social-preview.png`, JSON-LD, hreflang x-default, forum topics in the sitemap via
-  `bm-seo/class-bm-forum-sitemap.php`; on forum pages Asgaros prints canonical/description/og:title itself). The client IP comes from
+  `bm-seo/class-bm-forum-sitemap.php`; on forum pages Asgaros prints canonical/description/og:title itself). The
+  client IP comes from
   Apache `mod_remoteip` (X-Forwarded-For from private networks only).
 - `docker-entrypoint-bm.sh` – runs the official `docker-ensure-installed.sh`, then syncs theme and `bm-*.php` from
   `/usr/src/bm` into `/var/www/html/wp-content`, then hands over to `docker-entrypoint.sh`.
@@ -46,6 +51,11 @@ messages are English.
   plugins with `--skip-plugins` and makes a web request after each activation. Asgaros caches date formats before
   Polylang knows the language – `functions.php` re-reads them on `wp`.
 - `scripts/setup.sh` – idempotent WP-CLI setup (`bm-setup` in the image). Plugins to install go into `PLUGINS`.
+  Defaults that belong to the admins afterwards (date formats, registration, forum options and colours) are applied
+  once only via `bm_setup_once()` (`scripts/setup-lib.php`, done steps in the option `bm_setup_done`); a later run
+  keeps what admins changed. Wrap new defaults of that kind the same way; settings that point to our own objects
+  (e.g. Asgaros' `location`) are set on every run. The web request after each plugin activation must succeed
+  (`curl --fail`), and `setup-forum.php` stops if Asgaros' tables are missing.
   Polylang (languages, options, English start page linked to the German one) is set up by
   `scripts/setup-languages.php` via `wp eval-file`, as the free Polylang has no WP-CLI commands.
 - Legal pages (`/impressum/`, `/datenschutz/`, `/en/legal-notice/`, `/en/privacy/`, linked by the footer and the
