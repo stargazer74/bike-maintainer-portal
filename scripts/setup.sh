@@ -70,8 +70,11 @@ for plugin in "${PLUGINS[@]}"; do
     # when WP-CLI loads WordPress (activation would end in a fatal error).
     wp plugin activate "$plugin" --skip-plugins="$plugin"
     # Some plugins (Asgaros Forum) finish their setup – tables, first page – on the next web request, and WP-CLI
-    # commands fail until then; so make that request right away.
-    curl -s -o /dev/null http://localhost/ || true
+    # commands fail until then; so make that request right away. Without it the later steps fail obscurely: stop here.
+    if ! curl -fsS -o /dev/null http://localhost/; then
+        echo "Error: the web request after activating $plugin failed (see above); is Apache running in this container?" >&2
+        exit 1
+    fi
 done
 # One plugin per call: "wp language plugin install a b de_DE" would take b as a language.
 for plugin in "${PLUGINS[@]}"; do

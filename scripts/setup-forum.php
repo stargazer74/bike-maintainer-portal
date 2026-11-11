@@ -9,16 +9,33 @@
 
 defined( 'ABSPATH' ) || exit;
 
+require_once __DIR__ . '/setup-lib.php';
+
 if ( ! function_exists( 'pll_set_post_language' ) || ! class_exists( 'AsgarosForum' ) ) {
 	WP_CLI::error( 'Polylang and Asgaros Forum must be active.' );
 }
 
+// Asgaros creates its tables on the first web request after activation (setup.sh makes it); without them every step
+// below would fail with database errors that do not point here.
+global $wpdb;
+foreach ( array( 'forum_forums', 'forum_topics', 'forum_posts' ) as $bm_table ) {
+	// phpcs:ignore WordPress.DB.DirectDatabaseQuery -- schema check, nothing to cache.
+	if ( $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $wpdb->esc_like( $wpdb->prefix . $bm_table ) ) ) === null ) {
+		WP_CLI::error( "Asgaros Forum's table {$wpdb->prefix}$bm_table is missing: the web request after activating the plugin did not reach WordPress." );
+	}
+}
+
 // Open registration for forum members; the new account gets a link by mail to set its password, which also confirms
-// the address. Spam protection: ALTCHA (bm-altcha.php).
-update_option( 'users_can_register', 1 );
-update_option( 'default_role', 'subscriber' );
-// No avatars from gravatar.com (bm-privacy.php serves a local placeholder anyway).
-update_option( 'show_avatars', 0 );
+// the address. Spam protection: ALTCHA (bm-altcha.php). No avatars from gravatar.com (bm-privacy.php serves a local
+// placeholder anyway). Like all defaults below: once only, afterwards they are the admins' settings.
+bm_setup_once(
+	'registration',
+	static function () {
+		update_option( 'users_can_register', 1 );
+		update_option( 'default_role', 'subscriber' );
+		update_option( 'show_avatars', 0 );
+	}
+);
 
 // Exactly one forum page per language. Asgaros creates a page "Forum" on its first run, more than one if that run is
 // repeated; keep the first, delete the others.
@@ -89,58 +106,70 @@ pll_save_post_translations(
 
 // Forum options: privacy-friendly defaults (no avatars, profiles and member list only for members, nobody's online
 // status), mails from the same sender as the rest of the website (bm-smtp.php: BM_SMTP_FROM, else the SMTP login).
-$bm_options = array_merge(
-	(array) get_option( 'asgarosforum_options', array() ),
-	array(
-		'location'                         => $bm_forum_de,
-		'forum_title'                      => 'Forum',
-		'enable_avatars'                   => false,
-		'hide_profiles_from_guests'        => true,
-		'memberslist_loggedin_only'        => true,
-		'show_who_is_online'               => false,
-		'statistics_show_online_usernames' => false,
-		'show_last_seen'                   => false,
-		'show_newest_member'               => false,
-		'allow_guest_postings'             => false,
-		'allow_file_uploads'               => false,
-		'enable_rss'                       => false,
-		'reports_enabled'                  => true,
-		'reports_notifications'            => true,
-		'notification_sender_name'         => 'Bike Maintainer',
-	)
+bm_setup_once(
+	'forum-options',
+	static function () {
+		$options = array_merge(
+			(array) get_option( 'asgarosforum_options', array() ),
+			array(
+				'forum_title'                      => 'Forum',
+				'enable_avatars'                   => false,
+				'hide_profiles_from_guests'        => true,
+				'memberslist_loggedin_only'        => true,
+				'show_who_is_online'               => false,
+				'statistics_show_online_usernames' => false,
+				'show_last_seen'                   => false,
+				'show_newest_member'               => false,
+				'allow_guest_postings'             => false,
+				'allow_file_uploads'               => false,
+				'enable_rss'                       => false,
+				'reports_enabled'                  => true,
+				'reports_notifications'            => true,
+				'notification_sender_name'         => 'Bike Maintainer',
+			)
+		);
+		$sender  = getenv( 'BM_SMTP_FROM' ) ? getenv( 'BM_SMTP_FROM' ) : getenv( 'BM_SMTP_USER' );
+		if ( $sender ) {
+			$options['notification_sender_mail'] = $sender;
+		}
+		update_option( 'asgarosforum_options', $options );
+	}
 );
-$bm_sender  = getenv( 'BM_SMTP_FROM' ) ? getenv( 'BM_SMTP_FROM' ) : getenv( 'BM_SMTP_USER' );
-if ( $bm_sender ) {
-	$bm_options['notification_sender_mail'] = $bm_sender;
-}
+// The forum page is ours (created above), so it is set on every run.
+$bm_options             = (array) get_option( 'asgarosforum_options', array() );
+$bm_options['location'] = $bm_forum_de;
 update_option( 'asgarosforum_options', $bm_options );
 
 // Colours and font of the theme (dark "workshop" design), see theme.json.
-update_option(
-	'asgarosforum_appearance',
-	array_merge(
-		(array) get_option( 'asgarosforum_appearance', array() ),
-		array(
-			// Bars and buttons dark with white text (white on orange fails WCAG AA); orange for links and highlights.
-			'custom_color'                  => '#1E293B',
-			'custom_accent_color'           => '#F96302',
-			'custom_text_color'             => '#F3F4F6',
-			'custom_text_color_light'       => '#9CA3AF',
-			'custom_link_color'             => '#F96302',
-			'custom_background_color'       => '#121826',
-			'custom_background_color_alt'   => '#0B0F19',
-			'custom_border_color'           => '#1F293D',
-			'custom_read_indicator_color'   => '#9CA3AF',
-			'custom_unread_indicator_color' => '#F96302',
-			'custom_font'                   => 'Inter, system-ui, sans-serif',
-			'custom_font_size'              => '15px',
-		)
-	)
+bm_setup_once(
+	'forum-appearance',
+	static function () {
+		update_option(
+			'asgarosforum_appearance',
+			array_merge(
+				(array) get_option( 'asgarosforum_appearance', array() ),
+				array(
+					// Bars and buttons dark with white text (white on orange fails WCAG AA); orange for links and highlights.
+					'custom_color'                  => '#1E293B',
+					'custom_accent_color'           => '#F96302',
+					'custom_text_color'             => '#F3F4F6',
+					'custom_text_color_light'       => '#9CA3AF',
+					'custom_link_color'             => '#F96302',
+					'custom_background_color'       => '#121826',
+					'custom_background_color_alt'   => '#0B0F19',
+					'custom_border_color'           => '#1F293D',
+					'custom_read_indicator_color'   => '#9CA3AF',
+					'custom_unread_indicator_color' => '#F96302',
+					'custom_font'                   => 'Inter, system-ui, sans-serif',
+					'custom_font_size'              => '15px',
+				)
+			)
+		);
+	}
 );
 
 // Starting structure: one category and one forum, both languages in the name (Asgaros has no translations of its
 // content). Only renames Asgaros' example on the first run; afterwards the structure belongs to the administrators.
-global $wpdb;
 $bm_example = get_term_by( 'name', 'Beispiel-Kategorie', 'asgarosforum-category' );
 if ( ! $bm_example ) {
 	$bm_example = get_term_by( 'name', 'Example Category', 'asgarosforum-category' );
@@ -158,6 +187,16 @@ if ( $bm_example ) {
 		array( 'parent_id' => $bm_example->term_id )
 	);
 	WP_CLI::log( 'Renamed the example category and forum' );
+}
+
+// Accounts from before bm-privacy.php gave neutral names (#15): no login name in public, also not for administrators.
+// Only names that show the login name are changed; a nickname chosen by the member stays.
+$bm_renamed = 0;
+foreach ( get_users( array( 'fields' => 'ID' ) ) as $bm_user_id ) {
+	$bm_renamed += bm_neutralize_public_names( (int) $bm_user_id ) ? 1 : 0;
+}
+if ( $bm_renamed > 0 ) {
+	WP_CLI::log( "Neutral public names for $bm_renamed account(s)" );
 }
 
 flush_rewrite_rules();
