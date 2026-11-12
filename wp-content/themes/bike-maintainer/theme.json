@@ -279,5 +279,14 @@
 			}
 		},
 		"css": "@keyframes bm-glow { 0%, 100% { box-shadow: 0 0 15px rgba(249, 99, 2, .2); } 50% { box-shadow: 0 0 30px rgba(249, 99, 2, .45); } } ::selection { background: var(--wp--preset--color--accent-1); color: #fff; } mark.has-accent-1-color { background: none; } .bm-brand, .wp-block-button__link { white-space: nowrap; } .bm-language-switcher { display: inline-flex; gap: 2px; padding: 3px; border: 1px solid var(--wp--preset--color--accent-6); border-radius: 10px; background: var(--wp--preset--color--base); } .bm-language-switcher a { padding: .3rem .6rem; border-radius: 7px; font-size: .75rem; font-weight: 700; line-height: 1; color: var(--wp--preset--color--accent-4); text-decoration: none; } .bm-language-switcher a:hover { color: var(--wp--preset--color--white); text-decoration: none; } .bm-language-switcher a[aria-current] { background: var(--wp--preset--color--accent-1); color: var(--wp--preset--color--base); } @media (max-width: 900px) { .wp-block-buttons.bm-header-app { display: none; } } .bm-logo { flex-shrink: 0; } @media (max-width: 760px) { .bm-brand { display: none; } } body #af-wrapper .notice { background: var(--wp--preset--color--accent-5); border: 1px solid var(--wp--preset--color--accent-6); color: var(--wp--preset--color--contrast); } body #af-wrapper .notice a { color: var(--wp--preset--color--accent-3); } .wp-block-navigation-item__content { white-space: nowrap; } body.asgaros-forum .wp-block-post-title { max-width: var(--wp--style--global--wide-size); } body #af-wrapper .notices-panel { background: none; border: none; padding: 0; } body #af-wrapper .notices-panel .notice { border-radius: 4px; } body #af-wrapper #forum-search { width: 200px; height: 32px; line-height: 30px; margin: 6px; background: var(--wp--preset--color--base); border: 1px solid var(--wp--preset--color--accent-6); border-radius: 6px; color: var(--wp--preset--color--accent-4); } body #af-wrapper #forum-search input { color: var(--wp--preset--color--contrast); } body #af-wrapper #forum-search .search-icon { height: 30px; line-height: 30px; } @media screen and (max-width: 782px) { body #af-wrapper #forum-search { float: none; width: auto; } }"
-	}
+	},
+	"customTemplates": [
+		{
+			"name": "page-without-title",
+			"title": "Page without title (full width)",
+			"postTypes": [
+				"page"
+			]
+		}
+	]
 }

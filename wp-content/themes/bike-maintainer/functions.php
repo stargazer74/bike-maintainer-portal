@@ -172,6 +172,31 @@ function bike_maintainer_forum_url() {
 	return (string) get_permalink( $id ? $id : $forum->ID );
 }
 
+/**
+ * Feature page in the current language (/funktionen/ or /en/features/, created by scripts/setup-pages.php); the
+ * features section of the start page as long as the page does not exist.
+ *
+ * @return string
+ */
+function bike_maintainer_features_url() {
+	$page = get_page_by_path( 'funktionen' );
+	if ( ! $page ) {
+		return bike_maintainer_home_url( 'funktionen' );
+	}
+	$id = function_exists( 'pll_get_post' ) ? pll_get_post( $page->ID ) : $page->ID;
+	return (string) get_permalink( $id ? $id : $page->ID );
+}
+
+/**
+ * Screenshot of the app in the language of the website (assets/screenshots/de|en/, made by tools/screenshots).
+ *
+ * @param string $name File name without extension, e.g. "dashboard".
+ * @return string
+ */
+function bike_maintainer_screenshot_url( $name ) {
+	return get_theme_file_uri( 'assets/screenshots/' . bike_maintainer_language() . '/' . $name . '.webp' );
+}
+
 /*
  * Block templates run shortcodes before the blocks inside them are rendered, so a shortcode block inside a pattern
  * (like the language switcher in the header) would stay raw text. Run them when the block itself is rendered.

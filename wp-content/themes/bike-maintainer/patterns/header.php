@@ -29,7 +29,7 @@
 		<!-- wp:group {"style":{"spacing":{"blockGap":"1.5rem"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"right"}} -->
 		<div class="wp-block-group">
 			<!-- wp:navigation {"overlayMenu":"mobile","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"right"},"ariaLabel":"<?php echo esc_html__( 'Main navigation', 'bike-maintainer' ); ?>"} -->
-				<!-- wp:navigation-link {"label":"<?php echo esc_html__( 'Features', 'bike-maintainer' ); ?>","url":"<?php echo esc_url( bike_maintainer_home_url( 'funktionen' ) ); ?>","kind":"custom"} /-->
+				<!-- wp:navigation-link {"label":"<?php echo esc_html__( 'Features', 'bike-maintainer' ); ?>","url":"<?php echo esc_url( bike_maintainer_features_url() ); ?>","kind":"custom"} /-->
 				<!-- wp:navigation-link {"label":"<?php echo esc_html__( 'App', 'bike-maintainer' ); ?>","url":"<?php echo esc_url( bike_maintainer_home_url( 'app' ) ); ?>","kind":"custom"} /-->
 				<!-- wp:navigation-link {"label":"<?php echo esc_html__( 'Self-hosting', 'bike-maintainer' ); ?>","url":"<?php echo esc_url( bike_maintainer_home_url( 'betrieb' ) ); ?>","kind":"custom"} /-->
 				<!-- wp:navigation-link {"label":"<?php echo esc_html__( 'FAQ', 'bike-maintainer' ); ?>","url":"<?php echo esc_url( bike_maintainer_home_url( 'faq' ) ); ?>","kind":"custom"} /-->

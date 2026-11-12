@@ -1,0 +1,12 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.9/theme.json",
+	"version": 3,
+	"title": "Screenshot",
+	"slug": "screenshot",
+	"blockTypes": [
+		"core/media-text"
+	],
+	"styles": {
+		"css": "column-gap: clamp(2rem, 6vw, 5rem); & .wp-block-media-text__content { padding: 0; } & .wp-block-media-text__media img { height: auto; border-radius: 12px; border: 1px solid var(--wp--preset--color--accent-6); box-shadow: 0 0 40px rgba(249, 99, 2, .15); } @media (max-width: 600px) { & .wp-block-media-text__media { margin-bottom: 1.5rem; } } &.bm-phones .wp-block-media-text__media img { border: 0; border-radius: 0; box-shadow: none; }"
+	}
+}

@@ -61,6 +61,10 @@ messages are English.
 - Legal pages (`/impressum/`, `/datenschutz/`, `/en/legal-notice/`, `/en/privacy/`, linked by the footer and the
   app): `scripts/setup-legal.php` creates missing ones as drafts with a placeholder, links the languages and sets
   WordPress' privacy page. It never touches existing pages – their text is the operator's.
+- Feature page (`/funktionen/`, `/en/features/`, pattern `feature-tour`, template `page-without-title`):
+  `scripts/setup-pages.php` creates missing pages once; afterwards they belong to the admins like other content. Its
+  screenshots (`assets/screenshots/de|en/*.webp`) are made by `tools/screenshots/run.sh` from the dev stack of
+  `bike-maintainer-deploy` with example vehicles (see its README) – rerun it after visible app changes.
 - Content (pages, posts, forum, uploads) lives in the database/volume, never in the repo.
 
 ## Update model (decided 2026-11-02, "variant B")
@@ -91,7 +95,7 @@ code. Consequences:
 cp .env.example .env && docker compose up -d --build     # http://localhost:8095, Mailpit :8025
 docker compose exec -u www-data wordpress bm-setup        # first setup (idempotent)
 docker compose exec -u www-data wordpress wp <command>    # WP-CLI
-shellcheck docker-entrypoint-bm.sh scripts/*.sh
+shellcheck docker-entrypoint-bm.sh scripts/*.sh tools/screenshots/*.sh
 docker run --rm -u "$(id -u):$(id -g)" -v "$PWD":/app -w /app -e COMPOSER_HOME=/tmp/composer composer:2 \
   sh -c 'composer install && composer lint && vendor/bin/phpcs'
 ```

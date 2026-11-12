@@ -182,5 +182,13 @@
 			<!-- /wp:column -->
 	</div>
 	<!-- /wp:columns -->
+
+	<!-- wp:buttons {"align":"wide","style":{"spacing":{"margin":{"top":"3rem"}}},"layout":{"type":"flex","justifyContent":"center"}} -->
+	<div class="wp-block-buttons alignwide" style="margin-top:3rem">
+		<!-- wp:button {"className":"is-style-secondary"} -->
+		<div class="wp-block-button is-style-secondary"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( bike_maintainer_features_url() ); ?>"><?php esc_html_e( 'All features in detail', 'bike-maintainer' ); ?></a></div>
+		<!-- /wp:button -->
+	</div>
+	<!-- /wp:buttons -->
 </div>
 <!-- /wp:group -->
