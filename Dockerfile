@@ -34,7 +34,7 @@ RUN wp i18n make-mo /usr/src/bm/themes/bike-maintainer/languages --allow-root \
     && wp i18n make-php /usr/src/bm/themes/bike-maintainer/languages --allow-root
 COPY --chmod=755 docker-entrypoint-bm.sh /usr/local/bin/docker-entrypoint-bm.sh
 COPY --chmod=755 scripts/setup.sh /usr/local/bin/bm-setup
-COPY scripts/setup-lib.php scripts/setup-languages.php scripts/setup-forum.php scripts/setup-legal.php /usr/src/bm/
+COPY scripts/setup-lib.php scripts/setup-languages.php scripts/setup-forum.php scripts/setup-legal.php scripts/setup-pages.php /usr/src/bm/
 
 ENTRYPOINT ["docker-entrypoint-bm.sh"]
 CMD ["apache2-foreground"]

@@ -1,0 +1,9 @@
+{
+  "name": "bike-maintainer-screenshots",
+  "private": true,
+  "description": "Screenshots of the app for the feature page of the website (see README.md).",
+  "type": "module",
+  "devDependencies": {
+    "playwright": "1.63.0"
+  }
+}

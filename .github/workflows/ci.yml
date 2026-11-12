@@ -42,7 +42,7 @@ jobs:
           fi
 
       - name: Check shell scripts
-        run: shellcheck docker-entrypoint-bm.sh scripts/*.sh
+        run: shellcheck docker-entrypoint-bm.sh scripts/*.sh tools/screenshots/*.sh
 
       # PHP syntax and WordPress Coding Standards for our own code; the tools come from composer.json (dev only).
       - name: Lint PHP and check coding standards

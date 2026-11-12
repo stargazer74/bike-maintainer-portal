@@ -1,0 +1,39 @@
+# Short-lived household-mode stack for the screenshot of the profile selection (run.sh starts and removes it).
+# Uses the images of the development stack (bike-maintainer-deploy/dev, ./build.sh) and a database in memory only;
+# own project name, container names and port, so it never touches the dev stack or a real installation.
+name: bm-screenshots-household
+services:
+  db:
+    image: 'mariadb:11'
+    environment:
+      - 'MARIADB_DATABASE=maintenance'
+      - 'MARIADB_USER=maintenance'
+      - 'MARIADB_PASSWORD=screenshots'
+      - 'MARIADB_RANDOM_ROOT_PASSWORD=1'
+    tmpfs:
+      - '/var/lib/mysql'
+    healthcheck:
+      test: [ 'CMD', 'healthcheck.sh', '--connect', '--innodb_initialized' ]
+      interval: 3s
+      timeout: 5s
+      retries: 30
+  backend:
+    image: 'bike-maintainer-dev/backend'
+    environment:
+      - 'BM_MODE=household'
+      - 'DB_HOST=db'
+      - 'DB_PORT=3306'
+      - 'DB_NAME=maintenance'
+      - 'DB_USERNAME=maintenance'
+      - 'DB_PASSWORD=screenshots'
+    depends_on:
+      db:
+        condition: service_healthy
+  frontend:
+    image: 'bike-maintainer-dev/frontend'
+    environment:
+      - 'BACKEND_HOST=backend:8080'
+    ports:
+      - '127.0.0.1:${BM_SHOT_HOUSEHOLD_PORT:-8110}:80'
+    depends_on:
+      - backend

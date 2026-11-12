@@ -16,7 +16,7 @@ msgstr ""
 
 #. Theme Name of the theme
 #: style.css
-#: functions.php:226
+#: functions.php:251
 msgid "Bike Maintainer"
 msgstr "Bike Maintainer"
 
@@ -33,11 +33,11 @@ msgstr "Website des Bike-Maintainer-Portals. Block-Child-Theme von Twenty Twenty
 #. Author of the theme
 #. Author of the plugin
 #: style.css
-#: bm-privacy.php
+#: bm-seo.php
 msgid "Chris Wohlbrecht"
 msgstr ""
 
-#: functions.php:214
+#: functions.php:239
 msgid "Language"
 msgstr "Sprache"
 
@@ -182,6 +182,7 @@ msgstr "Bike Maintainer – Startseite"
 msgid "Main navigation"
 msgstr "Hauptnavigation"
 
+#: patterns/feature-tour.php:89
 #: patterns/header.php:32
 msgid "Features"
 msgstr "Funktionen"
@@ -194,6 +195,7 @@ msgstr "Selbst betreiben"
 msgid "FAQ"
 msgstr "FAQ"
 
+#: patterns/feature-tour.php:163
 #: patterns/header.php:46
 #: patterns/hero.php:47
 #: patterns/self-hosting.php:65
@@ -224,6 +226,7 @@ msgstr "dein Bike und seine Wartung"
 msgid "No more forgotten oil changes and piles of paper. Bike Maintainer reminds you by mileage or time – whichever comes first – and keeps your service book: <strong>in the portal</strong> or for free <strong>on your own computer</strong>, for example a Raspberry Pi."
 msgstr "Schluss mit vergessenen Ölwechseln und Zettelwirtschaft. Bike Maintainer erinnert nach Kilometerstand oder Zeit – was zuerst kommt – und führt dein Wartungsheft: <strong>im Portal</strong> oder kostenlos <strong>auf deinem eigenen Rechner</strong>, zum Beispiel einem Raspberry Pi."
 
+#: patterns/feature-tour.php:167
 #: patterns/hero.php:51
 msgid "Host it yourself"
 msgstr "Selbst betreiben"
@@ -236,6 +239,7 @@ msgstr "Keine Werbung, kein Tracking"
 msgid "Open source code (MIT licence)"
 msgstr "Quellcode offen (MIT-Lizenz)"
 
+#: patterns/feature-tour.php:60
 #: patterns/hero.php:67
 msgid "Maintenance report as PDF"
 msgstr "Wartungsbericht als PDF"
@@ -311,6 +315,7 @@ msgstr "Docker-Images für amd64 und arm64"
 msgid "Your data stays with you"
 msgstr "Deine Daten bleiben bei dir"
 
+#: patterns/feature-tour.php:139
 #: patterns/self-hosting.php:109
 msgid "Guide on GitHub"
 msgstr "Anleitung auf GitHub"
@@ -599,6 +604,7 @@ msgid "Open source (MIT licence)"
 msgstr "Open Source (MIT-Lizenz)"
 
 #: patterns/app.php:93
+#: patterns/feature-tour.php:130
 msgid "Download on GitHub"
 msgstr "Download auf GitHub"
 
@@ -647,6 +653,7 @@ msgstr "Neun Funktionen der App als Karten mit Icons, in drei Reihen."
 msgid "Reminders by mileage or months – whichever comes first. See due and overdue work at a glance, and record extra work right along with the maintenance."
 msgstr "Erinnerung nach Kilometern oder Monaten – je nachdem, was zuerst eintritt. Fällige und überfällige Arbeiten auf einen Blick, weitere Arbeiten erfasst du direkt mit der Wartung."
 
+#: patterns/feature-tour.php:54
 #: patterns/features.php:91
 msgid "Worksheets for the workshop"
 msgstr "Arbeitsblätter für die Werkstatt"
@@ -663,6 +670,7 @@ msgstr "Messwerte und Sollwerte"
 msgid "Store the target values from the workshop manual. Values outside them are highlighted, and for shim-adjusted valves the app suggests the new shim."
 msgstr "Hinterlege die Sollwerte aus dem Werkstatthandbuch. Abweichende Werte werden markiert, und bei Ventilen mit Shims schlägt die App das neue Shim vor."
 
+#: patterns/feature-tour.php:66
 #: patterns/features.php:123
 msgid "Take your data with you"
 msgstr "Deine Daten nimmst du mit"
@@ -700,16 +708,6 @@ msgstr "Komplette Startseite mit Hero, Funktionen, Android-App, „Portal oder s
 msgid "Move vehicles between portal and home by export and import"
 msgstr "Fahrzeuge per Export und Import zwischen Portal und Zuhause umziehen"
 
-#. Plugin Name of the plugin
-#: bm-privacy.php
-msgid "Bike Maintainer – Privacy"
-msgstr ""
-
-#. Description of the plugin
-#: bm-privacy.php
-msgid "Avatars never come from gravatar.com (that would send each visitor's IP address and a hash of the members' email addresses to a third party); every avatar is a local placeholder – also where plugins such as Asgaros Forum force avatars on. Login names never appear publicly: members get a neutral display name and URL name."
-msgstr ""
-
 #: bm-seo.php:60
 msgid "Bike Maintainer reminds you of maintenance by mileage or time and keeps the service book of your motorcycle, car or bicycle. Open source, in the portal or self-hosted."
 msgstr "Bike Maintainer erinnert an Wartungen nach Kilometerstand oder Zeit und führt das Scheckheft für Motorrad, Auto und Fahrrad. Open Source, im Portal oder selbst betrieben."
@@ -729,3 +727,169 @@ msgstr "Bike Maintainer – Wartungsplaner für Motorrad, Auto und Fahrrad"
 #: bm-seo.php:258
 msgid "Web browser; self-hosted with Docker on Linux, also on a Raspberry Pi"
 msgstr "Webbrowser; selbst betrieben mit Docker unter Linux, auch auf einem Raspberry Pi"
+
+#: patterns/feature-tour.php
+msgctxt "Pattern title"
+msgid "Feature tour"
+msgstr "Funktionsübersicht"
+
+#: patterns/feature-tour.php
+msgctxt "Pattern description"
+msgid "Feature page: every feature with a short text and a screenshot, text and picture alternating sides."
+msgstr "Funktionsseite: jede Funktion mit kurzem Text und Screenshot, Text und Bild wechseln die Seite."
+
+#: patterns/feature-tour.php:18
+msgid "Everything due at a glance"
+msgstr "Alles Fällige auf einen Blick"
+
+#: patterns/feature-tour.php:19
+msgid "The overview shows each vehicle with its mileage, the last maintenance and what is due next. Red means overdue, yellow due soon – by kilometres or by date, whichever comes first."
+msgstr "Die Übersicht zeigt jedes Fahrzeug mit Kilometerstand, letzter Wartung und dem, was als Nächstes fällig ist. Rot heißt überfällig, gelb bald fällig – nach Kilometern oder nach Datum, je nachdem, was zuerst eintritt."
+
+#: patterns/feature-tour.php:20
+msgid "Overview with three vehicles and their due maintenance"
+msgstr "Übersicht mit drei Fahrzeugen und ihren fälligen Wartungen"
+
+#: patterns/feature-tour.php:24
+msgid "Every vehicle in detail"
+msgstr "Jedes Fahrzeug im Detail"
+
+#: patterns/feature-tour.php:25
+msgid "For each job you see when it was last done and how much is left until the next time. The costs of the whole history and of the current year are added up for you."
+msgstr "Zu jeder Arbeit siehst du, wann sie zuletzt gemacht wurde und wie viel bis zum nächsten Mal bleibt. Die Kosten der gesamten Historie und des laufenden Jahres werden für dich zusammengerechnet."
+
+#: patterns/feature-tour.php:26
+msgid "Vehicle page with costs and the status of each maintenance job"
+msgstr "Fahrzeugseite mit Kosten und dem Stand jeder Wartungsarbeit"
+
+#: patterns/feature-tour.php:30
+msgid "Your maintenance plan"
+msgstr "Dein Wartungsplan"
+
+#: patterns/feature-tour.php:31
+msgid "Set for each job after how many kilometres and/or months it is due, and when it is due for the first time. One-off jobs, such as tightening the mirror mount, are possible too."
+msgstr "Lege für jede Arbeit fest, nach wie vielen Kilometern und/oder Monaten sie fällig ist und wann zum ersten Mal. Auch einmalige Arbeiten, etwa die Spiegelhalterung nachziehen, sind möglich."
+
+#: patterns/feature-tour.php:32
+msgid "Form of a maintenance job with intervals in kilometres and months"
+msgstr "Formular einer Wartungsarbeit mit Intervallen in Kilometern und Monaten"
+
+#: patterns/feature-tour.php:36
+msgid "Record maintenance"
+msgstr "Wartung eintragen"
+
+#: patterns/feature-tour.php:37
+msgid "Tick what you did, enter the mileage and add parts with part number, quantity and price, plus labour costs. Work you only notice in the workshop is added right away as further work."
+msgstr "Hake ab, was du gemacht hast, trage den Kilometerstand ein und ergänze Teile mit Teilenummer, Menge und Preis sowie Arbeitskosten. Was dir erst in der Werkstatt auffällt, kommt direkt als weitere Arbeit dazu."
+
+#: patterns/feature-tour.php:38
+msgid "Maintenance entry with tasks, tyre values and a part"
+msgstr "Wartungseintrag mit Arbeiten, Reifenwerten und einem Teil"
+
+#: patterns/feature-tour.php:42
+msgid "The complete history"
+msgstr "Die komplette Historie"
+
+#: patterns/feature-tour.php:43
+msgid "Every entry with its tasks, notes, measured values and costs. Values outside the target are highlighted."
+msgstr "Jeder Eintrag mit seinen Arbeiten, Notizen, Messwerten und Kosten. Werte außerhalb des Sollbereichs werden hervorgehoben."
+
+#: patterns/feature-tour.php:44
+msgid "Maintenance entry with measured values of brakes and chain and its costs"
+msgstr "Wartungseintrag mit Messwerten von Bremsen und Kette und seinen Kosten"
+
+#: patterns/feature-tour.php:48
+msgid "Measured values and shim suggestion"
+msgstr "Messwerte und Shim-Vorschlag"
+
+#: patterns/feature-tour.php:49
+msgid "Store the target values from the workshop manual – valve clearance, brakes, chain and tyres. For valves with shims, the app suggests the shim that brings the clearance back to the middle of the target range."
+msgstr "Hinterlege die Sollwerte aus dem Werkstatthandbuch – Ventilspiel, Bremsen, Kette und Reifen. Bei Ventilen mit Shims schlägt die App das Shim vor, das das Spiel wieder in die Mitte des Sollbereichs bringt."
+
+#: patterns/feature-tour.php:50
+msgid "Valve clearance of a two-cylinder engine with target values and a shim suggestion"
+msgstr "Ventilspiel eines Zweizylinders mit Sollwerten und Shim-Vorschlag"
+
+#: patterns/feature-tour.php:55
+msgid "Print a worksheet for valve clearance, brakes, chain or tyres, with the target values and the last shims of your vehicle already filled in. Fill it in by hand at the bike and photograph it with the Android app: your phone reads the values, the photo never leaves it."
+msgstr "Drucke ein Arbeitsblatt für Ventilspiel, Bremsen, Kette oder Reifen, in dem Sollwerte und die letzten Shims deines Fahrzeugs schon eingetragen sind. Füll es am Fahrzeug von Hand aus und fotografiere es mit der Android-App: Dein Handy liest die Werte, das Foto verlässt es nie."
+
+#: patterns/feature-tour.php:56
+msgid "Printable valve clearance worksheet with boxes for the digits"
+msgstr "Druckbares Arbeitsblatt für das Ventilspiel mit Kästchen für die Ziffern"
+
+#: patterns/feature-tour.php:61
+msgid "Download the history as a PDF – for your records or when you sell the vehicle. A checklist of the jobs that are due is available as a PDF too."
+msgstr "Lade die Historie als PDF herunter – für deine Unterlagen oder wenn du das Fahrzeug verkaufst. Auch eine Checkliste der fälligen Arbeiten gibt es als PDF."
+
+#: patterns/feature-tour.php:62
+msgid "First page of a maintenance report with parts and costs"
+msgstr "Erste Seite eines Wartungsberichts mit Teilen und Kosten"
+
+#: patterns/feature-tour.php:67
+msgid "Export a vehicle with all its tasks, entries and target values as a file and import it elsewhere – from the portal to your own server or the other way round. Before the import you see what the file contains."
+msgstr "Exportiere ein Fahrzeug mit allen Arbeiten, Einträgen und Sollwerten als Datei und importiere es woanders – vom Portal auf deinen eigenen Server oder umgekehrt. Vor dem Import siehst du, was die Datei enthält."
+
+#: patterns/feature-tour.php:68
+msgid "Import dialog with a preview of the vehicle in the file"
+msgstr "Import-Dialog mit Vorschau des Fahrzeugs in der Datei"
+
+#: patterns/feature-tour.php:72
+msgid "The Android app"
+msgstr "Die Android-App"
+
+#: patterns/feature-tour.php:73
+msgid "Reminders of due maintenance as notifications, recording maintenance right at the vehicle and photographing worksheets. Without Google services, for the portal and for your own server."
+msgstr "Erinnerungen an fällige Wartungen als Benachrichtigung, Wartung direkt am Fahrzeug eintragen und Arbeitsblätter fotografieren. Ohne Google-Dienste, für das Portal und für deinen eigenen Server."
+
+#: patterns/feature-tour.php:74
+msgid "Android app with the vehicle list and the due jobs of a motorcycle"
+msgstr "Android-App mit Fahrzeugliste und den fälligen Arbeiten eines Motorrads"
+
+#: patterns/feature-tour.php:78
+msgid "Household mode: no login needed"
+msgstr "Haushaltsmodus: ohne Anmeldung"
+
+#: patterns/feature-tour.php:79
+msgid "At home, Bike Maintainer runs on a PC, a server or a Raspberry Pi. Everyone picks their profile – no password, no account – and the data stays in your home network."
+msgstr "Zu Hause läuft Bike Maintainer auf einem PC, einem Server oder einem Raspberry Pi. Jede Person wählt ihr Profil – ohne Passwort, ohne Konto – und die Daten bleiben in deinem Heimnetz."
+
+#: patterns/feature-tour.php:80
+msgid "Profile selection of household mode with three people"
+msgstr "Profilauswahl des Haushaltsmodus mit drei Personen"
+
+#: patterns/feature-tour.php:93
+msgid "What Bike Maintainer can do"
+msgstr "Was Bike Maintainer kann"
+
+#: patterns/feature-tour.php:97
+msgid "A tour of the app with example vehicles – the same in the portal and on your own server."
+msgstr "Ein Rundgang durch die App mit Beispielfahrzeugen – im Portal genauso wie auf deinem eigenen Server."
+
+#: patterns/feature-tour.php:157
+msgid "Try it yourself"
+msgstr "Probier es selbst aus"
+
+#: patterns/features.php:189
+msgid "All features in detail"
+msgstr "Alle Funktionen im Detail"
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Page without title (full width)"
+msgstr "Seite ohne Titel (volle Breite)"
+
+#: styles/screenshot.json
+msgctxt "Style variation name"
+msgid "Screenshot"
+msgstr "Screenshot"
+
+#. Plugin Name of the plugin
+#: bm-seo.php
+msgid "Bike Maintainer – SEO"
+msgstr ""
+
+#. Description of the plugin
+#: bm-seo.php
+msgid "Search engines and link previews: a title with tagline and a description on the start page, Open Graph and Twitter Card tags with a local preview image, structured data (JSON-LD) for the website and the app, hreflang x-default, forum topics in the sitemap and language links that stay on the same forum topic. Everything is plain markup in the page – no SEO service, no tracking, no request to a third party."
+msgstr ""
