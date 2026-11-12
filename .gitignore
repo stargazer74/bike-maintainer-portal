@@ -6,3 +6,4 @@
 # Compiled translations: built into the image (Dockerfile) and by scripts/i18n.sh for development.
 wp-content/themes/bike-maintainer/languages/*.mo
 wp-content/themes/bike-maintainer/languages/*.l10n.php
+tools/screenshots/node_modules/
