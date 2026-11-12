@@ -39,7 +39,9 @@ messages are English.
   `bm-hardening.php` (XML-RPC off, no app passwords, no user enumeration for guests – login, registration and lost
   password answer alike for known and unknown accounts, an existing account gets a notice mail instead – no version,
   no file editor,
-  per-IP login limit 10/15 min), `bm-smtp.php` (SMTP from `BM_SMTP_*`; no host = no mail), `bm-seo.php` (description,
+  per-IP login limit 10/15 min), `bm-smtp.php` (SMTP from `BM_SMTP_*`; no host = no mail), `bm-cancel.php`
+  (cancellation button, § 312k BGB: `[bm_cancel_form]`, mails to the person and the admin address, nothing stored,
+  per-IP limit, no captcha), `bm-seo.php` (description,
   Open Graph with `assets/images/social-preview.png`, JSON-LD, hreflang x-default, forum topics in the sitemap via
   `bm-seo/class-bm-forum-sitemap.php`; on forum pages Asgaros prints canonical/description/og:title itself). The
   client IP comes from
@@ -59,7 +61,8 @@ messages are English.
   Polylang (languages, options, English start page linked to the German one) is set up by
   `scripts/setup-languages.php` via `wp eval-file`, as the free Polylang has no WP-CLI commands.
 - Legal pages (`/impressum/`, `/datenschutz/`, `/en/legal-notice/`, `/en/privacy/`, linked by the footer and the
-  app): `scripts/setup-legal.php` creates missing ones as drafts with a placeholder, links the languages and sets
+  app; for the subscription also `/agb/`, `/widerruf/`, `/kuendigen/` and `/en/terms/`, `/en/withdrawal/`,
+  `/en/cancel/`): `scripts/setup-legal.php` creates missing ones as drafts with a placeholder, links the languages and sets
   WordPress' privacy page. It never touches existing pages – their text is the operator's.
 - Feature page (`/funktionen/`, `/en/features/`, pattern `feature-tour`, template `page-without-title`):
   `scripts/setup-pages.php` creates missing pages once; afterwards they belong to the admins like other content. Its
@@ -87,7 +90,9 @@ code. Consequences:
 - PHP follows the WordPress Coding Standards (`phpcs.xml.dist`, text domain `bike-maintainer`); escape output, check
   capabilities and nonces.
 - Image is `linux/amd64` only – the website never runs on the Raspberry Pi.
-- Texts must match the real state of the app (no prices/subscription, no features that do not exist yet).
+- Texts must match the real state of the app (no features that do not exist yet). Price and trial length never in
+  the repo: they come from `BM_SUBSCRIPTION_PRICE` / `BM_SUBSCRIPTION_TRIAL_DAYS` (`functions.php`, shortcodes
+  `[bm_portal_offer]`, `[bm_subscription_faq]`); without a price the website shows no offer.
 
 ## Commands
 

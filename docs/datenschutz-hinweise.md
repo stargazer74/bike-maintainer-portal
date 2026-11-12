@@ -34,6 +34,30 @@ Nur technisch notwendige Cookies von WordPress, und nur für angemeldete Mitglie
 Rechtsgrundlage für Konto und Beiträge: Nutzungsverhältnis (Art. 6 Abs. 1 lit. b DSGVO). Mails gehen über den
 SMTP-Server von IONOS (Absender `noreply@bike-maintainer.de`) – Auftragsverarbeitung.
 
+## Abo (Polar)
+
+Die Website selbst verarbeitet keine Zahlungsdaten und lädt nichts von Polar. „Abo abschließen“ führt in die App; der
+Checkout ist eine von Polar gehostete Seite (Polar Software Inc., USA, als Verkäufer/Merchant of Record; Zahlungen über
+Stripe). Fakten aus dem Backend (stargazer74/bike-maintainer-backend#139):
+
+| Daten | Empfänger | Zweck |
+|---|---|---|
+| E-Mail-Adresse, zufällige Kunden-Kennung (keine Konto-ID) | Polar | Checkout, Rechnung, Kundenportal |
+| Zahlungsdaten, Rechnungsadresse | nur Polar/Stripe – gibt die Person dort selbst ein | Zahlung, Umsatzsteuer |
+| Abo-ID, Status, bezahlt bis | unsere Datenbank (App) | Freischaltung |
+
+Keine IP-Adresse und keine Nutzungsdaten von uns an Polar. Rechtsgrundlage: Vertrag (Art. 6 Abs. 1 lit. b DSGVO).
+Drittlandübermittlung in die USA: Angemessenheitsbeschluss (EU-US Data Privacy Framework, falls Polar bzw. Stripe
+zertifiziert sind) bzw. Standardvertragsklauseln – beim Betreiber zu prüfen. Beim Löschen des Kontos wird das Abo bei
+Polar beendet; Rechnungen bewahrt Polar nach eigenen Aufbewahrungspflichten auf.
+
+## Kündigungsformular
+
+`/kuendigen/` (`bm-cancel.php`): Name, E-Mail-Adresse, Art und Zeitpunkt der Kündigung, optional ein Grund. Die Angaben
+gehen per Mail an die Person (Bestätigung) und an den Betreiber und werden **nicht** in der Datenbank gespeichert. Gegen
+Missbrauch zählt die Website Absendungen pro IP-Adresse (als Hash, verfällt nach einer Stunde). Rechtsgrundlage:
+rechtliche Pflicht (§ 312k BGB, Art. 6 Abs. 1 lit. c DSGVO); die Mails bewahrt der Betreiber als Nachweis auf.
+
 ## Schutz vor Missbrauch
 
 - **ALTCHA** bei Registrierung und „Passwort vergessen“: Der Browser löst eine kleine Rechenaufgabe; kein externer

@@ -48,6 +48,7 @@ Immer aktiv, im Admin nicht abschaltbar (`wp-content/mu-plugins/`):
 | `bm-hardening.php` | kein XML-RPC (`xmlrpc.php` → 403), keine Anwendungspasswörter, keine Nutzer-Aufzählung für Gäste (`/wp-json/wp/v2/users`, `?author=N`, Nutzer-Sitemap), keine Versionsangabe, kein Datei-Editor im Admin, Login-Sperre pro IP |
 | `bm-seo.php` | Suchmaschinen und Link-Vorschau: Titel mit Untertitel und Beschreibung der Startseite, Open Graph/Twitter Card mit lokalem Vorschaubild (`assets/images/social-preview.png`), JSON-LD (`WebSite`, `WebApplication`), hreflang `x-default`, Forum-Themen in der Sitemap (`wp-sitemap-forum-1.xml` je Sprache, nur öffentliche Kategorien) und Sprachlinks, die im Forum auf demselben Thema bleiben. Nur Markup in der Seite – kein SEO-Dienst, kein Tracking. Ein im Admin gesetzter Untertitel bzw. eine Forenbeschreibung haben Vorrang. |
 | `bm-smtp.php` | Mailversand über SMTP aus der Umgebung (siehe unten); ohne `BM_SMTP_HOST` werden **keine** Mails versendet und Admins sehen einen Hinweis |
+| `bm-cancel.php` | Kündigungsbutton nach § 312k BGB: Shortcode `[bm_cancel_form]` auf `/kuendigen/` bzw. `/en/cancel/` (siehe „Abo“) |
 
 ### Mailversand
 
@@ -58,6 +59,29 @@ Immer aktiv, im Admin nicht abschaltbar (`wp-content/mu-plugins/`):
 | `BM_SMTP_SECURE` | optional: `tls`, `ssl` oder `none` statt der Ableitung aus dem Port |
 | `BM_SMTP_USER`, `BM_SMTP_PASSWORD` | Zugang; ohne Nutzer keine Anmeldung am Server |
 | `BM_SMTP_FROM` | Absender, Standard `BM_SMTP_USER` (Name „Bike Maintainer“) |
+
+### Abo
+
+Das Abo des Portals (Epic stargazer74/bike-maintainer-backend#136) wird in der App abgeschlossen; die Website zeigt
+nur das Angebot. **Preis und Testphase stehen nicht im Repository**, sie kommen aus der Umgebung:
+
+| Variable | Bedeutung |
+|---|---|
+| `BM_SUBSCRIPTION_PRICE` | Jahrespreis brutto in Euro, z. B. `9.99` oder `9,99`; leer = kein Angebot |
+| `BM_SUBSCRIPTION_TRIAL_DAYS` | Dauer der Testphase in Tagen (dieselbe Variable wie im Backend) |
+
+Mit Preis zeigt die Karte „Im Portal“ Preis inkl. MwSt., Testphase und die Knöpfe „Kostenlos testen“
+(`BM_APP_URL/registrieren`) und „Abo abschließen“ (`BM_APP_URL/konto`); die FAQ bekommt Fragen zu Preis, Testphase und
+Kündigung, die Fußzeile Links zu AGB, Widerruf und „Verträge hier kündigen“. Ohne Preis sieht die Website aus wie
+vorher.
+
+**Kündigungsbutton** (`bm-cancel.php`): Formular ohne Anmeldung (Name, E-Mail-Adresse des Kontos, Art und Zeitpunkt
+der Kündigung), Knopf „jetzt kündigen“. Danach zeigt die Seite die Erklärung mit Datum und Uhrzeit des Eingangs, die
+Person bekommt sofort eine Bestätigung per Mail und die Kündigung geht an die Admin-Adresse von WordPress
+(*Einstellungen → Allgemein*); die Kündigung selbst führt der Betreiber bei Polar aus. In der Datenbank wird nichts
+gespeichert. Kein Captcha (wäre eine unzulässige Hürde), stattdessen höchstens 5 Kündigungen pro IP und Stunde und 50
+pro Tag insgesamt sowie ein unsichtbares Feld gegen Bots. Datum und Uhrzeit stehen in der Zeitzone der Website;
+`bm-setup` stellt sie von UTC auf `Europe/Berlin`, eine von Admins gewählte Zeitzone bleibt.
 
 ### Login-Schutz
 
@@ -95,7 +119,8 @@ Block-Child-Theme von Twenty Twenty-Five im dunklen Design der App (Entwurf: Lan
 - **Screenshots der Funktionsseite** (`assets/screenshots/de|en/*.webp`) erzeugt `tools/screenshots/run.sh` aus dem
   Dev-Stack von `bike-maintainer-deploy` mit Beispielfahrzeugen, optional mit der App aus einem Android-Emulator
   (siehe `tools/screenshots/README.md`). Bei sichtbaren Änderungen an der App neu erzeugen.
-- **Texte** beschreiben den tatsächlichen Stand der App – keine Preise, keine Funktionen, die es noch nicht gibt.
+- **Texte** beschreiben den tatsächlichen Stand der App – keine Funktionen, die es noch nicht gibt; Preise nur aus der
+  Umgebung (siehe „Abo“), nie im Repository.
 - Lizenzen: Inter und JetBrains Mono SIL Open Font License (`assets/fonts/*-LICENSE.txt`), Lucide ISC
   (`assets/icons/LICENSE.txt`), Logo mit Material Symbol „two_wheeler“ (Apache 2.0).
 
@@ -121,8 +146,9 @@ Polylang miteinander verknüpft. `bm-setup` richtet das ein (`scripts/setup-lang
   ausführen. Die CI schlägt fehl, solange ein Text keine deutsche Übersetzung hat. Im Repository liegen nur `.pot`
   und `.po`; `.mo` und `.l10n.php` erzeugt der Image-Build.
 - **Inhalte** (Seiten, Beiträge) übersetzt man im Editor über Polylang: je Sprache eine eigene, verknüpfte Seite.
-- **Impressum und Datenschutz:** `/impressum/` und `/datenschutz/` bzw. `/en/legal-notice/` und `/en/privacy/` – die
-  Fußzeile der Website und die App verlinken je nach Sprache dorthin. `bm-setup` legt fehlende Seiten als
+- **Rechtliche Seiten:** `/impressum/` und `/datenschutz/` bzw. `/en/legal-notice/` und `/en/privacy/` – die
+  Fußzeile der Website und die App verlinken je nach Sprache dorthin; fürs Abo außerdem `/agb/`, `/widerruf/` und
+  `/kuendigen/` bzw. `/en/terms/`, `/en/withdrawal/` und `/en/cancel/` (mit dem Kündigungsformular). `bm-setup` legt fehlende Seiten als
   **Entwürfe** mit Platzhalter an, verknüpft die Sprachen und setzt die Datenschutzseite von WordPress (Link bei
   Registrierung und Anmeldung) – `scripts/setup-legal.php`. Den Text schreibt der Betreiber im Editor und
   veröffentlicht die Seiten; vorhandene Seiten ändert `bm-setup` nie.

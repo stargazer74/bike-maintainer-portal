@@ -1,7 +1,7 @@
 <?php
 /**
- * Legal pages for bm-setup (run with `wp eval-file` after setup-languages.php): legal notice and privacy policy in
- * German and English, at the addresses the theme footer and the app link to (bike_maintainer_legal_url(), app:
+ * Legal pages for bm-setup (run with `wp eval-file` after setup-languages.php): legal notice, privacy policy, terms,
+ * right of withdrawal and the cancellation form (§ 312k BGB, mu-plugin bm-cancel.php) in German and English, at the addresses the theme footer and the app link to (bike_maintainer_legal_url(), app:
  * websiteUrl). Idempotent.
  *
  * Missing pages are created as drafts with placeholders in [brackets]; the operator fills them in in the block editor
@@ -17,10 +17,10 @@ if ( ! function_exists( 'pll_set_post_language' ) ) {
 	WP_CLI::error( 'Polylang must be active.' );
 }
 
-// Page content as blocks: array( 'h' or 'p', HTML ). Placeholders in [brackets] are filled in by the operator; the
+// Page content as blocks: array( 'h', 'p' or 's' (shortcode), HTML ). Placeholders in [brackets] are filled in by the operator; the
 // legal notice gets the usual structure, the privacy policy only a note (its facts: docs/datenschutz-hinweise.md).
 $bm_legal_pages = array(
-	'imprint' => array(
+	'imprint'    => array(
 		'de' => array(
 			'slug'   => 'impressum',
 			'title'  => 'Impressum',
@@ -52,7 +52,7 @@ $bm_legal_pages = array(
 			),
 		),
 	),
-	'privacy' => array(
+	'privacy'    => array(
 		'de' => array(
 			'slug'   => 'datenschutz',
 			'title'  => 'Datenschutzerklärung',
@@ -68,18 +68,72 @@ $bm_legal_pages = array(
 			),
 		),
 	),
+	'terms'      => array(
+		'de' => array(
+			'slug'   => 'agb',
+			'title'  => 'Allgemeine Geschäftsbedingungen',
+			'blocks' => array(
+				array( 'p', '[Platzhalter: Nutzungsbedingungen für das Portal eintragen – Leistung, Testphase, Nur-lesbar nach Ablauf, Laufzeit, Verlängerung, Kündigung, Löschung, Haftung; Polar als Verkäufer (Merchant of Record) nennen und dessen Käuferbedingungen verlinken. Vor der Veröffentlichung rechtlich prüfen lassen.]' ),
+			),
+		),
+		'en' => array(
+			'slug'   => 'terms',
+			'title'  => 'Terms and conditions',
+			'blocks' => array(
+				array( 'p', '[Placeholder: enter the terms of use of the portal and publish the page.]' ),
+			),
+		),
+	),
+	'withdrawal' => array(
+		'de' => array(
+			'slug'   => 'widerruf',
+			'title'  => 'Widerrufsbelehrung',
+			'blocks' => array(
+				array( 'p', '[Platzhalter: Widerrufsbelehrung mit Muster-Widerrufsformular eintragen. Vor der Veröffentlichung rechtlich prüfen lassen.]' ),
+			),
+		),
+		'en' => array(
+			'slug'   => 'withdrawal',
+			'title'  => 'Right of withdrawal',
+			'blocks' => array(
+				array( 'p', '[Placeholder: enter the information on the right of withdrawal with the model withdrawal form and publish the page.]' ),
+			),
+		),
+	),
+	'cancel'     => array(
+		'de' => array(
+			'slug'   => 'kuendigen',
+			'title'  => 'Verträge hier kündigen',
+			'blocks' => array(
+				array( 'p', 'Hier kündigst du dein Abo für das Bike-Maintainer-Portal, ohne dich anzumelden. Du bekommst sofort eine Bestätigung per E-Mail.' ),
+				array( 's', '[bm_cancel_form]' ),
+			),
+		),
+		'en' => array(
+			'slug'   => 'cancel',
+			'title'  => 'Cancel contracts here',
+			'blocks' => array(
+				array( 'p', 'Cancel your subscription to the Bike Maintainer portal here, without logging in. You will get a confirmation by email right away.' ),
+				array( 's', '[bm_cancel_form]' ),
+			),
+		),
+	),
 );
 
 /**
  * Block markup as the block editor saves it, so the editor does not flag the blocks as invalid.
  *
- * @param array $blocks List of array( 'h' or 'p', HTML ).
+ * @param array $blocks List of array( 'h', 'p' or 's' (shortcode), HTML ).
  * @return string
  */
 function bm_legal_blocks( $blocks ) {
 	$markup = array();
 	foreach ( $blocks as $block ) {
-		$html     = wp_kses( $block[1], array( 'br' => array() ) );
+		$html = wp_kses( $block[1], array( 'br' => array() ) );
+		if ( 's' === $block[0] ) {
+			$markup[] = "<!-- wp:shortcode -->\n" . esc_html( $block[1] ) . "\n<!-- /wp:shortcode -->";
+			continue;
+		}
 		$markup[] = 'h' === $block[0]
 			? "<!-- wp:heading -->\n<h2 class=\"wp-block-heading\">$html</h2>\n<!-- /wp:heading -->"
 			: "<!-- wp:paragraph -->\n<p>$html</p>\n<!-- /wp:paragraph -->";
@@ -146,12 +200,15 @@ if ( $bm_sample && ! in_array( $bm_sample, $bm_ids['privacy'], true ) && 'draft'
 }
 update_option( 'wp_page_for_privacy_policy', $bm_ids['privacy']['de'] );
 
-WP_CLI::success(
-	sprintf(
-		'Legal pages: imprint de %d, en %d; privacy de %d, en %d',
-		$bm_ids['imprint']['de'],
-		$bm_ids['imprint']['en'],
-		$bm_ids['privacy']['de'],
-		$bm_ids['privacy']['en']
-	)
-);
+// The confirmation of the cancellation form states date and time of receipt; WordPress starts in UTC. Only an untouched
+// default is changed, a time zone chosen by the admins stays.
+if ( '' === (string) get_option( 'timezone_string' ) && 0.0 === (float) get_option( 'gmt_offset' ) ) {
+	update_option( 'timezone_string', 'Europe/Berlin' );
+	WP_CLI::log( 'Set the time zone to Europe/Berlin' );
+}
+
+$bm_summary = array();
+foreach ( $bm_ids as $bm_key => $bm_translations ) {
+	$bm_summary[] = sprintf( '%s de %d, en %d', $bm_key, $bm_translations['de'], $bm_translations['en'] );
+}
+WP_CLI::success( 'Legal pages: ' . implode( '; ', $bm_summary ) );

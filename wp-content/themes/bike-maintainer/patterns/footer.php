@@ -28,6 +28,20 @@
 			<p><a href="<?php echo esc_url( bike_maintainer_legal_url( 'privacy' ) ); ?>"><?php esc_html_e( 'Privacy', 'bike-maintainer' ); ?></a></p>
 			<!-- /wp:paragraph -->
 
+			<?php if ( bike_maintainer_subscription_offered() ) : ?>
+			<!-- wp:paragraph -->
+			<p><a href="<?php echo esc_url( bike_maintainer_legal_url( 'terms' ) ); ?>"><?php esc_html_e( 'Terms', 'bike-maintainer' ); ?></a></p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph -->
+			<p><a href="<?php echo esc_url( bike_maintainer_legal_url( 'withdrawal' ) ); ?>"><?php esc_html_e( 'Right of withdrawal', 'bike-maintainer' ); ?></a></p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph -->
+			<p><a href="<?php echo esc_url( bike_maintainer_legal_url( 'cancel' ) ); ?>"><?php esc_html_e( 'Cancel contracts here', 'bike-maintainer' ); ?></a></p>
+			<!-- /wp:paragraph -->
+
+			<?php endif; ?>
 			<!-- wp:paragraph -->
 			<p><a href="https://github.com/stargazer74">GitHub</a></p>
 			<!-- /wp:paragraph -->
