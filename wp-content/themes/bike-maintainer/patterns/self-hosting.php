@@ -5,6 +5,8 @@
  * Categories: bike-maintainer
  * Description: The two ways to use the app as cards, followed by the home network installation with Docker Compose.
  *
+ * The portal card shows price and trial from the environment ([bm_portal_offer], see functions.php).
+ *
  * @package BikeMaintainer
  */
 
@@ -59,13 +61,9 @@
 			</ul>
 			<!-- /wp:list -->
 
-			<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"1.5rem"}}}} -->
-			<div class="wp-block-buttons" style="margin-top:1.5rem">
-				<!-- wp:button {"width":100} -->
-				<div class="wp-block-button has-custom-width wp-block-button__width-100"><a class="wp-block-button__link wp-element-button" href="#bm-app"><?php esc_html_e( 'Open the app', 'bike-maintainer' ); ?></a></div>
-				<!-- /wp:button -->
-			</div>
-			<!-- /wp:buttons -->
+			<!-- wp:shortcode -->
+			[bm_portal_offer]
+			<!-- /wp:shortcode -->
 		</div>
 		<!-- /wp:column -->
 

@@ -138,20 +138,27 @@ function bike_maintainer_home_url( $fragment = '' ) {
 }
 
 /**
- * Legal pages per language. The pages themselves are created by the operator (Epic #48).
+ * Legal pages per language. The pages themselves are created by scripts/setup-legal.php as drafts; their text belongs
+ * to the operator (Epic #48).
  *
- * @param string $page "imprint" or "privacy".
+ * @param string $page "imprint", "privacy", "terms", "withdrawal" or "cancel".
  * @return string
  */
 function bike_maintainer_legal_url( $page ) {
 	$slugs    = array(
 		'de' => array(
-			'imprint' => 'impressum',
-			'privacy' => 'datenschutz',
+			'imprint'    => 'impressum',
+			'privacy'    => 'datenschutz',
+			'terms'      => 'agb',
+			'withdrawal' => 'widerruf',
+			'cancel'     => 'kuendigen',
 		),
 		'en' => array(
-			'imprint' => 'legal-notice',
-			'privacy' => 'privacy',
+			'imprint'    => 'legal-notice',
+			'privacy'    => 'privacy',
+			'terms'      => 'terms',
+			'withdrawal' => 'withdrawal',
+			'cancel'     => 'cancel',
 		),
 	);
 	$language = bike_maintainer_language();
@@ -345,5 +352,156 @@ add_filter(
 	 */
 	static function () {
 		return 'bike-maintainer.de';
+	}
+);
+
+/*
+ * Subscription of the portal (Epic stargazer74/bike-maintainer-backend#136). Price and trial length come from the
+ * environment of the deployment, never from this repository: BM_SUBSCRIPTION_PRICE (yearly gross price in euros,
+ * e.g. 9.99 or 9,99) and BM_SUBSCRIPTION_TRIAL_DAYS (the same variable the backend reads). Without a price the website
+ * shows no offer, no subscription questions and no links to terms, withdrawal and cancellation – it looks as before.
+ */
+
+/**
+ * Yearly price formatted for the current language ("9,99 €" or "€9.99"), empty if none or an invalid one is set.
+ *
+ * @return string
+ */
+function bike_maintainer_subscription_price() {
+	$raw = str_replace( ',', '.', trim( (string) getenv( 'BM_SUBSCRIPTION_PRICE' ) ) );
+	if ( ! preg_match( '/^\d{1,4}(\.\d{1,2})?$/', $raw ) || (float) $raw <= 0 ) {
+		return '';
+	}
+	return 'en' === bike_maintainer_language()
+		? '€' . number_format( (float) $raw, 2, '.', ',' )
+		: number_format( (float) $raw, 2, ',', '.' ) . "\u{00A0}€";
+}
+
+/**
+ * Length of the free trial in days, 0 if not set.
+ *
+ * @return int
+ */
+function bike_maintainer_trial_days() {
+	$days = trim( (string) getenv( 'BM_SUBSCRIPTION_TRIAL_DAYS' ) );
+	return ctype_digit( $days ) ? (int) $days : 0;
+}
+
+/**
+ * Whether the subscription is offered on the website (a price is configured).
+ *
+ * @return bool
+ */
+function bike_maintainer_subscription_offered() {
+	return '' !== bike_maintainer_subscription_price();
+}
+
+/**
+ * Sentence about the free trial, with its length if one is configured.
+ *
+ * @return string
+ */
+function bike_maintainer_trial_sentence() {
+	$days = bike_maintainer_trial_days();
+	if ( $days <= 0 ) {
+		return __( 'Try it for free first, no payment details needed.', 'bike-maintainer' );
+	}
+	/* translators: %d: length of the free trial in days */
+	return sprintf( _n( 'Try it for free for %d day, no payment details needed.', 'Try it for free for %d days, no payment details needed.', $days, 'bike-maintainer' ), $days );
+}
+
+/**
+ * Full-width buttons, rendered from block markup so WordPress adds the layout and style variation classes and CSS
+ * (the "secondary" style is generated per block instance).
+ *
+ * @param array<int, array{0: string, 1: string, 2?: bool}> $buttons List of array( URL, label, secondary ).
+ * @return string
+ */
+function bike_maintainer_buttons( $buttons ) {
+	$markup = '';
+	foreach ( $buttons as $button ) {
+		$secondary = ! empty( $button[2] );
+		$markup   .= sprintf(
+			'<!-- wp:button {"width":100%1$s} --><div class="wp-block-button has-custom-width wp-block-button__width-100%2$s"><a class="wp-block-button__link wp-element-button" href="%3$s">%4$s</a></div><!-- /wp:button -->',
+			$secondary ? ',"className":"is-style-secondary"' : '',
+			$secondary ? ' is-style-secondary' : '',
+			esc_url( $button[0] ),
+			esc_html( $button[1] )
+		);
+	}
+	return do_blocks(
+		'<!-- wp:buttons {"className":"bm-offer__buttons"} --><div class="wp-block-buttons bm-offer__buttons">' . $markup . '</div><!-- /wp:buttons -->'
+	);
+}
+
+add_shortcode(
+	'bm_portal_offer',
+	/**
+	 * Price, trial and buttons of the "In the portal" card. The subscription itself is taken out in the app (account
+	 * page), because it belongs to an account; the app asks for the login first and returns there. Without a
+	 * configured price only the button to the app, as before.
+	 *
+	 * @return string
+	 */
+	static function () {
+		$app = bike_maintainer_app_url();
+		if ( ! bike_maintainer_subscription_offered() ) {
+			return bike_maintainer_buttons( array( array( $app, __( 'Open the app', 'bike-maintainer' ) ) ) );
+		}
+		$seller = sprintf(
+			/* translators: 1: link to the terms, 2: link to the withdrawal information */
+			__( 'Sold and invoiced by our reseller Polar (merchant of record). Our %1$s and the %2$s apply.', 'bike-maintainer' ),
+			'<a href="' . esc_url( bike_maintainer_legal_url( 'terms' ) ) . '">' . esc_html__( 'terms', 'bike-maintainer' ) . '</a>',
+			'<a href="' . esc_url( bike_maintainer_legal_url( 'withdrawal' ) ) . '">' . esc_html__( 'information on the right of withdrawal', 'bike-maintainer' ) . '</a>'
+		);
+		return '<div class="bm-offer">'
+			. '<p class="bm-offer__price"><span class="bm-offer__amount">' . esc_html( bike_maintainer_subscription_price() ) . '</span> '
+			. '<span class="bm-offer__period">' . esc_html__( 'per year', 'bike-maintainer' ) . '</span></p>'
+			. '<p class="bm-offer__note">' . esc_html__( 'Including VAT · one price for all your vehicles', 'bike-maintainer' ) . '</p>'
+			. '<p class="bm-offer__trial">' . esc_html( bike_maintainer_trial_sentence() ) . ' '
+			. esc_html__( 'Afterwards your data stays readable – costs only arise if you take out a subscription.', 'bike-maintainer' ) . '</p>'
+			. bike_maintainer_buttons(
+				array(
+					array( $app . '/registrieren', __( 'Try for free', 'bike-maintainer' ) ),
+					array( $app . '/konto', __( 'Take out a subscription', 'bike-maintainer' ), true ),
+				)
+			)
+			. '<p class="bm-offer__seller">' . wp_kses( $seller, array( 'a' => array( 'href' => array() ) ) ) . '</p>'
+			. '</div>';
+	}
+);
+
+add_shortcode(
+	'bm_subscription_faq',
+	/**
+	 * Questions about price, trial and cancellation for the FAQ; empty without a configured price.
+	 *
+	 * @return string
+	 */
+	static function () {
+		if ( ! bike_maintainer_subscription_offered() ) {
+			return '';
+		}
+		$items  = array(
+			__( 'What does Bike Maintainer cost?', 'bike-maintainer' ) => sprintf(
+				/* translators: 1: yearly price, 2: sentence about the free trial */
+				__( 'In the portal %1$s per year including VAT – one price for all your vehicles. %2$s Household mode on your own computer is free.', 'bike-maintainer' ),
+				bike_maintainer_subscription_price(),
+				bike_maintainer_trial_sentence()
+			),
+			__( 'What happens after the trial?', 'bike-maintainer' ) => __( 'Nothing is charged. Your account becomes read-only: you can still view, export and delete your data, but not add or change anything. With a subscription you carry on where you left off.', 'bike-maintainer' ),
+			__( 'How do I cancel?', 'bike-maintainer' ) => sprintf(
+				/* translators: %s: link "Cancel contracts here" */
+				__( 'In the app under Account → “Manage subscription”, or without logging in via %s at the bottom of every page. The first year is the minimum term; after that you can cancel at any time with one month’s notice and get back what you paid in advance for the rest of the year. Your data stays readable afterwards.', 'bike-maintainer' ),
+				'<a href="' . esc_url( bike_maintainer_legal_url( 'cancel' ) ) . '">' . esc_html__( 'Cancel contracts here', 'bike-maintainer' ) . '</a>'
+			),
+		);
+		$markup = '';
+		foreach ( $items as $question => $answer ) {
+			$markup .= '<details class="wp-block-details"><summary>' . esc_html( $question ) . '</summary>'
+				. '<p class="has-accent-4-color has-text-color" style="font-size:0.9rem">'
+				. wp_kses( $answer, array( 'a' => array( 'href' => array() ) ) ) . '</p></details>';
+		}
+		return $markup;
 	}
 );

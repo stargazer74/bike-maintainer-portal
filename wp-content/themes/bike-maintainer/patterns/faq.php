@@ -47,6 +47,10 @@
 	</details>
 	<!-- /wp:details -->
 
+	<!-- wp:shortcode -->
+	[bm_subscription_faq]
+	<!-- /wp:shortcode -->
+
 	<!-- wp:details -->
 	<details class="wp-block-details"><summary><?php esc_html_e( 'Is Bike Maintainer open source?', 'bike-maintainer' ); ?></summary>
 		<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->

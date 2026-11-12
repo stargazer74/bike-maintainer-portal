@@ -9,14 +9,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-12T07:22:59+00:00\n"
+"POT-Creation-Date: 2026-11-12T13:56:37+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: bike-maintainer\n"
 
 #. Theme Name of the theme
 #: style.css
-#: functions.php:251
+#: functions.php:258
 msgid "Bike Maintainer"
 msgstr ""
 
@@ -37,8 +37,94 @@ msgstr ""
 msgid "Chris Wohlbrecht"
 msgstr ""
 
-#: functions.php:239
+#: functions.php:246
 msgid "Language"
+msgstr ""
+
+#: functions.php:407
+msgid "Try it for free first, no payment details needed."
+msgstr ""
+
+#. translators: %d: length of the free trial in days
+#: functions.php:410
+#, php-format
+msgid "Try it for free for %d day, no payment details needed."
+msgid_plural "Try it for free for %d days, no payment details needed."
+msgstr[0] ""
+msgstr[1] ""
+
+#: functions.php:449
+#: patterns/feature-tour.php:164
+#: patterns/header.php:46
+#: patterns/hero.php:47
+msgid "Open the app"
+msgstr ""
+
+#. translators: 1: link to the terms, 2: link to the withdrawal information
+#: functions.php:453
+#, php-format
+msgid "Sold and invoiced by our reseller Polar (merchant of record). Our %1$s and the %2$s apply."
+msgstr ""
+
+#: functions.php:454
+msgid "terms"
+msgstr ""
+
+#: functions.php:455
+msgid "information on the right of withdrawal"
+msgstr ""
+
+#: functions.php:459
+msgid "per year"
+msgstr ""
+
+#: functions.php:460
+msgid "Including VAT · one price for all your vehicles"
+msgstr ""
+
+#: functions.php:462
+msgid "Afterwards your data stays readable – costs only arise if you take out a subscription."
+msgstr ""
+
+#: functions.php:465
+msgid "Try for free"
+msgstr ""
+
+#: functions.php:466
+msgid "Take out a subscription"
+msgstr ""
+
+#: functions.php:486
+msgid "What does Bike Maintainer cost?"
+msgstr ""
+
+#. translators: 1: yearly price, 2: sentence about the free trial
+#: functions.php:488
+#, php-format
+msgid "In the portal %1$s per year including VAT – one price for all your vehicles. %2$s Household mode on your own computer is free."
+msgstr ""
+
+#: functions.php:492
+msgid "What happens after the trial?"
+msgstr ""
+
+#: functions.php:492
+msgid "Nothing is charged. Your account becomes read-only: you can still view, export and delete your data, but not add or change anything. With a subscription you carry on where you left off."
+msgstr ""
+
+#: functions.php:493
+msgid "How do I cancel?"
+msgstr ""
+
+#. translators: %s: link "Cancel contracts here"
+#: functions.php:495
+#, php-format
+msgid "In the app under Account → “Manage subscription”, or without logging in via %s at the bottom of every page. The first year is the minimum term; after that you can cancel at any time with one month’s notice and get back what you paid in advance for the rest of the year. Your data stays readable afterwards."
+msgstr ""
+
+#: functions.php:496
+#: patterns/footer.php:41
+msgid "Cancel contracts here"
 msgstr ""
 
 #: patterns/app.php
@@ -100,7 +186,7 @@ msgid "Open source (MIT licence)"
 msgstr ""
 
 #: patterns/app.php:93
-#: patterns/feature-tour.php:130
+#: patterns/feature-tour.php:131
 msgid "Download on GitHub"
 msgstr ""
 
@@ -150,51 +236,51 @@ msgstr ""
 msgid "In the portal everyone has their own account with email address and password. Household mode is meant for your home network: no login, everyone picks their profile. That is why it must not be reachable from the internet."
 msgstr ""
 
-#: patterns/faq.php:51
+#: patterns/faq.php:55
 msgid "Is Bike Maintainer open source?"
 msgstr ""
 
-#: patterns/faq.php:53
+#: patterns/faq.php:57
 msgid "Yes, under the MIT licence. The source code is on GitHub."
 msgstr ""
 
-#: patterns/faq.php:59
+#: patterns/faq.php:63
 msgid "Which languages are available?"
 msgstr ""
 
-#: patterns/faq.php:61
+#: patterns/faq.php:65
 msgid "German and English – for the interface, the emails and the PDFs. You choose the language in your account."
 msgstr ""
 
-#: patterns/faq.php:67
+#: patterns/faq.php:71
 msgid "Is there an app for my phone?"
 msgstr ""
 
-#: patterns/faq.php:69
+#: patterns/faq.php:73
 msgid "Yes, for Android 10 or newer. It reminds you of due maintenance and lets you record work right at the vehicle. The APK is on GitHub; Obtainium keeps it up to date. It needs no Google services."
 msgstr ""
 
-#: patterns/faq.php:75
+#: patterns/faq.php:79
 msgid "What happens to the photos of the worksheets?"
 msgstr ""
 
-#: patterns/faq.php:77
+#: patterns/faq.php:81
 msgid "The app reads the values on your phone. The photo is not uploaded – only the values you confirm are saved."
 msgstr ""
 
-#: patterns/faq.php:83
+#: patterns/faq.php:87
 msgid "Can I take my data with me?"
 msgstr ""
 
-#: patterns/faq.php:85
+#: patterns/faq.php:89
 msgid "Yes. Every vehicle can be exported as a file with its tasks, entries and target values and imported again – in the portal or on your own server."
 msgstr ""
 
-#: patterns/faq.php:91
+#: patterns/faq.php:95
 msgid "Where can I ask questions?"
 msgstr ""
 
-#: patterns/faq.php:93
+#: patterns/faq.php:97
 msgid "In the forum. Bugs and ideas are also welcome as issues on GitHub."
 msgstr ""
 
@@ -356,23 +442,16 @@ msgstr ""
 msgid "A tour of the app with example vehicles – the same in the portal and on your own server."
 msgstr ""
 
-#: patterns/feature-tour.php:139
-#: patterns/self-hosting.php:109
+#: patterns/feature-tour.php:140
+#: patterns/self-hosting.php:107
 msgid "Guide on GitHub"
 msgstr ""
 
-#: patterns/feature-tour.php:157
+#: patterns/feature-tour.php:158
 msgid "Try it yourself"
 msgstr ""
 
-#: patterns/feature-tour.php:163
-#: patterns/header.php:46
-#: patterns/hero.php:47
-#: patterns/self-hosting.php:65
-msgid "Open the app"
-msgstr ""
-
-#: patterns/feature-tour.php:167
+#: patterns/feature-tour.php:168
 #: patterns/hero.php:51
 msgid "Host it yourself"
 msgstr ""
@@ -484,6 +563,14 @@ msgstr ""
 msgid "Privacy"
 msgstr ""
 
+#: patterns/footer.php:33
+msgid "Terms"
+msgstr ""
+
+#: patterns/footer.php:37
+msgid "Right of withdrawal"
+msgstr ""
+
 #: patterns/header.php
 msgctxt "Pattern title"
 msgid "Header"
@@ -577,67 +664,67 @@ msgctxt "Pattern description"
 msgid "The two ways to use the app as cards, followed by the home network installation with Docker Compose."
 msgstr ""
 
-#: patterns/self-hosting.php:17
+#: patterns/self-hosting.php:19
 msgid "Two ways"
 msgstr ""
 
-#: patterns/self-hosting.php:21
+#: patterns/self-hosting.php:23
 msgid "In the portal or self-hosted"
 msgstr ""
 
-#: patterns/self-hosting.php:25
+#: patterns/self-hosting.php:27
 msgid "Same app, same features – you decide where your data lives."
 msgstr ""
 
-#: patterns/self-hosting.php:39
+#: patterns/self-hosting.php:41
 msgid "In the portal"
 msgstr ""
 
-#: patterns/self-hosting.php:43
+#: patterns/self-hosting.php:45
 msgid "Sign up and get started – no server of your own. Everyone has their own account."
 msgstr ""
 
-#: patterns/self-hosting.php:49
+#: patterns/self-hosting.php:51
 msgid "No installation needed"
 msgstr ""
 
-#: patterns/self-hosting.php:53
+#: patterns/self-hosting.php:55
 msgid "Available on the go"
 msgstr ""
 
-#: patterns/self-hosting.php:57
+#: patterns/self-hosting.php:59
 msgid "Account with email address and password"
 msgstr ""
 
-#: patterns/self-hosting.php:79
+#: patterns/self-hosting.php:77
 msgid "Self-hosted"
 msgstr ""
 
-#: patterns/self-hosting.php:83
+#: patterns/self-hosting.php:81
 msgid "Household mode runs in your home network – on a PC, a server or a Raspberry Pi. Everyone picks their profile, no password needed."
 msgstr ""
 
-#: patterns/self-hosting.php:89
+#: patterns/self-hosting.php:87
 msgid "Free and open source"
 msgstr ""
 
-#: patterns/self-hosting.php:93
+#: patterns/self-hosting.php:91
 msgid "Docker images for amd64 and arm64"
 msgstr ""
 
-#: patterns/self-hosting.php:97
+#: patterns/self-hosting.php:95
 msgid "Your data stays with you"
 msgstr ""
 
-#: patterns/self-hosting.php:101
+#: patterns/self-hosting.php:99
 msgid "Move vehicles between portal and home by export and import"
 msgstr ""
 
-#: patterns/self-hosting.php:119
+#: patterns/self-hosting.php:117
 msgid "In your home network in four steps – on any computer with Docker:"
 msgstr ""
 
-#: patterns/self-hosting.php:126
+#: patterns/self-hosting.php:124
 msgid "set a password for BM_DB_PASSWORD in .env first"
 msgstr ""
 
@@ -818,6 +905,145 @@ msgstr ""
 #: bm-altcha.php:259
 #: bm-altcha.php:278
 msgid "Please confirm that you are not a robot."
+msgstr ""
+
+#: bm-cancel.php:53
+msgid "legal notice"
+msgstr ""
+
+#: bm-cancel.php:94
+msgid "Please enter your name."
+msgstr ""
+
+#: bm-cancel.php:97
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: bm-cancel.php:103
+msgid "Please choose today or a later date."
+msgstr ""
+
+#: bm-cancel.php:107
+msgid "Please shorten the reason to 2000 characters."
+msgstr ""
+
+#: bm-cancel.php:121
+msgid "Contract"
+msgstr ""
+
+#: bm-cancel.php:121
+msgid "Subscription to the Bike Maintainer portal"
+msgstr ""
+
+#: bm-cancel.php:122
+#: bm-cancel.php:276
+msgid "Name"
+msgstr ""
+
+#: bm-cancel.php:123
+msgid "Email address"
+msgstr ""
+
+#: bm-cancel.php:124
+#: bm-cancel.php:286
+msgid "Type of cancellation"
+msgstr ""
+
+#: bm-cancel.php:125
+#: bm-cancel.php:288
+msgid "Extraordinary cancellation (for good cause)"
+msgstr ""
+
+#: bm-cancel.php:126
+#: bm-cancel.php:287
+msgid "Ordinary cancellation"
+msgstr ""
+
+#: bm-cancel.php:127
+#: bm-cancel.php:296
+msgid "Cancel as of"
+msgstr ""
+
+#: bm-cancel.php:129
+#: bm-cancel.php:297
+msgid "Next possible date"
+msgstr ""
+
+#: bm-cancel.php:132
+msgid "Reason"
+msgstr ""
+
+#: bm-cancel.php:134
+msgid "Received on"
+msgstr ""
+
+#: bm-cancel.php:162
+msgid "The form has expired. Please submit it again."
+msgstr ""
+
+#. translators: %s: link to the legal notice
+#: bm-cancel.php:184
+#, php-format
+msgid "Too many cancellations were sent from your connection. Please try again later or write to us by email (see %s)."
+msgstr ""
+
+#. translators: %s: email address of the customer
+#: bm-cancel.php:197
+#, php-format
+msgid "Cancellation of a subscription: %s"
+msgstr ""
+
+#. translators: %s: link to the legal notice
+#: bm-cancel.php:206
+#, php-format
+msgid "Your cancellation could not be sent. Please send it to us by email (see %s)."
+msgstr ""
+
+#: bm-cancel.php:213
+msgid "Confirmation of your cancellation"
+msgstr ""
+
+#: bm-cancel.php:214
+msgid "We have received your cancellation:"
+msgstr ""
+
+#: bm-cancel.php:215
+msgid "You do not need to do anything else. Your data in the app stays readable after the subscription ends."
+msgstr ""
+
+#: bm-cancel.php:281
+msgid "Email address of your account"
+msgstr ""
+
+#: bm-cancel.php:291
+msgid "Reason (optional, for an extraordinary cancellation)"
+msgstr ""
+
+#: bm-cancel.php:298
+msgid "On this date:"
+msgstr ""
+
+#: bm-cancel.php:299
+msgid "Date of the cancellation"
+msgstr ""
+
+#: bm-cancel.php:307
+msgid "Cancel now"
+msgstr ""
+
+#. translators: %s: email address
+#: bm-cancel.php:327
+#, php-format
+msgid "We have sent a confirmation to %s. Please also save or print this page."
+msgstr ""
+
+#: bm-cancel.php:328
+msgid "The confirmation email could not be sent. Please save or print this page as proof of your cancellation."
+msgstr ""
+
+#: bm-cancel.php:330
+#: bm-cancel.php:387
+msgid "Your cancellation has been received"
 msgstr ""
 
 #: bm-hardening.php:119
