@@ -34,22 +34,28 @@ Nur technisch notwendige Cookies von WordPress, und nur für angemeldete Mitglie
 Rechtsgrundlage für Konto und Beiträge: Nutzungsverhältnis (Art. 6 Abs. 1 lit. b DSGVO). Mails gehen über den
 SMTP-Server von IONOS (Absender `noreply@bike-maintainer.de`) – Auftragsverarbeitung.
 
-## Abo (Polar)
+## Abo (Paddle)
 
-Die Website selbst verarbeitet keine Zahlungsdaten und lädt nichts von Polar. „Abo abschließen“ führt in die App; der
-Checkout ist eine von Polar gehostete Seite (Polar Software Inc., USA, als Verkäufer/Merchant of Record; Zahlungen über
-Stripe). Fakten aus dem Backend (stargazer74/bike-maintainer-backend#139):
+Die Website selbst verarbeitet keine Zahlungsdaten und lädt nichts von Paddle. „Abo abschließen“ führt in die App; dort
+öffnet die Bezahlseite `/abo/bezahlen` das Bezahlfenster von Paddle (Paddle.com Market Ltd, London, Vereinigtes
+Königreich, als Verkäufer/Merchant of Record). Die Bezahlseite ist die einzige Seite der App, die ein Skript eines
+Dritten lädt (Paddle.js von `cdn.paddle.com`, ausdrückliche Ausnahme). Paddle Retain ist ausgeschaltet. Fakten aus dem
+Backend (stargazer74/bike-maintainer-backend#155):
 
 | Daten | Empfänger | Zweck |
 |---|---|---|
-| E-Mail-Adresse, zufällige Kunden-Kennung (keine Konto-ID) | Polar | Checkout, Rechnung, Kundenportal |
-| Zahlungsdaten, Rechnungsadresse | nur Polar/Stripe – gibt die Person dort selbst ein | Zahlung, Umsatzsteuer |
+| E-Mail-Adresse, zufällige Kunden-Kennung (keine Konto-ID) | Paddle (vom Backend) | Checkout, Rechnung, Kundenportal |
+| Zahlungsdaten, Rechnungsadresse, Land | nur Paddle – gibt die Person im Bezahlfenster selbst ein | Zahlung, Umsatzsteuer |
+| IP-Adresse, Browser- und Gerätedaten, Cookies/Local Storage von Paddle.js | Paddle (direkt vom Browser, nur auf der Bezahlseite) | Bezahlfenster, Betrugsprävention |
 | Abo-ID, Status, bezahlt bis | unsere Datenbank (App) | Freischaltung |
 
-Keine IP-Adresse und keine Nutzungsdaten von uns an Polar. Rechtsgrundlage: Vertrag (Art. 6 Abs. 1 lit. b DSGVO).
-Drittlandübermittlung in die USA: Angemessenheitsbeschluss (EU-US Data Privacy Framework, falls Polar bzw. Stripe
-zertifiziert sind) bzw. Standardvertragsklauseln – beim Betreiber zu prüfen. Beim Löschen des Kontos wird das Abo bei
-Polar beendet; Rechnungen bewahrt Polar nach eigenen Aufbewahrungspflichten auf.
+Keine Nutzungsdaten von uns an Paddle. Rechtsgrundlage: Vertrag (Art. 6 Abs. 1 lit. b DSGVO), für die
+Betrugsprävention berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO); Speichern auf dem Gerät durch Paddle.js
+unbedingt erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG). Paddle ist eigenständig Verantwortlicher (kein
+Auftragsverarbeitungsvertrag). Drittland Vereinigtes Königreich: Angemessenheitsbeschluss; weitere Übermittlungen
+durch Paddle (z. B. Zahlungsdienstleister) nach Paddles Datenschutzerklärung. Beim Löschen des Kontos wird das Abo bei
+Paddle beendet; Rechnungen bewahrt Paddle nach eigenen Aufbewahrungspflichten auf. Textentwurf für die
+Datenschutzerklärung liegt außerhalb des Repos.
 
 ## Kündigungsformular
 

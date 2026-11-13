@@ -16,7 +16,7 @@ msgstr ""
 
 #. Theme Name of the theme
 #: style.css
-#: functions.php:258
+#: functions.php:260
 msgid "Bike Maintainer"
 msgstr "Bike Maintainer"
 
@@ -37,7 +37,7 @@ msgstr "Website des Bike-Maintainer-Portals. Block-Child-Theme von Twenty Twenty
 msgid "Chris Wohlbrecht"
 msgstr ""
 
-#: functions.php:246
+#: functions.php:248
 msgid "Language"
 msgstr "Sprache"
 
@@ -195,7 +195,7 @@ msgstr "Selbst betreiben"
 msgid "FAQ"
 msgstr "FAQ"
 
-#: functions.php:449
+#: functions.php:451
 #: patterns/feature-tour.php:164
 #: patterns/header.php:46
 #: patterns/hero.php:47
@@ -889,82 +889,76 @@ msgstr ""
 msgid "Search engines and link previews: a title with tagline and a description on the start page, Open Graph and Twitter Card tags with a local preview image, structured data (JSON-LD) for the website and the app, hreflang x-default, forum topics in the sitemap and language links that stay on the same forum topic. Everything is plain markup in the page – no SEO service, no tracking, no request to a third party."
 msgstr ""
 
-#: functions.php:407
+#: functions.php:409
 msgid "Try it for free first, no payment details needed."
 msgstr "Erst kostenlos testen, ohne Zahlungsdaten."
 
 #. translators: %d: length of the free trial in days
-#: functions.php:410
+#: functions.php:412
 #, php-format
 msgid "Try it for free for %d day, no payment details needed."
 msgid_plural "Try it for free for %d days, no payment details needed."
 msgstr[0] "%d Tag kostenlos testen, ohne Zahlungsdaten."
 msgstr[1] "%d Tage kostenlos testen, ohne Zahlungsdaten."
 
-#. translators: 1: link to the terms, 2: link to the withdrawal information
-#: functions.php:453
-#, php-format
-msgid "Sold and invoiced by our reseller Polar (merchant of record). Our %1$s and the %2$s apply."
-msgstr "Verkauf und Rechnung über unseren Vertriebspartner Polar (Merchant of Record). Es gelten unsere %1$s und die %2$s."
-
-#: functions.php:454
+#: functions.php:456
 msgid "terms"
 msgstr "AGB"
 
-#: functions.php:455
+#: functions.php:457
 msgid "information on the right of withdrawal"
 msgstr "Widerrufsbelehrung"
 
-#: functions.php:459
+#: functions.php:462
 msgid "per year"
 msgstr "pro Jahr"
 
-#: functions.php:460
+#: functions.php:463
 msgid "Including VAT · one price for all your vehicles"
 msgstr "inkl. MwSt. · ein Preis für alle deine Fahrzeuge"
 
-#: functions.php:462
+#: functions.php:465
 msgid "Afterwards your data stays readable – costs only arise if you take out a subscription."
 msgstr "Danach bleiben deine Daten lesbar – Kosten entstehen nur, wenn du ein Abo abschließt."
 
-#: functions.php:465
+#: functions.php:468
 msgid "Try for free"
 msgstr "Kostenlos testen"
 
-#: functions.php:466
+#: functions.php:469
 msgid "Take out a subscription"
 msgstr "Abo abschließen"
 
-#: functions.php:486
+#: functions.php:489
 msgid "What does Bike Maintainer cost?"
 msgstr "Was kostet Bike Maintainer?"
 
 #. translators: 1: yearly price, 2: sentence about the free trial
-#: functions.php:488
+#: functions.php:491
 #, php-format
 msgid "In the portal %1$s per year including VAT – one price for all your vehicles. %2$s Household mode on your own computer is free."
 msgstr "Im Portal %1$s pro Jahr inkl. MwSt. – ein Preis für alle deine Fahrzeuge. %2$s Der Haushaltsmodus auf deinem eigenen Rechner ist kostenlos."
 
-#: functions.php:492
+#: functions.php:495
 msgid "What happens after the trial?"
 msgstr "Was passiert nach der Testphase?"
 
-#: functions.php:492
+#: functions.php:495
 msgid "Nothing is charged. Your account becomes read-only: you can still view, export and delete your data, but not add or change anything. With a subscription you carry on where you left off."
 msgstr "Es wird nichts berechnet. Dein Konto ist dann nur noch lesbar: Du kannst deine Daten ansehen, exportieren und löschen, aber nichts mehr erfassen oder ändern. Mit einem Abo machst du genau dort weiter."
 
-#: functions.php:493
+#: functions.php:496
 msgid "How do I cancel?"
 msgstr "Wie kündige ich?"
 
 #. translators: %s: link "Cancel contracts here"
-#: functions.php:495
+#: functions.php:498
 #, php-format
 msgid "In the app under Account → “Manage subscription”, or without logging in via %s at the bottom of every page. The first year is the minimum term; after that you can cancel at any time with one month’s notice and get back what you paid in advance for the rest of the year. Your data stays readable afterwards."
 msgstr "In der App unter Konto → „Abo verwalten“ oder ohne Anmeldung über %s unten auf jeder Seite. Das erste Jahr ist die Mindestlaufzeit; danach kannst du jederzeit mit einem Monat Frist kündigen und bekommst zurück, was du für den Rest des Jahres im Voraus bezahlt hast. Deine Daten bleiben danach lesbar."
 
-#: functions.php:496
-#: patterns/footer.php:41
+#: functions.php:499
+#: patterns/footer.php:45
 msgid "Cancel contracts here"
 msgstr "Verträge hier kündigen"
 
@@ -1119,3 +1113,17 @@ msgstr "Deine Kündigung ist eingegangen"
 msgctxt "Pattern description"
 msgid "The two ways to use the app as cards, followed by the home network installation with Docker Compose."
 msgstr "Die zwei Wege zur App als Karten, darunter die Installation im Heimnetz per Docker Compose."
+
+#. translators: 1: link to the terms, 2: link to the withdrawal information, 3: link to the refund policy
+#: functions.php:455
+#, php-format
+msgid "Sold and invoiced by our reseller Paddle.com (merchant of record). Our %1$s, the %2$s and our %3$s apply."
+msgstr "Verkauf und Rechnung über unseren Vertriebspartner Paddle.com (Merchant of Record). Es gelten unsere %1$s, die %2$s und unsere %3$s."
+
+#: functions.php:458
+msgid "refund policy"
+msgstr "Erstattungsregeln"
+
+#: patterns/footer.php:41
+msgid "Refunds"
+msgstr "Erstattungen"

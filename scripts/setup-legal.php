@@ -1,7 +1,7 @@
 <?php
 /**
  * Legal pages for bm-setup (run with `wp eval-file` after setup-languages.php): legal notice, privacy policy, terms,
- * right of withdrawal and the cancellation form (§ 312k BGB, mu-plugin bm-cancel.php) in German and English, at the addresses the theme footer and the app link to (bike_maintainer_legal_url(), app:
+ * right of withdrawal, refund policy and the cancellation form (§ 312k BGB, mu-plugin bm-cancel.php) in German and English, at the addresses the theme footer and the app link to (bike_maintainer_legal_url(), app:
  * websiteUrl). Idempotent.
  *
  * Missing pages are created as drafts with placeholders in [brackets]; the operator fills them in in the block editor
@@ -73,7 +73,7 @@ $bm_legal_pages = array(
 			'slug'   => 'agb',
 			'title'  => 'Allgemeine Geschäftsbedingungen',
 			'blocks' => array(
-				array( 'p', '[Platzhalter: Nutzungsbedingungen für das Portal eintragen – Leistung, Testphase, Nur-lesbar nach Ablauf, Laufzeit, Verlängerung, Kündigung, Löschung, Haftung; Polar als Verkäufer (Merchant of Record) nennen und dessen Käuferbedingungen verlinken. Vor der Veröffentlichung rechtlich prüfen lassen.]' ),
+				array( 'p', '[Platzhalter: Nutzungsbedingungen für das Portal eintragen – Leistung, Testphase, Nur-lesbar nach Ablauf, Laufzeit, Verlängerung, Kündigung, Löschung, Haftung; Paddle.com als Verkäufer (Merchant of Record) nennen und dessen Käuferbedingungen verlinken. Vor der Veröffentlichung rechtlich prüfen lassen.]' ),
 			),
 		),
 		'en' => array(
@@ -97,6 +97,22 @@ $bm_legal_pages = array(
 			'title'  => 'Right of withdrawal',
 			'blocks' => array(
 				array( 'p', '[Placeholder: enter the information on the right of withdrawal with the model withdrawal form and publish the page.]' ),
+			),
+		),
+	),
+	'refunds'    => array(
+		'de' => array(
+			'slug'   => 'erstattung',
+			'title'  => 'Erstattungen',
+			'blocks' => array(
+				array( 'p', '[Platzhalter: Erstattungsregeln eintragen – volle Erstattung innerhalb von 14 Tagen, anteilige Erstattung nach dem ersten Jahr, Ausfälle; Abwicklung über Paddle.com. Vor der Veröffentlichung rechtlich prüfen lassen.]' ),
+			),
+		),
+		'en' => array(
+			'slug'   => 'refunds',
+			'title'  => 'Refund policy',
+			'blocks' => array(
+				array( 'p', '[Placeholder: enter the refund policy and publish the page.]' ),
 			),
 		),
 	),
