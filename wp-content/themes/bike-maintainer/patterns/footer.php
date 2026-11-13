@@ -38,6 +38,10 @@
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph -->
+			<p><a href="<?php echo esc_url( bike_maintainer_legal_url( 'refunds' ) ); ?>"><?php esc_html_e( 'Refunds', 'bike-maintainer' ); ?></a></p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph -->
 			<p><a href="<?php echo esc_url( bike_maintainer_legal_url( 'cancel' ) ); ?>"><?php esc_html_e( 'Cancel contracts here', 'bike-maintainer' ); ?></a></p>
 			<!-- /wp:paragraph -->
 

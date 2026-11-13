@@ -78,7 +78,7 @@ vorher.
 **Kündigungsbutton** (`bm-cancel.php`): Formular ohne Anmeldung (Name, E-Mail-Adresse des Kontos, Art und Zeitpunkt
 der Kündigung), Knopf „jetzt kündigen“. Danach zeigt die Seite die Erklärung mit Datum und Uhrzeit des Eingangs, die
 Person bekommt sofort eine Bestätigung per Mail und die Kündigung geht an die Admin-Adresse von WordPress
-(*Einstellungen → Allgemein*); die Kündigung selbst führt der Betreiber bei Polar aus. In der Datenbank wird nichts
+(*Einstellungen → Allgemein*); die Kündigung selbst führt der Betreiber bei Paddle aus. In der Datenbank wird nichts
 gespeichert. Kein Captcha (wäre eine unzulässige Hürde), stattdessen höchstens 5 Kündigungen pro IP und Stunde und 50
 pro Tag insgesamt sowie ein unsichtbares Feld gegen Bots. Datum und Uhrzeit stehen in der Zeitzone der Website;
 `bm-setup` stellt sie von UTC auf `Europe/Berlin`, eine von Admins gewählte Zeitzone bleibt.

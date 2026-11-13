@@ -151,6 +151,7 @@ function bike_maintainer_legal_url( $page ) {
 			'privacy'    => 'datenschutz',
 			'terms'      => 'agb',
 			'withdrawal' => 'widerruf',
+			'refunds'    => 'erstattung',
 			'cancel'     => 'kuendigen',
 		),
 		'en' => array(
@@ -158,6 +159,7 @@ function bike_maintainer_legal_url( $page ) {
 			'privacy'    => 'privacy',
 			'terms'      => 'terms',
 			'withdrawal' => 'withdrawal',
+			'refunds'    => 'refunds',
 			'cancel'     => 'cancel',
 		),
 	);
@@ -449,10 +451,11 @@ add_shortcode(
 			return bike_maintainer_buttons( array( array( $app, __( 'Open the app', 'bike-maintainer' ) ) ) );
 		}
 		$seller = sprintf(
-			/* translators: 1: link to the terms, 2: link to the withdrawal information */
-			__( 'Sold and invoiced by our reseller Polar (merchant of record). Our %1$s and the %2$s apply.', 'bike-maintainer' ),
+			/* translators: 1: link to the terms, 2: link to the withdrawal information, 3: link to the refund policy */
+			__( 'Sold and invoiced by our reseller Paddle.com (merchant of record). Our %1$s, the %2$s and our %3$s apply.', 'bike-maintainer' ),
 			'<a href="' . esc_url( bike_maintainer_legal_url( 'terms' ) ) . '">' . esc_html__( 'terms', 'bike-maintainer' ) . '</a>',
-			'<a href="' . esc_url( bike_maintainer_legal_url( 'withdrawal' ) ) . '">' . esc_html__( 'information on the right of withdrawal', 'bike-maintainer' ) . '</a>'
+			'<a href="' . esc_url( bike_maintainer_legal_url( 'withdrawal' ) ) . '">' . esc_html__( 'information on the right of withdrawal', 'bike-maintainer' ) . '</a>',
+			'<a href="' . esc_url( bike_maintainer_legal_url( 'refunds' ) ) . '">' . esc_html__( 'refund policy', 'bike-maintainer' ) . '</a>'
 		);
 		return '<div class="bm-offer">'
 			. '<p class="bm-offer__price"><span class="bm-offer__amount">' . esc_html( bike_maintainer_subscription_price() ) . '</span> '
