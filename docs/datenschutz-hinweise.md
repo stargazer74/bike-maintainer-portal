@@ -44,7 +44,7 @@ Backend (stargazer74/bike-maintainer-backend#155):
 
 | Daten | Empfänger | Zweck |
 |---|---|---|
-| E-Mail-Adresse, zufällige Kunden-Kennung (keine Konto-ID) | Paddle (vom Backend) | Checkout, Rechnung, Kundenportal |
+| E-Mail-Adresse, zufällige Kunden-Kennung (keine Konto-ID), Sprache des Kontos (`de`/`en`) | Paddle (vom Backend) | Checkout, Rechnung, Kundenportal; die Sprache bestimmt die Sprache der Belege und Abo-Mails von Paddle (backend#172) |
 | Zahlungsdaten, Rechnungsadresse, Land | nur Paddle – gibt die Person im Bezahlfenster selbst ein | Zahlung, Umsatzsteuer |
 | IP-Adresse, Browser- und Gerätedaten, Cookies/Local Storage von Paddle.js | Paddle (direkt vom Browser, nur auf der Bezahlseite) | Bezahlfenster, Betrugsprävention |
 | Abo-ID, Status, bezahlt bis | unsere Datenbank (App) | Freischaltung |
