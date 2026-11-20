@@ -98,6 +98,10 @@
 				<!-- wp:list-item -->
 				<li><?php esc_html_e( 'Move vehicles between portal and home by export and import', 'bike-maintainer' ); ?></li>
 				<!-- /wp:list-item -->
+
+				<!-- wp:list-item -->
+				<li><?php esc_html_e( 'Connect the Android app by scanning a QR code', 'bike-maintainer' ); ?></li>
+				<!-- /wp:list-item -->
 			</ul>
 			<!-- /wp:list -->
 

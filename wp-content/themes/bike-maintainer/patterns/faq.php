@@ -70,7 +70,7 @@
 	<!-- wp:details -->
 	<details class="wp-block-details"><summary><?php esc_html_e( 'Is there an app for my phone?', 'bike-maintainer' ); ?></summary>
 		<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->
-		<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'Yes, for Android 10 or newer. It reminds you of due maintenance and lets you record work right at the vehicle. The APK is on GitHub; Obtainium keeps it up to date. It needs no Google services.', 'bike-maintainer' ); ?></p>
+		<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'Yes, for Android 10 or newer. It reminds you of due maintenance and lets you record work right at the vehicle – also without a connection, the entries are sent later. You can sign up in the app or connect it to your own server. The APK is on GitHub; Obtainium keeps it up to date. It needs no Google services.', 'bike-maintainer' ); ?></p>
 		<!-- /wp:paragraph -->
 	</details>
 	<!-- /wp:details -->

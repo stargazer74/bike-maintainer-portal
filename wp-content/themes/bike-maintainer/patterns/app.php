@@ -50,6 +50,14 @@
 				<!-- /wp:list-item -->
 
 				<!-- wp:list-item -->
+				<li><?php esc_html_e( 'Create vehicles and maintenance plans right on the phone', 'bike-maintainer' ); ?></li>
+				<!-- /wp:list-item -->
+
+				<!-- wp:list-item -->
+				<li><?php esc_html_e( 'Works without a connection too – entries are sent later', 'bike-maintainer' ); ?></li>
+				<!-- /wp:list-item -->
+
+				<!-- wp:list-item -->
 				<li><?php esc_html_e( 'Photograph filled-in worksheets – the values are read on the phone', 'bike-maintainer' ); ?></li>
 				<!-- /wp:list-item -->
 
@@ -72,7 +80,7 @@
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.95rem"}}} -->
-			<p class="has-accent-4-color has-text-color" style="font-size:0.95rem"><?php esc_html_e( 'The signed APK is on GitHub, for Android 10 or newer. Updates come automatically with Obtainium, or you install each new version by hand. You create your portal account in the web app; the app only signs in.', 'bike-maintainer' ); ?></p>
+			<p class="has-accent-4-color has-text-color" style="font-size:0.95rem"><?php esc_html_e( 'The signed APK is on GitHub, for Android 10 or newer. Updates come automatically with Obtainium, or you install each new version by hand. You sign up for the portal right in the app – or connect it to your own server by scanning a QR code.', 'bike-maintainer' ); ?></p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:list {"className":"is-style-checklist"} -->
