@@ -110,6 +110,8 @@ def main():
         adb("shell", "pm", "clear", PACKAGE)
         adb("shell", "pm", "grant", PACKAGE, "android.permission.POST_NOTIFICATIONS", check=False)
         adb("shell", "monkey", "-p", PACKAGE, "-c", "android.intent.category.LAUNCHER", "1")
+        # Since app 1.1 the first screen asks for an online account or an own server; the dev stack is the latter.
+        tap(r"^(Own server|Eigener Server)$")
         fill(edits()[0], SERVER)
         tap(r"^(Continue|Weiter)$")
         # Plain HTTP to the dev stack: the app warns once.
