@@ -574,27 +574,27 @@ msgstr "Erinnerung an fällige Wartungen per Benachrichtigung"
 msgid "Record maintenance with parts, costs and measured values"
 msgstr "Wartungen mit Teilen, Kosten und Messwerten erfassen"
 
-#: patterns/app.php:61
+#: patterns/app.php:65
 msgid "Photograph filled-in worksheets – the values are read on the phone"
 msgstr "Ausgefüllte Arbeitsblätter fotografieren – die Werte werden auf dem Handy erkannt"
 
-#: patterns/app.php:65
+#: patterns/app.php:69
 msgid "For accounts in the portal and for household mode"
 msgstr "Für Konten im Portal und für den Haushaltsmodus"
 
-#: patterns/app.php:79
+#: patterns/app.php:83
 msgid "Installation"
 msgstr "Installation"
 
-#: patterns/app.php:89
+#: patterns/app.php:93
 msgid "No Google services needed"
 msgstr "Keine Google-Dienste nötig"
 
-#: patterns/app.php:93
+#: patterns/app.php:97
 msgid "Open source (MIT licence)"
 msgstr "Open Source (MIT-Lizenz)"
 
-#: patterns/app.php:101
+#: patterns/app.php:105
 #: patterns/feature-tour.php:131
 msgid "Download on GitHub"
 msgstr "Download auf GitHub"
@@ -606,14 +606,6 @@ msgstr "Motorräder, Autos, Fahrräder, E-Bikes, Quads und Roller – so viele d
 #: patterns/faq.php:71
 msgid "Is there an app for my phone?"
 msgstr "Gibt es eine App fürs Handy?"
-
-#: patterns/faq.php:79
-msgid "What happens to the photos of the worksheets?"
-msgstr "Was passiert mit den Fotos der Arbeitsblätter?"
-
-#: patterns/faq.php:81
-msgid "The app reads the values on your phone. The photo is not uploaded – only the values you confirm are saved."
-msgstr "Die App erkennt die Werte auf deinem Handy. Das Foto wird nicht hochgeladen – gespeichert werden nur die Werte, die du bestätigst."
 
 #: patterns/faq.php:87
 msgid "Can I take my data with me?"
@@ -1116,15 +1108,15 @@ msgstr "Erstattungsregeln"
 msgid "Refunds"
 msgstr "Erstattungen"
 
-#: patterns/app.php:53
+#: patterns/app.php:57
 msgid "Create vehicles and maintenance plans right on the phone"
 msgstr "Fahrzeuge und Wartungspläne direkt auf dem Handy anlegen"
 
-#: patterns/app.php:57
+#: patterns/app.php:61
 msgid "Works without a connection too – entries are sent later"
 msgstr "Funktioniert auch ohne Netz – Einträge werden später gesendet"
 
-#: patterns/app.php:83
+#: patterns/app.php:87
 msgid "The signed APK is on GitHub, for Android 10 or newer. Updates come automatically with Obtainium, or you install each new version by hand. You sign up for the portal right in the app – or connect it to your own server by scanning a QR code."
 msgstr "Die signierte APK gibt es auf GitHub, für Android 10 oder neuer. Updates kommen automatisch mit Obtainium, oder du installierst jede neue Version von Hand. Für das Portal registrierst du dich direkt in der App – oder du verbindest sie per QR-Code mit deinem eigenen Server."
 
@@ -1132,10 +1124,22 @@ msgstr "Die signierte APK gibt es auf GitHub, für Android 10 oder neuer. Update
 msgid "Yes, for Android 10 or newer. It reminds you of due maintenance and lets you record work right at the vehicle – also without a connection, the entries are sent later. You can sign up in the app or connect it to your own server. The APK is on GitHub; Obtainium keeps it up to date. It needs no Google services."
 msgstr "Ja, für Android 10 oder neuer. Sie erinnert dich an fällige Wartungen und du erfasst Arbeiten direkt am Fahrzeug – auch ohne Netz, die Einträge werden später gesendet. Du kannst dich in der App registrieren oder sie mit deinem eigenen Server verbinden. Die APK liegt auf GitHub; Obtainium hält sie aktuell. Google-Dienste braucht sie nicht."
 
-#: patterns/feature-tour.php:73
-msgid "Reminders of due maintenance as notifications, recording maintenance right at the vehicle, setting up vehicles and maintenance plans and photographing worksheets. Without a connection, the app shows the last data and sends your entries later. Without Google services, for the portal and for your own server."
-msgstr "Erinnerungen an fällige Wartungen als Benachrichtigung, Wartung direkt am Fahrzeug eintragen, Fahrzeuge und Wartungspläne anlegen und Arbeitsblätter fotografieren. Ohne Netz zeigt die App den letzten Stand und sendet deine Einträge später. Ohne Google-Dienste, für das Portal und für deinen eigenen Server."
-
 #: patterns/self-hosting.php:103
 msgid "Connect the Android app by scanning a QR code"
 msgstr "Android-App per QR-Code verbinden"
+
+#: patterns/app.php:53
+msgid "Photograph the odometer – the mileage is read on the phone"
+msgstr "Tacho fotografieren – der Kilometerstand wird auf dem Handy erkannt"
+
+#: patterns/faq.php:79
+msgid "What happens to my photos?"
+msgstr "Was passiert mit meinen Fotos?"
+
+#: patterns/faq.php:81
+msgid "The app reads worksheets and the odometer on your phone. The photo is neither uploaded nor stored – only the values you confirm are saved."
+msgstr "Die App erkennt Arbeitsblätter und Tacho auf deinem Handy. Das Foto wird weder hochgeladen noch gespeichert – gespeichert werden nur die Werte, die du bestätigst."
+
+#: patterns/feature-tour.php:73
+msgid "Reminders of due maintenance as notifications, recording maintenance right at the vehicle, setting up vehicles and maintenance plans and photographing worksheets. Take the mileage from a photo of the odometer: your phone reads it, the photo is not stored. Without a connection, the app shows the last data and sends your entries later. Without Google services, for the portal and for your own server."
+msgstr "Erinnerungen an fällige Wartungen als Benachrichtigung, Wartung direkt am Fahrzeug eintragen, Fahrzeuge und Wartungspläne anlegen und Arbeitsblätter fotografieren. Den Kilometerstand nimmst du per Foto vom Tacho: Dein Handy liest ihn, das Foto wird nicht gespeichert. Ohne Netz zeigt die App den letzten Stand und sendet deine Einträge später. Ohne Google-Dienste, für das Portal und für deinen eigenen Server."
