@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-20T16:28:48+00:00\n"
+"POT-Creation-Date: 2026-11-21T20:44:59+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: bike-maintainer\n"
@@ -166,38 +166,42 @@ msgid "Record maintenance with parts, costs and measured values"
 msgstr ""
 
 #: patterns/app.php:53
-msgid "Create vehicles and maintenance plans right on the phone"
+msgid "Photograph the odometer – the mileage is read on the phone"
 msgstr ""
 
 #: patterns/app.php:57
-msgid "Works without a connection too – entries are sent later"
+msgid "Create vehicles and maintenance plans right on the phone"
 msgstr ""
 
 #: patterns/app.php:61
-msgid "Photograph filled-in worksheets – the values are read on the phone"
+msgid "Works without a connection too – entries are sent later"
 msgstr ""
 
 #: patterns/app.php:65
+msgid "Photograph filled-in worksheets – the values are read on the phone"
+msgstr ""
+
+#: patterns/app.php:69
 msgid "For accounts in the portal and for household mode"
 msgstr ""
 
-#: patterns/app.php:79
+#: patterns/app.php:83
 msgid "Installation"
 msgstr ""
 
-#: patterns/app.php:83
+#: patterns/app.php:87
 msgid "The signed APK is on GitHub, for Android 10 or newer. Updates come automatically with Obtainium, or you install each new version by hand. You sign up for the portal right in the app – or connect it to your own server by scanning a QR code."
 msgstr ""
 
-#: patterns/app.php:89
+#: patterns/app.php:93
 msgid "No Google services needed"
 msgstr ""
 
-#: patterns/app.php:93
+#: patterns/app.php:97
 msgid "Open source (MIT licence)"
 msgstr ""
 
-#: patterns/app.php:101
+#: patterns/app.php:105
 #: patterns/feature-tour.php:131
 msgid "Download on GitHub"
 msgstr ""
@@ -273,11 +277,11 @@ msgid "Yes, for Android 10 or newer. It reminds you of due maintenance and lets 
 msgstr ""
 
 #: patterns/faq.php:79
-msgid "What happens to the photos of the worksheets?"
+msgid "What happens to my photos?"
 msgstr ""
 
 #: patterns/faq.php:81
-msgid "The app reads the values on your phone. The photo is not uploaded – only the values you confirm are saved."
+msgid "The app reads worksheets and the odometer on your phone. The photo is neither uploaded nor stored – only the values you confirm are saved."
 msgstr ""
 
 #: patterns/faq.php:87
@@ -422,7 +426,7 @@ msgid "The Android app"
 msgstr ""
 
 #: patterns/feature-tour.php:73
-msgid "Reminders of due maintenance as notifications, recording maintenance right at the vehicle, setting up vehicles and maintenance plans and photographing worksheets. Without a connection, the app shows the last data and sends your entries later. Without Google services, for the portal and for your own server."
+msgid "Reminders of due maintenance as notifications, recording maintenance right at the vehicle, setting up vehicles and maintenance plans and photographing worksheets. Take the mileage from a photo of the odometer: your phone reads it, the photo is not stored. Without a connection, the app shows the last data and sends your entries later. Without Google services, for the portal and for your own server."
 msgstr ""
 
 #: patterns/feature-tour.php:74

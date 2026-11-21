@@ -76,9 +76,9 @@
 	<!-- /wp:details -->
 
 	<!-- wp:details -->
-	<details class="wp-block-details"><summary><?php esc_html_e( 'What happens to the photos of the worksheets?', 'bike-maintainer' ); ?></summary>
+	<details class="wp-block-details"><summary><?php esc_html_e( 'What happens to my photos?', 'bike-maintainer' ); ?></summary>
 		<!-- wp:paragraph {"textColor":"accent-4","style":{"typography":{"fontSize":"0.9rem"}}} -->
-		<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'The app reads the values on your phone. The photo is not uploaded – only the values you confirm are saved.', 'bike-maintainer' ); ?></p>
+		<p class="has-accent-4-color has-text-color" style="font-size:0.9rem"><?php esc_html_e( 'The app reads worksheets and the odometer on your phone. The photo is neither uploaded nor stored – only the values you confirm are saved.', 'bike-maintainer' ); ?></p>
 		<!-- /wp:paragraph -->
 	</details>
 	<!-- /wp:details -->

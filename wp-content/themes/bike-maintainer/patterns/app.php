@@ -50,6 +50,10 @@
 				<!-- /wp:list-item -->
 
 				<!-- wp:list-item -->
+				<li><?php esc_html_e( 'Photograph the odometer – the mileage is read on the phone', 'bike-maintainer' ); ?></li>
+				<!-- /wp:list-item -->
+
+				<!-- wp:list-item -->
 				<li><?php esc_html_e( 'Create vehicles and maintenance plans right on the phone', 'bike-maintainer' ); ?></li>
 				<!-- /wp:list-item -->
 

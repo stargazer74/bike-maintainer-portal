@@ -70,7 +70,7 @@ $bm_sections = array(
 	array(
 		'app',
 		__( 'The Android app', 'bike-maintainer' ),
-		__( 'Reminders of due maintenance as notifications, recording maintenance right at the vehicle, setting up vehicles and maintenance plans and photographing worksheets. Without a connection, the app shows the last data and sends your entries later. Without Google services, for the portal and for your own server.', 'bike-maintainer' ),
+		__( 'Reminders of due maintenance as notifications, recording maintenance right at the vehicle, setting up vehicles and maintenance plans and photographing worksheets. Take the mileage from a photo of the odometer: your phone reads it, the photo is not stored. Without a connection, the app shows the last data and sends your entries later. Without Google services, for the portal and for your own server.', 'bike-maintainer' ),
 		__( 'Android app with the vehicle list and the due jobs of a motorcycle', 'bike-maintainer' ),
 	),
 	array(
